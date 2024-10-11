@@ -12,7 +12,7 @@ userRouter.get('/admin/users', protect, UserController.getAllUsers);
 userRouter.post('/admin/add/user', protect, UserController.addUser); 
 userRouter.put('/admin/update/user/status/:user_email', UserController.updateUserStatus);
 userRouter.delete('/admin/delete/user/:user_email', UserController.deleteUser);
-userRouter.get('view/admins', UserController.getAllAdmins);
+userRouter.get('/view/admins', UserController.getAllAdmins);
 userRouter.post('/superadmin/add/admins', UserController.addAdmin);
 userRouter.put('/users/update/profile', profile.single('picture'), protect, UserController.updateProfile);
 
