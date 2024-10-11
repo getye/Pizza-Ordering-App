@@ -60,7 +60,6 @@ export const AdminTable = ({ handleOpen }) => {
 
   return (
     <>
-    {users.length > 0 ? (
       <Box sx={{ padding: 3 }}>
         <MaterialReactTable
           columns={columns}
@@ -90,9 +89,7 @@ export const AdminTable = ({ handleOpen }) => {
           )}
         />
       </Box>
-    ) : (
-      <div>No records found</div>
-    )}
+
     <Snackbar
         open={showNotification}
         onClose={() => setShowNotification(false)}
