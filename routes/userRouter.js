@@ -8,7 +8,7 @@ userRouter.post('/user/signup', UserController.signup);
 userRouter.post('/customer/signup', UserController.customerSignup);
 userRouter.post('/user/login', UserController.login);
 userRouter.put('/user/update/password', protect, UserController.updatePassword);
-userRouter.get('/users', protect, UserController.getAllUsers);
+userRouter.get('/admin/users', protect, UserController.getAllUsers);
 userRouter.post('/admin/add/user', protect, UserController.addUser); 
 userRouter.put('/admin/update/user/status/:user_email', UserController.updateUserStatus);
 userRouter.delete('/admin/delete/user/:user_email', UserController.deleteUser);

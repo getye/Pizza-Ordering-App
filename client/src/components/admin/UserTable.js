@@ -20,7 +20,7 @@ export const UserTable = ({ handleOpen }) => {
         return;
       }
   
-      const response = await fetch(`${window.location.origin}/users`, {
+      const response = await fetch(`${window.location.origin}/admin/users`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

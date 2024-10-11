@@ -21,7 +21,7 @@ const RoleTable = ({ handleOpen }) => {
 
   const fetchRoles = async () => {
     try {
-      const response = await fetch(`${window.location.origin}/roles`);
+      const response = await fetch(`${window.location.origin}/admin/roles`);
       const data = await response.json();
       if (!Array.isArray(data)) throw new Error('Data is not an array');
       setRole(data);
