@@ -49,62 +49,62 @@ function App() {
 
             <Route
               path="/superadmin/view/admins"
-              element={<ProtectedRoute action="create" subject="Admins" element={<AddAdmins />} />}
+              element={<AddAdmins />} 
             />
             <Route
               path="/admin/users"
-              element={<ProtectedRoute action="create" subject="User" element={<ViewUsers />} />}
+              element={<ViewUsers />} 
             />
             <Route
               path="/admin/reports"
-              element={<ProtectedRoute action="view" subject="Reports" element={<Report />} />}
+              element={<Report />} 
             />
             <Route
               path="/admin/roles"
-              element={<ProtectedRoute action="create" subject="Role" element={<AddRoles />} />}
+               element={<AddRoles />} 
             />
 
             <Route
               path="/kichen-manager/dashboard"
-              element={<ProtectedRoute action="view" subject="Menu" element={<KichenManagerDashboard />} />}
+              element={<KichenManagerDashboard />} 
             />
 
             <Route
               path="/kichen-manager/add/menu"
-              element={<ProtectedRoute action="create" subject="Menu" element={<AddMenu />} />}
+              element={<AddMenu />} 
             />
 
             <Route
               path="/kichen-manager/view/orders"
-              element={<ProtectedRoute action="update" subject="OrderStatus" element={<CustomerOrders />} />}
+              element={<CustomerOrders />} 
             />
 
             <Route
               path="/branch-manager/dashboard"
-              element={<ProtectedRoute action="read" subject="Menu" element={<BranchManagerDashboard />} />}
+              element={<BranchManagerDashboard />} 
             />
             <Route
               path="/branch-manager/view/orders"
-              element={<ProtectedRoute action="read" subject="Orders" element={<OrderRequests />} />}
+              element={<OrderRequests />} 
             />
             
             <Route
               path="/cashier/view/orders"
-              element={<ProtectedRoute action="view" subject="Orders" element={<OrdersInfo />} />}
+              element={<OrdersInfo />} 
             />
             
             <Route
               path="/users/update/profile"
-              element={<ProtectedRoute action="update" subject="Profile" element={<UpdateProfile />} />}
+              element={<UpdateProfile />} 
             />
             
             <Route
               path="/customer/menu"
-              element={<ProtectedRoute action="create" subject="Order" element={<Menus />} />}
+               element={<Menus />} 
             /> 
             <Route
               path="/customer/view/orders"
-              element={<ProtectedRoute action="read" subject="Order" element={<Order />} />}
+              element={<Order />} 
             />               
 
                     
