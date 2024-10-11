@@ -32,19 +32,19 @@ export const Signin = () => {
         localStorage.setItem('userRole', responseData.user_role);
 
         if (responseData.user_role === "Super Admin") {
-          navigate('/superadmin/view/admins');
+          navigate("/superadmin/view/admins");
         }else if (responseData.user_role === "Restaurant Register") {
-          navigate('/admin/users');
+          navigate("/admin/users");
         } else if (responseData.user_role === "Kitchen Manager") {
-          navigate('/kichen-manager/dashboard');
+          navigate("/kichen-manager/dashboard");
         } else if (responseData.user_role === "Branch Manager") {
-          navigate('/branch-manager/dashboard');
+          navigate("/branch-manager/dashboard");
         } else if (responseData.user_role === "Customer") {
-          navigate('/customer/view/orders');
+          navigate("/customer/view/orders");
         }else if (responseData.user_role === "Cashier") {
-          navigate('/cashier/view/orders');
+          navigate("/cashier/view/orders");
         }else {
-          navigate('/');
+          navigate("/");
         }
 
         console.log('Successfully signed in as ' + responseData.user_role);
