@@ -6,6 +6,7 @@ const UserModel = require('../models/UserModel');
 const addMenu = async (req, res) => {
   const id = uuidv4();
   const manager_id = req.user.userId;
+  console.log("User ID: ", manager_id)
   const { menuName, toppings, price } = req.body;
   const picture = req.file ? req.file.filename : null;
   
@@ -13,6 +14,7 @@ const addMenu = async (req, res) => {
         
     // Retrieve the Kitchen Manager's restaurant
     const restaurantName = await UserModel.getAdminRestaurant(manager_id);
+    console.log("Restaurant: ", restaurantName)
 
     if (!restaurantName) {
       return res.status(404).json({ message: "Admin restaurant not found" });
