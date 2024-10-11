@@ -12,6 +12,8 @@ export const UserTable = ({ handleOpen }) => {
   const [notificationMessage, setNotificationMessage] = useState('');
   const [messageType, setMessageType] = useState('');
 
+  console.log("Usres: ", users)
+
   const fetchUsers = async () => {
     try {
       const token = localStorage.getItem('token'); // Retrieve the token from localStorage
