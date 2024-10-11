@@ -11,7 +11,8 @@ CREATE TABLE users(
   user_location VARCHAR(255),
   user_type VARCHAR(255),
   user_profile VARCHAR(255),
-  user_status VARCHAR(255)
+  user_status VARCHAR(255),
+  user_name varchar(255)
 ); 
 
 ALTER TABLE users ADD user_name varchar(255) AFTER user_id;
