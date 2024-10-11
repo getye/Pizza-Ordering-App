@@ -19,6 +19,8 @@ const RoleTable = ({ handleOpen }) => {
   const [notificationMessage, setNotificationMessage] = useState('');
   const [messageType, setMessageType] =useState('')
 
+  console.log("Roles: ", role)
+
   const fetchRoles = async () => {
     try {
       const response = await fetch(`${window.location.origin}/admin/roles`);

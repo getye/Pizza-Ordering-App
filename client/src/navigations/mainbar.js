@@ -222,7 +222,7 @@ export const MainBar = (props) => {
       )}
 
             {/* Cashier Links */}
-            {userRole === 'Cashier' && (
+      {userRole === 'Cashier' && (
         <>
           <ListItem disablePadding onClick={() => { navigate("cashier/view/orders") }}>
             <ListItemButton>
