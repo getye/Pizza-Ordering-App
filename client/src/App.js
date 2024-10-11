@@ -1,6 +1,6 @@
 
 import { MainBar } from './navigations/mainbar';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import {Signin} from './components/signin'
 import { Signup } from './components/signup';
 import { Home } from './components/home'
@@ -18,29 +18,17 @@ import { CustomerOrders } from './components/kitchen-Manager/customerOrders';
 
 import { UpdateProfile } from './components/updateProfile';
 
-import { AbilityProvider } from './AbilityProvider'; 
-import { AbilityContext } from './AbilityProvider';
-import { Can } from '@casl/react';
-import React, { useContext } from 'react';
+
 import { Unauthorized } from './components/unauthorized';
 import { OrdersInfo } from './components/cashier/orders';
 import { Report } from './components/admin/Report';
 
-const ProtectedRoute = ({ action, subject, element }) => {
-  const ability = useContext(AbilityContext);
 
-  return (
-    <Can I={action} a={subject} ability={ability}>
-      {(allowed) => (allowed ? element : <Navigate to="/unauthorized" />)}
-    </Can>
-  );
-};
 
 function App() {
 
   return (
     <BrowserRouter>
-      <AbilityProvider>
         <MainBar/>
         <Routes>
             <Route path="/" element={<Home/>}/>
@@ -111,7 +99,6 @@ function App() {
             <Route path='/orders' element={<Orders/>}/>
             <Route path="/unauthorized" element={<Unauthorized />} />
         </Routes>
-      </AbilityProvider> 
     </BrowserRouter>
   );
 }
