@@ -63,7 +63,7 @@ const addUser = async (id, userName, email, hashedpass, phone, location, role, u
 
 const updatePassword = async (user_id, password) => {
   const result = await pool.query(
-    'UPDATE users SET user_password = $1 WHERE user_id = $2 RETURNING *',
+    'UPDATE accounts SET user_password = $1 WHERE user_id = $2 RETURNING *',
     [password, user_id]
   );
   return result.rows.length > 0 ? result.rows[0] : null; // Return the updated user or null if not found
