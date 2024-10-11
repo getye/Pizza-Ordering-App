@@ -14,7 +14,7 @@ export const AdminTable = ({ handleOpen }) => {
 
   const fetchUsers = async () => {
     try {
-      const response = await fetch(`${window.location.origin}/superadmin/view/admins`);
+      const response = await fetch(`${window.location.origin}/view/admins`);
       const data = await response.json();
 
       if (!Array.isArray(data)) throw new Error('Data is not an array');
