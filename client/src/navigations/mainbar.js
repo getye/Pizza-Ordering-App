@@ -139,6 +139,7 @@ export const MainBar = (props) => {
       {/* Restaurant Register/Admin Links */}
       {userRole === "Restaurant Register" && (
         <>
+        <MenuItem onClick={() => navigate('/')}>Home</MenuItem>
         <ListItem disablePadding onClick={() => { 
           navigate("/admin/reports") }}>
             <ListItemButton>
@@ -301,21 +302,32 @@ export const MainBar = (props) => {
           ) : (
             
             <Toolbar sx={{ justifyContent: 'flex-end' }}>
-            <Profile />
+              <Profile />
             </Toolbar>
           )}
         
       </AppBar>
       {userRole && (
         <Box component="nav" sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }} aria-label="mailbox folders">
-
+          <Drawer
+            container={container}
+            variant="temporary"
+            ModalProps={{
+              keepMounted: true, // Better open performance on mobile.
+            }}
+            sx={{
+              display: { xs: 'block', sm: 'none' },
+              '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            }}
+          >
             {drawer}
+          </Drawer>
 
         </Box>
       )}
       <Box sx={{ flexGrow: 1 }} />
-      <Footer />
-    </Box>
+          <Footer />
+      </Box>
   );
 };
 
