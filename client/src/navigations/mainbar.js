@@ -142,7 +142,7 @@ export const MainBar = (props) => {
       {/* Restaurant Register/Admin Links */}
       {userRole === "Restaurant Register" && (
         <>
-        <ListItem disablePadding onClick={handleSignOut}>
+        <ListItem onClick={handleSignOut}>
             <ListItemButton >
               <ListItemIcon>
                 <SummarizeIcon />
