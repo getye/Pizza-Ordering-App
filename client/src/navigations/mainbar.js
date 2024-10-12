@@ -140,31 +140,30 @@ export const MainBar = (props) => {
       {/* Restaurant Register/Admin Links */}
       {userRole === "Restaurant Register" && (
         <>
-        <ListItem disablePadding >
-            <ListItemButton onClick={() => { 
-          navigate("/admin/reports") }}>
+        <MenuItem onClick={() => { navigate("/admin/reports") }}>
+            <ListItemButton >
               <ListItemIcon>
                 <SummarizeIcon />
               </ListItemIcon>
               <ListItemText primary="Reports" />
             </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton onClick={() => { navigate("/admin/roles") }}>
+          </MenuItem>
+          <MenuItem onClick={() => { navigate("/admin/roles") }}>
+            <ListItemButton >
               <ListItemIcon>
                 <Person2OutlinedIcon />
               </ListItemIcon>
               <ListItemText primary="Role" />
             </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding onClick={() => { navigate("/admin/users") }}>
+          </MenuItem>
+          <MenuItem onClick={() => { navigate("/admin/users") }}>
             <ListItemButton>
               <ListItemIcon>
                 <AccountCircleOutlinedIcon />
               </ListItemIcon>
               <ListItemText primary="User" />
             </ListItemButton>
-          </ListItem>
+          </MenuItem>
 
         </>
       )}
