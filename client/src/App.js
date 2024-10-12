@@ -43,7 +43,10 @@ function App() {
               path="/admin/users"
               element={<ViewUsers />} 
             />
-
+            <Route
+              path="/admin/reports"
+              element={<Report />} 
+            />
             <Route
               path="/admin/roles"
               element={<AddRoles />} 

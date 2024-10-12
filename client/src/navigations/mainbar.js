@@ -142,7 +142,7 @@ export const MainBar = (props) => {
       {/* Restaurant Register/Admin Links */}
       {userRole === "Restaurant Register" && (
         <>
-        <ListItem onClick={handleSignOut}>
+        <ListItem disablePadding onClick={() => { navigate("/admin/reports") }}>
             <ListItemButton >
               <ListItemIcon>
                 <SummarizeIcon />
