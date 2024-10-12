@@ -8,7 +8,8 @@ const addMenu = async (req, res) => {
   const manager_id = req.user.userId;
   console.log("User ID: ", manager_id)
   const { menuName, toppings, price } = req.body;
-  const picture = req.file ? req.file.filename : null;
+  const image = req.file;
+  const picture = image.path;
   
   try {
         
@@ -20,7 +21,7 @@ const addMenu = async (req, res) => {
       return res.status(404).json({ message: "Admin restaurant not found" });
     }
     await MenuModel.addMenu(id, menuName, toppings, price, picture, restaurantName);
-    res.status(201).json({ message: "Menu Successfully Added" });
+    res.status(201).json({ message: "Menu Successfully Added", imageUrl });
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Error, ",err });
