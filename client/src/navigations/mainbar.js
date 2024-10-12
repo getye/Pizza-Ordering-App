@@ -109,8 +109,56 @@ export const MainBar = (props) => {
     localStorage.clear();
     navigate('/')
   };
-  const drawer = (
-    <List sx={{ height: "100%", borderColor: 'gray' }}>
+
+
+  const container = window !== undefined ? () => window().document.body : undefined;
+
+  return (
+    <Box sx={{ display: 'flex', flexDirection: 'column', paddingBottom: '56px' }}>
+      <CssBaseline />
+      <AppBar position="fixed" gap={2} sx={{ width: 1, backgroundColor: 'white', color: 'black' }}>
+        
+          
+          {(!userRole) ? (
+            <Toolbar sx={{ justifyContent: 'space-between' }}>
+              <img src={pizza} alt='Pizza' />
+              <MenuItem onClick={() => navigate('/')}>Home</MenuItem>
+              <MenuItem onClick={() => navigate('/orders')}>Orders</MenuItem>
+              <MenuItem onClick={() => navigate('/contact')}>Who we are</MenuItem>
+              <MenuItem
+                onClick={() => navigate('/signup')}
+                sx={{
+                  bgcolor: '#FF6700',
+                  color: 'white',
+                  '&:hover': {
+                    bgcolor: '#FF6700',
+                    opacity: 0.9,
+                  },
+                }}>Register</MenuItem>
+              <MenuItem onClick={() => navigate('/signin')}>Sign in</MenuItem>
+            </Toolbar>
+          ) : (
+            
+            <Toolbar sx={{ justifyContent: 'flex-end' }}>
+            <Profile />
+            </Toolbar>
+          )}
+        
+      </AppBar>
+      {userRole && (
+        <Box component="nav" sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }} aria-label="mailbox folders">
+          <Drawer
+            container={container}
+            variant="temporary"
+            ModalProps={{
+              keepMounted: true, // Better open performance on mobile.
+            }}
+            sx={{
+              display: { xs: 'block', sm: 'none' },
+              '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            }}
+          >
+                <List sx={{ height: "100%", borderColor: 'gray' }}>
       <Stack justifyContent={'space-between'} padding={1.5} direction="row" gap={3}>
         <Stack direction="row" gap={2}>
           <Typography variant="h6">Pizza</Typography>
@@ -270,56 +318,6 @@ export const MainBar = (props) => {
             </ListItemButton>
         </ListItem>
     </List>
-  );
-
-  const container = window !== undefined ? () => window().document.body : undefined;
-
-  return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', paddingBottom: '56px' }}>
-      <CssBaseline />
-      <AppBar position="fixed" gap={2} sx={{ width: 1, backgroundColor: 'white', color: 'black' }}>
-        
-          
-          {(!userRole) ? (
-            <Toolbar sx={{ justifyContent: 'space-between' }}>
-              <img src={pizza} alt='Pizza' />
-              <MenuItem onClick={() => navigate('/')}>Home</MenuItem>
-              <MenuItem onClick={() => navigate('/orders')}>Orders</MenuItem>
-              <MenuItem onClick={() => navigate('/contact')}>Who we are</MenuItem>
-              <MenuItem
-                onClick={() => navigate('/signup')}
-                sx={{
-                  bgcolor: '#FF6700',
-                  color: 'white',
-                  '&:hover': {
-                    bgcolor: '#FF6700',
-                    opacity: 0.9,
-                  },
-                }}>Register</MenuItem>
-              <MenuItem onClick={() => navigate('/signin')}>Sign in</MenuItem>
-            </Toolbar>
-          ) : (
-            
-            <Toolbar sx={{ justifyContent: 'flex-end' }}>
-            <Profile />
-            </Toolbar>
-          )}
-        
-      </AppBar>
-      {userRole && (
-        <Box component="nav" sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }} aria-label="mailbox folders">
-          <Drawer
-            container={container}
-            variant="temporary"
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
-            sx={{
-              display: { xs: 'block', sm: 'none' },
-              '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-            }}
-          >
-            {drawer}
           </Drawer>
           <Drawer
             variant="permanent"
@@ -329,7 +327,166 @@ export const MainBar = (props) => {
             }}
             open
           >
-            {drawer}
+                <List sx={{ height: "100%", borderColor: 'gray' }}>
+      <Stack justifyContent={'space-between'} padding={1.5} direction="row" gap={3}>
+        <Stack direction="row" gap={2}>
+          <Typography variant="h6">Pizza</Typography>
+        </Stack>
+          <MenuOpenIcon />
+        
+      </Stack>
+      <Divider />
+      <img src={topLeft} alt='Pizza' width={'100%'} />
+      
+      {/* Super Admin Links */}
+      {userRole === "Super Admin" && (
+          <>
+          <ListItem disablePadding onClick={() => { navigate("/superadmin/view/admins") }}>
+              <ListItemButton>
+                <ListItemIcon>
+                  <AccountCircleOutlinedIcon />
+                </ListItemIcon>
+                <ListItemText primary="Admins" />
+              </ListItemButton>
+            </ListItem>
+
+          </>
+        )}
+
+      {/* Restaurant Register/Admin Links */}
+      {userRole === "Restaurant Register" && (
+        <>
+        <ListItem disablePadding onClick={() => { 
+          navigate("/admin/reports") }}>
+            <ListItemButton>
+              <ListItemIcon>
+                <SummarizeIcon />
+              </ListItemIcon>
+              <ListItemText primary="Reports" />
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding onClick={() => { navigate("/admin/roles") }}>
+            <ListItemButton>
+              <ListItemIcon>
+                <Person2OutlinedIcon />
+              </ListItemIcon>
+              <ListItemText primary="Role" />
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding onClick={() => { navigate("/admin/users") }}>
+            <ListItemButton>
+              <ListItemIcon>
+                <AccountCircleOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText primary="User" />
+            </ListItemButton>
+          </ListItem>
+
+        </>
+      )}
+
+      {/* Kichen manager Links */}
+      {userRole === "Kitchen Manager" && (
+        <>
+          <ListItem disablePadding sx={{ display: "block" }} onClick={() => { navigate("/kichen-manager/dashboard") }}>
+            <ListItemButton>
+              <ListItemIcon>
+                <SpaceDashboardIcon />
+              </ListItemIcon>
+              <ListItemText primary="Dashboard" />
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding sx={{ display: "block" }} onClick={() => { navigate("/kichen-manager/add/menu") }}>
+            <ListItemButton>
+              <ListItemIcon>
+                <LocalPizzaOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText primary="Add Menu" />
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem disablePadding onClick={() => { navigate("/kichen-manager/view/orders") }}>
+            <ListItemButton>
+              <ListItemIcon>
+              <img src={liftIcon} alt='Pizza' width={40} />
+              </ListItemIcon>
+              <ListItemText primary="Orders" />
+            </ListItemButton>
+          </ListItem>
+        </>
+      )}
+
+      {/* Branch manager Links */}
+      {userRole === 'Branch Manager' && (
+        <>
+          <ListItem disablePadding onClick={() => { navigate("/branch-manager/dashboard") }}>
+            <ListItemButton>
+              <ListItemIcon>
+                <SpaceDashboardIcon />
+              </ListItemIcon>
+              <ListItemText primary="Dashboard" />
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem disablePadding onClick={() => { navigate("/branch-manager/view/orders") }}>
+            <ListItemButton>
+              <ListItemIcon>
+              <img src={liftIcon} alt='Pizza' width={40} />
+              </ListItemIcon>
+              <ListItemText primary="Orders" />
+            </ListItemButton>
+          </ListItem>
+
+        </>
+      )}
+
+            {/* Cashier Links */}
+      {userRole === 'Cashier' && (
+        <>
+          <ListItem disablePadding onClick={() => { navigate("/cashier/view/orders") }}>
+            <ListItemButton>
+              <ListItemIcon>
+                <SpaceDashboardIcon />
+              </ListItemIcon>
+              <ListItemText primary="Dashboard" />
+            </ListItemButton>
+          </ListItem>
+        </>
+      )}
+
+       {/* Customer Links */}
+       {userRole === 'Customer' && (
+        <>
+          <ListItem disablePadding onClick={() => { navigate("/customer/view/orders") }}>
+            <ListItemButton>
+              <ListItemIcon>
+                <SpaceDashboardIcon />
+              </ListItemIcon>
+              <ListItemText primary="Dashboard" />
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem disablePadding onClick={() => { navigate("/customer/menu") }}>
+            <ListItemButton>
+              <ListItemIcon>
+                <LocalPizzaIcon />
+              </ListItemIcon>
+              <ListItemText primary="Menu" />
+            </ListItemButton>
+          </ListItem>
+
+        </>
+      )}
+      <Divider/>
+        <ListItem disablePadding onClick={ handleSignOut } sx={{maxWidth:'80%', marginLeft:3, paddingTop:2}}>
+            <ListItemButton sx={{marginLeft:2}}>
+              <ListItemIcon>
+                <LoginOutlinedIcon sx={{color:'red'}}/>
+              </ListItemIcon>
+              <ListItemText primary="Logout" sx={{color:'red'}}/>
+            </ListItemButton>
+        </ListItem>
+    </List>
           </Drawer>
         </Box>
       )}
