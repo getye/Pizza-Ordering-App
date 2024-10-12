@@ -111,15 +111,15 @@ export const MainBar = (props) => {
   };
 
   const handleReportsClick = () => {
-    navigate("/admin/reports");
+    navigate('/admin/reports');
 };
 
 const handleRolesClick = () => {
-    navigate("/admin/roles");
+    navigate('/admin/roles');
 };
 
 const handleUsersClick = () => {
-    navigate("/admin/users");
+    navigate('/admin/users');
 };
   const drawer = (
     <List sx={{ height: "100%", borderColor: 'gray' }}>
