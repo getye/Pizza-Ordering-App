@@ -14,7 +14,7 @@ export const Report = () => {
                     return;
                 }
                 console.log("Token: ", token)
-                const response = await fetch(`${window.location.origin}/reports/monthly-orders`, {
+                const response = await fetch(`${window.location.origin}/admin/reports`, {
                     method: 'GET',
                     headers: {
                       'Content-Type': 'application/json',
