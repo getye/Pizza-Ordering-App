@@ -79,7 +79,7 @@ export const UserTable = ({ handleOpen }) => {
 
   return (
     <>
-    {users.length > 0 ? (
+    
       <Box sx={{ padding: 3 }}>
         <MaterialReactTable
           columns={columns}
@@ -109,9 +109,7 @@ export const UserTable = ({ handleOpen }) => {
           )}
         />
       </Box>
-    ) : (
-      <div>No records found</div>
-    )}
+
     <Snackbar
         open={showNotification}
         onClose={() => setShowNotification(false)}

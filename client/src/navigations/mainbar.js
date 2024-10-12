@@ -121,7 +121,6 @@ export const MainBar = (props) => {
       <Divider />
 
       <img src={topLeft} alt='Pizza' width={'100%'} />
-      <ListItem onClick={() => navigate('/')}>Home</ListItem>
       
       {/* Super Admin Links */}
       {userRole === "Super Admin" && (
@@ -141,17 +140,17 @@ export const MainBar = (props) => {
       {/* Restaurant Register/Admin Links */}
       {userRole === "Restaurant Register" && (
         <>
-        <ListItem disablePadding onClick={() => { 
+        <ListItem disablePadding >
+            <ListItemButton onClick={() => { 
           navigate("/admin/reports") }}>
-            <ListItemButton>
               <ListItemIcon>
                 <SummarizeIcon />
               </ListItemIcon>
               <ListItemText primary="Reports" />
             </ListItemButton>
           </ListItem>
-          <ListItem disablePadding onClick={() => { navigate("/admin/roles") }}>
-            <ListItemButton>
+          <ListItem disablePadding>
+            <ListItemButton onClick={() => { navigate("/admin/roles") }}>
               <ListItemIcon>
                 <Person2OutlinedIcon />
               </ListItemIcon>
