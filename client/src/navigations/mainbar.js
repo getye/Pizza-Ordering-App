@@ -138,7 +138,9 @@ export const MainBar = (props) => {
       {/* Restaurant Register/Admin Links */}
       {userRole === "Restaurant Register" && (
         <>
-        <ListItem disablePadding onClick={() => { navigate("admin/reports") }}>
+        <ListItem disablePadding onClick={() => { 
+          console.log("Navigating to Reports");
+          navigate("admin/reports") }}>
             <ListItemButton>
               <ListItemIcon>
                 <SummarizeIcon />
