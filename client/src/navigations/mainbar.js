@@ -139,8 +139,8 @@ export const MainBar = (props) => {
       {/* Restaurant Register/Admin Links */}
       {userRole === "Restaurant Register" && (
         <>
-        <ListItem disablePadding onClick={(e) => { 
-          navigate("admin/reports") }}>
+        <ListItem disablePadding onClick={() => { 
+          navigate("/admin/reports") }}>
             <ListItemButton>
               <ListItemIcon>
                 <SummarizeIcon />
@@ -148,7 +148,7 @@ export const MainBar = (props) => {
               <ListItemText primary="Reports" />
             </ListItemButton>
           </ListItem>
-          <ListItem disablePadding onClick={() => { navigate("admin/roles") }}>
+          <ListItem disablePadding onClick={() => { navigate("/admin/roles") }}>
             <ListItemButton>
               <ListItemIcon>
                 <Person2OutlinedIcon />
@@ -156,7 +156,7 @@ export const MainBar = (props) => {
               <ListItemText primary="Role" />
             </ListItemButton>
           </ListItem>
-          <ListItem disablePadding onClick={() => { navigate("admin/users") }}>
+          <ListItem disablePadding onClick={() => { navigate("/admin/users") }}>
             <ListItemButton>
               <ListItemIcon>
                 <AccountCircleOutlinedIcon />
@@ -171,7 +171,7 @@ export const MainBar = (props) => {
       {/* Kichen manager Links */}
       {userRole === "Kitchen Manager" && (
         <>
-          <ListItem disablePadding sx={{ display: "block" }} onClick={() => { navigate("kichen-manager/dashboard") }}>
+          <ListItem disablePadding sx={{ display: "block" }} onClick={() => { navigate("/kichen-manager/dashboard") }}>
             <ListItemButton>
               <ListItemIcon>
                 <SpaceDashboardIcon />
@@ -179,7 +179,7 @@ export const MainBar = (props) => {
               <ListItemText primary="Dashboard" />
             </ListItemButton>
           </ListItem>
-          <ListItem disablePadding sx={{ display: "block" }} onClick={() => { navigate("kichen-manager/add/menu") }}>
+          <ListItem disablePadding sx={{ display: "block" }} onClick={() => { navigate("/kichen-manager/add/menu") }}>
             <ListItemButton>
               <ListItemIcon>
                 <LocalPizzaOutlinedIcon />
@@ -188,7 +188,7 @@ export const MainBar = (props) => {
             </ListItemButton>
           </ListItem>
 
-          <ListItem disablePadding onClick={() => { navigate("kichen-manager/view/orders") }}>
+          <ListItem disablePadding onClick={() => { navigate("/kichen-manager/view/orders") }}>
             <ListItemButton>
               <ListItemIcon>
               <img src={liftIcon} alt='Pizza' width={40} />
@@ -202,7 +202,7 @@ export const MainBar = (props) => {
       {/* Branch manager Links */}
       {userRole === 'Branch Manager' && (
         <>
-          <ListItem disablePadding onClick={() => { navigate("branch-manager/dashboard") }}>
+          <ListItem disablePadding onClick={() => { navigate("/branch-manager/dashboard") }}>
             <ListItemButton>
               <ListItemIcon>
                 <SpaceDashboardIcon />
@@ -211,7 +211,7 @@ export const MainBar = (props) => {
             </ListItemButton>
           </ListItem>
 
-          <ListItem disablePadding onClick={() => { navigate("branch-manager/view/orders") }}>
+          <ListItem disablePadding onClick={() => { navigate("/branch-manager/view/orders") }}>
             <ListItemButton>
               <ListItemIcon>
               <img src={liftIcon} alt='Pizza' width={40} />
@@ -226,7 +226,7 @@ export const MainBar = (props) => {
             {/* Cashier Links */}
       {userRole === 'Cashier' && (
         <>
-          <ListItem disablePadding onClick={() => { navigate("cashier/view/orders") }}>
+          <ListItem disablePadding onClick={() => { navigate("/cashier/view/orders") }}>
             <ListItemButton>
               <ListItemIcon>
                 <SpaceDashboardIcon />
@@ -240,7 +240,7 @@ export const MainBar = (props) => {
        {/* Customer Links */}
        {userRole === 'Customer' && (
         <>
-          <ListItem disablePadding onClick={() => { navigate("customer/view/orders") }}>
+          <ListItem disablePadding onClick={() => { navigate("/customer/view/orders") }}>
             <ListItemButton>
               <ListItemIcon>
                 <SpaceDashboardIcon />
@@ -249,7 +249,7 @@ export const MainBar = (props) => {
             </ListItemButton>
           </ListItem>
 
-          <ListItem disablePadding onClick={() => { navigate("customer/menu") }}>
+          <ListItem disablePadding onClick={() => { navigate("/customer/menu") }}>
             <ListItemButton>
               <ListItemIcon>
                 <LocalPizzaIcon />
