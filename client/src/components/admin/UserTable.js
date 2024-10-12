@@ -30,9 +30,6 @@ export const UserTable = ({ handleOpen }) => {
         }
       });
   
-      if (!response.ok) {
-        throw new Error('Failed to fetch users');
-      }
   
       const data = await response.json();
   
