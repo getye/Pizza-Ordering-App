@@ -139,7 +139,8 @@ export const MainBar = (props) => {
       {userRole === "Restaurant Register" && (
         <>
         <ListItem disablePadding onClick={() => { 
-          console.log("Navigating to Reports");
+          console.log("Current path:", window.location.pathname);
+          alert("Clicked Reports");
           navigate("admin/reports") }}>
             <ListItemButton>
               <ListItemIcon>
