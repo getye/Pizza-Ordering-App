@@ -133,6 +133,7 @@ const managerViewMenus = async (req, res) => {
 
 const reports = async (req, res) => {
   const manager_id = req.user.userId;
+  console.log("User ID: ", manager_id)
 
   try {
 

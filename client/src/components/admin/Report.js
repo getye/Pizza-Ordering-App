@@ -13,6 +13,7 @@ export const Report = () => {
                     console.log('No token found, please log in');
                     return;
                 }
+                console.log("Token: ", token)
                 const response = await fetch(`${window.location.origin}/reports/monthly-orders`, {
                     method: 'GET',
                     headers: {

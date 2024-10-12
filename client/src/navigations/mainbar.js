@@ -33,7 +33,6 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 import LocalPizzaIcon from '@mui/icons-material/LocalPizza';
 import topLeft from '../assets/topLeftPizza.png';
 import liftIcon from '../assets/packedPizza.jpg';
-import { TestButton } from './test';
 
 
 
@@ -100,7 +99,6 @@ const Footer = () => (
 );
 
 
-
 export const MainBar = (props) => {
   const userRole = localStorage.getItem('userRole');
   const navigate = useNavigate();
@@ -141,7 +139,15 @@ export const MainBar = (props) => {
       {/* Restaurant Register/Admin Links */}
       {userRole === "Restaurant Register" && (
         <>
-        <TestButton />
+        <ListItem disablePadding onClick={(e) => { 
+          navigate("admin/reports") }}>
+            <ListItemButton>
+              <ListItemIcon>
+                <SummarizeIcon />
+              </ListItemIcon>
+              <ListItemText primary="Reports" />
+            </ListItemButton>
+          </ListItem>
           <ListItem disablePadding onClick={() => { navigate("admin/roles") }}>
             <ListItemButton>
               <ListItemIcon>
