@@ -109,6 +109,18 @@ export const MainBar = (props) => {
     localStorage.clear();
     navigate('/')
   };
+
+  const handleReportsClick = () => {
+    navigate("/admin/reports");
+};
+
+const handleRolesClick = () => {
+    navigate("/admin/roles");
+};
+
+const handleUsersClick = () => {
+    navigate("/admin/users");
+};
   const drawer = (
     <List sx={{ height: "100%", borderColor: 'gray' }}>
       <Stack justifyContent={'space-between'} padding={1.5} direction="row" gap={3}>
@@ -140,30 +152,30 @@ export const MainBar = (props) => {
       {/* Restaurant Register/Admin Links */}
       {userRole === "Restaurant Register" && (
         <>
-        <MenuItem onClick={() => { navigate("/admin/reports") }}>
+        <ListItem disablePadding onClick={handleReportsClick}>
             <ListItemButton >
               <ListItemIcon>
                 <SummarizeIcon />
               </ListItemIcon>
               <ListItemText primary="Reports" />
             </ListItemButton>
-          </MenuItem>
-          <MenuItem onClick={() => { navigate("/admin/roles") }}>
+          </ListItem>
+          <ListItem disablePadding onClick={handleRolesClick}>
             <ListItemButton >
               <ListItemIcon>
                 <Person2OutlinedIcon />
               </ListItemIcon>
               <ListItemText primary="Role" />
             </ListItemButton>
-          </MenuItem>
-          <MenuItem onClick={() => { navigate("/admin/users") }}>
+          </ListItem>
+          <ListItem disablePadding onClick={handleUsersClick}>
             <ListItemButton>
               <ListItemIcon>
                 <AccountCircleOutlinedIcon />
               </ListItemIcon>
               <ListItemText primary="User" />
             </ListItemButton>
-          </MenuItem>
+          </ListItem>
 
         </>
       )}
