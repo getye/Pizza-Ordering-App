@@ -138,7 +138,8 @@ export const MainBar = (props) => {
       {/* Restaurant Register/Admin Links */}
       {userRole === "Restaurant Register" && (
         <>
-        <ListItem disablePadding onClick={() => { 
+        <ListItem disablePadding onClick={(e) => { 
+          e.stopPropagation(); 
           console.log("Current path:", window.location.pathname);
           alert("Clicked Reports");
           navigate("admin/reports") }}>
