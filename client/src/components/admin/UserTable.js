@@ -12,16 +12,16 @@ export const UserTable = ({ handleOpen }) => {
   const [notificationMessage, setNotificationMessage] = useState('');
   const [messageType, setMessageType] = useState('');
 
-  console.log("Usres: ", users)
 
   const fetchUsers = async () => {
     try {
       const token = localStorage.getItem('token'); // Retrieve the token from localStorage
+      console.log("Token: ", token)
       if (!token) {
         console.log('No token found, please log in');
         return;
       }
-  
+
       const response = await fetch(`${window.location.origin}/admin/users`, {
         method: 'GET',
         headers: {
@@ -38,6 +38,7 @@ export const UserTable = ({ handleOpen }) => {
       }
   
       setUsers(data); // Set the users data to state
+      console.log("Usres: ", data)
     } catch (err) {
       setError(err.message); // Handle error
     } finally {
