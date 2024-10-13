@@ -84,8 +84,9 @@ export const UserTable = ({ handleOpen }) => {
   return (
     <>
       <Box sx={{ padding: 3 }}>
-        <MaterialReactTable
-          key={memoizedData.length} // Force re-render when data length changes
+        <MaterialReactTable 
+          style={{ flexGrow: 1, minHeight: '300px', width: '100%' }}
+          key={users.length} // Force re-render when data length changes
           columns={columns}
           data={memoizedData}
           enablePagination
