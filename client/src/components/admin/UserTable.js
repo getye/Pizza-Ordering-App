@@ -37,7 +37,8 @@ export const UserTable = ({ handleOpen }) => {
         throw new Error('Data is not an array');
       }
   
-      setUsers(data); // Set the users data to state
+      const result = data.map((user, index) => ({ id: index, ...user }));
+      setUsers(result); // Set the users data to state
       console.log("Usres: ", data)
     } catch (err) {
       setError(err.message); // Handle error
@@ -84,6 +85,7 @@ export const UserTable = ({ handleOpen }) => {
         <MaterialReactTable
           columns={columns}
           data={users}
+          getRowId={(row) => row.id} // Specify the unique row id
           enablePagination
           enableSorting
           enableColumnFiltering
