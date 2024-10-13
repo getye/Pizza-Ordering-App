@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { Alert, Box, Button, Snackbar } from '@mui/material';
 import { MaterialReactTable } from 'material-react-table';
 import ActionButtons from './ActionButtons.js';
@@ -12,11 +12,9 @@ export const UserTable = ({ handleOpen }) => {
   const [notificationMessage, setNotificationMessage] = useState('');
   const [messageType, setMessageType] = useState('');
 
-
   const fetchUsers = async () => {
     try {
-      const token = localStorage.getItem('token'); // Retrieve the token from localStorage
-      console.log("Token: ", token)
+      const token = localStorage.getItem('token');
       if (!token) {
         console.log('No token found, please log in');
         return;
@@ -26,32 +24,28 @@ export const UserTable = ({ handleOpen }) => {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}` // Pass the token in the Authorization header
-        }
+          Authorization: `Bearer ${token}`, 
+        },
       });
-  
-  
+
       const data = await response.json();
-  
       if (!Array.isArray(data)) {
         throw new Error('Data is not an array');
       }
-  
-      const result = data.map((user, index) => ({ id: index, ...user }));
-      setUsers(result); // Set the users data to state
-      console.log("Usres: ", data)
+
+      // Add a unique 'id' to each user
+      const usersWithId = data.map((user, index) => ({ id: index, ...user }));
+      setUsers(usersWithId);
     } catch (err) {
-      setError(err.message); // Handle error
+      setError(err.message);
     } finally {
-      setLoading(false); // Handle loading state
+      setLoading(false);
     }
   };
-  
 
   useEffect(() => {
     fetchUsers();
   }, []);
-
 
   const handleNotification = (message, type) => {
     setNotificationMessage(message);
@@ -59,22 +53,22 @@ export const UserTable = ({ handleOpen }) => {
     setShowNotification(true);
   };
 
-  const columns = React.useMemo(
+  const columns = useMemo(
     () => [
       { accessorKey: 'user_name', header: 'User Name' },
       { accessorKey: 'user_email', header: 'Email' },
       { accessorKey: 'user_type', header: 'Role' },
       {
         header: 'Action',
-        Cell: ({ row }) => 
-              <ActionButtons 
-                     user={row.original} 
-                      onNotify={handleNotification} 
-                  />,
+        Cell: ({ row }) => (
+          <ActionButtons user={row.original} onNotify={handleNotification} />
+        ),
       },
     ],
     []
   );
+
+  const data = useMemo(() => users, [users]);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div style={{ color: 'red', textAlign: 'center' }}>{error}</div>;
@@ -84,7 +78,7 @@ export const UserTable = ({ handleOpen }) => {
       <Box sx={{ padding: 3 }}>
         <MaterialReactTable
           columns={columns}
-          data={users}
+          data={data}
           getRowId={(row) => row.id} // Specify the unique row id
           enablePagination
           enableSorting
@@ -112,23 +106,22 @@ export const UserTable = ({ handleOpen }) => {
         />
       </Box>
 
-    <Snackbar
+      <Snackbar
         open={showNotification}
         onClose={() => setShowNotification(false)}
         anchorOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
+          vertical: 'top',
+          horizontal: 'right',
         }}
-        >
+      >
         <Alert
-            onClose={() => setShowNotification(false)}
-            severity={String(messageType).includes('Success') ? 'success' : 'error'}
-            sx={{ width: '100%' }}
+          onClose={() => setShowNotification(false)}
+          severity={String(messageType).includes('Success') ? 'success' : 'error'}
+          sx={{ width: '100%' }}
         >
-            {notificationMessage}
+          {notificationMessage}
         </Alert>
       </Snackbar>
     </>
-    
   );
 };
