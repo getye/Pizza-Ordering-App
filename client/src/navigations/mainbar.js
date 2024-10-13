@@ -111,8 +111,43 @@ export const MainBar = (props) => {
   };
 
   
-  const drawer = (
-    <List sx={{ height: "100%", borderColor: 'gray' }}>
+
+
+  const container = window !== undefined ? () => window().document.body : undefined;
+
+  return (
+    <Box sx={{ display: 'flex', flexDirection: 'column', paddingBottom: '56px' }}>
+      <CssBaseline />
+      <AppBar position="fixed" gap={2} sx={{ width: 1, backgroundColor: 'white', color: 'black' }}>
+        
+          
+          {(!userRole) ? (
+            <Toolbar sx={{ justifyContent: 'space-between' }}>
+              <img src={pizza} alt='Pizza' />
+              <MenuItem onClick={() => navigate('/')}>Home</MenuItem>
+              <MenuItem onClick={() => navigate('/orders')}>Orders</MenuItem>
+              <MenuItem onClick={() => navigate('/contact')}>Who we are</MenuItem>
+              <MenuItem
+                onClick={() => navigate('/signup')}
+                sx={{
+                  bgcolor: '#FF6700',
+                  color: 'white',
+                  '&:hover': {
+                    bgcolor: '#FF6700',
+                    opacity: 0.9,
+                  },
+                }}>Register</MenuItem>
+              <MenuItem onClick={() => navigate('/signin')}>Sign in</MenuItem>
+            </Toolbar>
+          ) : (
+            
+            <Toolbar sx={{ justifyContent: 'flex-end' }}>
+              <Profile />
+            </Toolbar>
+          )}
+        
+      </AppBar>
+      <List sx={{ height: "100%", borderColor: 'gray' }}>
       <Stack justifyContent={'space-between'} padding={1.5} direction="row" gap={3}>
         <Stack direction="row" gap={2}>
           <Typography variant="h6">Pizza</Typography>
@@ -272,60 +307,6 @@ export const MainBar = (props) => {
             </ListItemButton>
         </ListItem>
     </List>
-  );
-
-  const container = window !== undefined ? () => window().document.body : undefined;
-
-  return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', paddingBottom: '56px' }}>
-      <CssBaseline />
-      <AppBar position="fixed" gap={2} sx={{ width: 1, backgroundColor: 'white', color: 'black' }}>
-        
-          
-          {(!userRole) ? (
-            <Toolbar sx={{ justifyContent: 'space-between' }}>
-              <img src={pizza} alt='Pizza' />
-              <MenuItem onClick={() => navigate('/')}>Home</MenuItem>
-              <MenuItem onClick={() => navigate('/orders')}>Orders</MenuItem>
-              <MenuItem onClick={() => navigate('/contact')}>Who we are</MenuItem>
-              <MenuItem
-                onClick={() => navigate('/signup')}
-                sx={{
-                  bgcolor: '#FF6700',
-                  color: 'white',
-                  '&:hover': {
-                    bgcolor: '#FF6700',
-                    opacity: 0.9,
-                  },
-                }}>Register</MenuItem>
-              <MenuItem onClick={() => navigate('/signin')}>Sign in</MenuItem>
-            </Toolbar>
-          ) : (
-            
-            <Toolbar sx={{ justifyContent: 'flex-end' }}>
-              <Profile />
-            </Toolbar>
-          )}
-        
-      </AppBar>
-      {userRole && (
-        <Box component="nav" sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }} aria-label="mailbox folders">
-          <Drawer
-            container={container}
-            variant="temporary"
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
-            sx={{
-              display: { xs: 'block', sm: 'none' },
-              '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-            }}
-          >
-            {drawer}
-          </Drawer>
-
-        </Box>
-      )}
       <Box sx={{ flexGrow: 1 }} />
           <Footer />
       </Box>
