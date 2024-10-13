@@ -14,7 +14,6 @@ export const ViewUsers = ({ handleOpen }) => {
   const fetchUsers = async () => {
     try {
       const token = localStorage.getItem('token');
-      console.log('Token: ', token);
       if (!token) {
         console.log('No token found, please log in');
         return;
@@ -87,6 +86,7 @@ export const ViewUsers = ({ handleOpen }) => {
   return (
     <>
       <Box sx={{ padding: 3 }}>
+        {memoizedData.length>0 &&
         <MaterialReactTable 
           key={users.length} // Force re-render when data length changes
           columns={columns}
@@ -115,6 +115,7 @@ export const ViewUsers = ({ handleOpen }) => {
             </Button>
           )}
         />
+        }
       </Box>
 
       <Snackbar
