@@ -1,6 +1,6 @@
 
 import { MainBar } from './navigations/mainbar';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import {Signin} from './components/signin'
 import { Signup } from './components/signup';
 import { Home } from './components/home'
@@ -28,7 +28,7 @@ import { Report } from './components/admin/Report';
 function App() {
 
   return (
-    <BrowserRouter>
+    <>
         <MainBar/>
         <Routes>
             <Route path="/" element={<Home/>}/>
@@ -99,7 +99,7 @@ function App() {
             <Route path='/orders' element={<Orders/>}/>
             <Route path="/unauthorized" element={<Unauthorized />} />
         </Routes>
-    </BrowserRouter>
+    </>
   );
 }
 
