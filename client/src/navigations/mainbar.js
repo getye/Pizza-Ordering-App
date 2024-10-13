@@ -323,8 +323,17 @@ export const MainBar = (props) => {
           >
             {drawer}
           </Drawer>
-
-        </Box>
+        <Drawer
+          variant="permanent"
+          sx={{
+            display: { xs: 'none', sm: 'block' },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+          }}
+          open
+        >
+          {drawer}
+        </Drawer>
+      </Box>
       )}
       <Box sx={{ flexGrow: 1 }} />
           <Footer />
