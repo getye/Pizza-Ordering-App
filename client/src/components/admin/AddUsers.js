@@ -58,7 +58,7 @@ const handleSubmit = async () => {
   };
 
   return (
-    <Box sx={{ paddingTop: 2, marginLeft: 32, justifyContent: 'center', display: 'flex', flexDirection: 'column', width: '100%' }}>
+    <Box sx={{ paddingTop: 2, marginLeft: 32, justifyContent: 'center', display: 'flex', flexDirection: 'column', width: '98%' }}>
       <UserTable handleOpen={handleOpen} />
       <AddUserModal
         open={open}

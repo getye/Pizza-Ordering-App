@@ -85,7 +85,6 @@ export const UserTable = ({ handleOpen }) => {
     <>
       <Box sx={{ padding: 3 }}>
         <MaterialReactTable 
-          style={{ flexGrow: 1, minHeight: '300px', width: '100%' }}
           key={users.length} // Force re-render when data length changes
           columns={columns}
           data={memoizedData}
