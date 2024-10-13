@@ -80,11 +80,11 @@ export const UserTable = ({ handleOpen }) => {
 
   return (
     <>
-    
+    {users.length>0 &&
       <Box sx={{ padding: 3 }}>
         <MaterialReactTable
           columns={columns}
-          data={users.length>0?users:users}
+          data={users.length}
           enablePagination
           enableSorting
           enableColumnFiltering
@@ -110,6 +110,7 @@ export const UserTable = ({ handleOpen }) => {
           )}
         />
       </Box>
+      }
 
     <Snackbar
         open={showNotification}
