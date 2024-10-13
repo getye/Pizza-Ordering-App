@@ -85,7 +85,7 @@ export const ViewUsers = ({ handleOpen }) => {
 
   return (
     <>
-      <Box sx={{ paddingLeft:30, padding: 3 }}>
+      <Box sx={{ paddingLeft:32, paddingTop: 3 }}>
         <MaterialReactTable 
           key={users.length} // Force re-render when data length changes
           columns={columns}
