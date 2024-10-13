@@ -75,7 +75,7 @@ export const ViewUsers = ({ handleOpen }) => {
   );
 
   const memoizedData = useMemo(() => users, [users]);
-
+  console.log("Users: ", memoizedData)
   if (loading) {
     return <div>Loading...</div>; // You can replace this with a spinner or a better loading indicator
   }
