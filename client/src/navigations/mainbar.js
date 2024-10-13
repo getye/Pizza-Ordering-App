@@ -147,7 +147,7 @@ export const MainBar = (props) => {
               <ListItemIcon>
                 <SummarizeIcon />
               </ListItemIcon>
-              <ListItemText primary="Reports" />
+              <ListItemText primary="Dashboard" />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding onClick={() => { navigate("/admin/roles") }}>
