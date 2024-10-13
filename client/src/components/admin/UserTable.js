@@ -84,7 +84,7 @@ export const UserTable = ({ handleOpen }) => {
       <Box sx={{ padding: 3 }}>
         <MaterialReactTable
           columns={columns}
-          data={users}
+          data={users.length>0?users:users}
           enablePagination
           enableSorting
           enableColumnFiltering
