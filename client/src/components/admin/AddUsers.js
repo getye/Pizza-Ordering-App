@@ -86,10 +86,11 @@ export const ViewUsers = ({ handleOpen }) => {
   return (
     <>
       <Box sx={{ paddingLeft:32, paddingTop: 3, paddingRight:2 }}>
+        {memoizedData.length > 0 ? (
         <MaterialReactTable 
-          key={users.length} // Force re-render when data length changes
+          key={memoizedData.length} // Force re-render when data length changes
           columns={columns}
-          data={users}
+          data={memoizedData}
           enablePagination
           enableSorting
           enableColumnFiltering
@@ -114,6 +115,9 @@ export const ViewUsers = ({ handleOpen }) => {
             </Button>
           )}
         />
+      ) : (
+        <div>No users to display</div> // Handle case when there is no data
+      )}
       </Box>
 
       <Snackbar
