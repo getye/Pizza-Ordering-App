@@ -85,7 +85,6 @@ export const ViewUsers = ({ handleOpen }) => {
 
   return (
     <>
-     {memoizedData.length > 0 ? (
       <Box sx={{ padding: 3 }}>
         <MaterialReactTable 
           key={users.length} // Force re-render when data length changes
@@ -116,9 +115,6 @@ export const ViewUsers = ({ handleOpen }) => {
           )}
         />
       </Box>
-      ) : (
-        <div>No users available to display.</div>
-      )}
 
       <Snackbar
         open={showNotification}
