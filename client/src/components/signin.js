@@ -34,7 +34,7 @@ export const Signin = () => {
         if (responseData.user_role === "Super Admin") {
           navigate("/superadmin/view/admins");
         }else if (responseData.user_role === "Restaurant Register") {
-          navigate("/admin/users");
+          navigate("/admin/reports");
         } else if (responseData.user_role === "Kitchen Manager") {
           navigate("/kichen-manager/dashboard");
         } else if (responseData.user_role === "Branch Manager") {
