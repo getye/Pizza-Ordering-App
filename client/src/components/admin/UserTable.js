@@ -76,6 +76,8 @@ export const UserTable = ({ handleOpen }) => {
 
   const memoizedData = useMemo(() => users, [users]);
 
+  console.log(memoizedData);
+
   if (loading) return <div>Loading...</div>;
   if (error) return <div style={{ color: 'red', textAlign: 'center' }}>{error}</div>;
 
@@ -83,9 +85,9 @@ export const UserTable = ({ handleOpen }) => {
     <>
       <Box sx={{ padding: 3 }}>
         <MaterialReactTable
+          key={memoizedData.length} // Force re-render when data length changes
           columns={columns}
           data={memoizedData}
-          memoizeRows
           enablePagination
           enableSorting
           enableColumnFiltering
