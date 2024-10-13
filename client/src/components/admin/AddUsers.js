@@ -126,6 +126,7 @@ export const ViewUsers = () => {
   );
 
   const memoizedData = useMemo(() => users, [users]);
+  console.log(memoizedData)
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div style={{ color: 'red', textAlign: 'center' }}>{error}</div>;
