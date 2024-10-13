@@ -85,11 +85,11 @@ export const ViewUsers = ({ handleOpen }) => {
 
   return (
     <>
-      <Box sx={{ paddingLeft:32, paddingTop: 3 }}>
+      <Box sx={{ paddingLeft:32, paddingTop: 3, paddingRight:2 }}>
         <MaterialReactTable 
           key={users.length} // Force re-render when data length changes
           columns={columns}
-          data={memoizedData}
+          data={users}
           enablePagination
           enableSorting
           enableColumnFiltering
