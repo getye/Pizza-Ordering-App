@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import { Alert, Box, Button, Snackbar } from '@mui/material';
+import { Box, Button, Snackbar, Alert } from '@mui/material';
 import { MaterialReactTable } from 'material-react-table';
 import ActionButtons from './ActionButtons.js';
 
@@ -7,7 +7,6 @@ export const UserTable = ({ handleOpen }) => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
   const [showNotification, setShowNotification] = useState(false);
   const [notificationMessage, setNotificationMessage] = useState('');
   const [messageType, setMessageType] = useState('');
@@ -15,6 +14,7 @@ export const UserTable = ({ handleOpen }) => {
   const fetchUsers = async () => {
     try {
       const token = localStorage.getItem('token');
+      console.log('Token: ', token);
       if (!token) {
         console.log('No token found, please log in');
         return;
@@ -24,18 +24,17 @@ export const UserTable = ({ handleOpen }) => {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`, 
+          Authorization: `Bearer ${token}`,
         },
       });
 
       const data = await response.json();
+
       if (!Array.isArray(data)) {
         throw new Error('Data is not an array');
       }
 
-      // Add a unique 'id' to each user
-      const usersWithId = data.map((user, index) => ({ id: index, ...user }));
-      setUsers(usersWithId);
+      setUsers(data);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -61,14 +60,17 @@ export const UserTable = ({ handleOpen }) => {
       {
         header: 'Action',
         Cell: ({ row }) => (
-          <ActionButtons user={row.original} onNotify={handleNotification} />
+          <ActionButtons
+            user={row.original}
+            onNotify={handleNotification}
+          />
         ),
       },
     ],
     []
   );
 
-  const data = useMemo(() => users, [users]);
+  const memoizedData = useMemo(() => users, [users]);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div style={{ color: 'red', textAlign: 'center' }}>{error}</div>;
@@ -78,8 +80,8 @@ export const UserTable = ({ handleOpen }) => {
       <Box sx={{ padding: 3 }}>
         <MaterialReactTable
           columns={columns}
-          data={data}
-          getRowId={(row) => row.id} // Specify the unique row id
+          data={memoizedData}
+          memoizeRows
           enablePagination
           enableSorting
           enableColumnFiltering
@@ -109,10 +111,7 @@ export const UserTable = ({ handleOpen }) => {
       <Snackbar
         open={showNotification}
         onClose={() => setShowNotification(false)}
-        anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}
+        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
       >
         <Alert
           onClose={() => setShowNotification(false)}
