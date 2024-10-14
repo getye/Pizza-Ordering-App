@@ -16,7 +16,7 @@ const viewMenus = async () => {
     JOIN 
       users ON users.user_restaurant = menus.restaurant 
     WHERE 
-      users.user_type = 'Restaurant_Register';
+      users.user_type = 'Restaurant Register';
   `;
 
   try {
