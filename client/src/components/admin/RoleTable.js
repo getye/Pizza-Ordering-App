@@ -210,10 +210,8 @@ const handleStatusChange = async (role) => {
       <MaterialReactTable
         columns={columns}
         data={role}
-        enablePagination
         enableSorting
         enableColumnFiltering
-        initialState={{ pagination: { pageSize: 3 } }}
         enableTopToolbar
         renderTopToolbarCustomActions={() => (
           <Button onClick={handleOpen} sx={{ bgcolor: '#FF8C00', color: 'white', textTransform: 'none' }}>
