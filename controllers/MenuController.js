@@ -2,9 +2,7 @@ const { v4: uuidv4 } = require('uuid');
 const MenuModel = require('../models/MenuModel');
 const UserModel = require('../models/UserModel');
 
-
 const cloudinary = require('cloudinary').v2;
-const { v4: uuidv4 } = require('uuid');
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
