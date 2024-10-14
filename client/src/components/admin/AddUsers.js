@@ -44,10 +44,6 @@ export const ViewUsers = ({ handleOpen }) => {
         <MaterialReactTable 
           key={users.length}
           columns={[
-            {
-              header: 'No.', // Header for the row number column
-              Cell: ({ row }) => row.index + 1, // Row index starts from 0, so add 1 for display
-            },
             { accessorKey: 'user_name', header: 'User Name' },
             { accessorKey: 'user_email', header: 'Email' },
             { accessorKey: 'user_type', header: 'Role' },
@@ -62,7 +58,6 @@ export const ViewUsers = ({ handleOpen }) => {
             },
           ]}
           data={users}
-          enablePagination
           enableSorting
           enableColumnFiltering
           initialState={{ pagination: { pageSize: 4 } }}
