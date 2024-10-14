@@ -12,6 +12,7 @@ export const Orders = () => {
       try {
         const response = await fetch(`${window.location.origin}/customer/view/menus`); 
         const data = await response.json();
+        console.log('Menus :', data);
         setMenus(data);
       } catch (error) {
         console.error('Error fetching menus:', error);

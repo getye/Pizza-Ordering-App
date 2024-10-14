@@ -38,7 +38,8 @@ const addMenu = async (req, res) => {
 const viewMenus = async (req, res) => {
   try {
     const menus = await MenuModel.viewMenus();
-    res.json(menus.rows);
+    console.log('Menus sent to client:', menus);
+    res.json(menus);
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Error retrieving menus" });
