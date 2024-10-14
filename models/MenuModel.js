@@ -14,7 +14,9 @@ const viewMenus = async () => {
       menus.menu_name, 
       menus.topping, 
       menus.price, 
-      menus.photo, 
+      menus.photo,
+      menus.restaurant,
+      users.user_profile,
       ARRAY_AGG(DISTINCT users.user_profile) AS user_profile 
     FROM 
       menus 
