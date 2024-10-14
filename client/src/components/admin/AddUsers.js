@@ -48,8 +48,7 @@ export const ViewUsers = ({ handleOpen }) => {
     []
   );
 
-  const memoizedData = useMemo(() => users, [users]);
-  console.log("Users: ", memoizedData)
+ 
   if (loading) {
     return <div>Loading...</div>; // You can replace this with a spinner or a better loading indicator
   }
@@ -62,9 +61,8 @@ export const ViewUsers = ({ handleOpen }) => {
     <>
       <Box sx={{ paddingLeft:32, paddingTop: 3, paddingRight:2 }}>
         <MaterialReactTable 
-          key={memoizedData.length} // Force re-render when data length changes
           columns={columns}
-          data={memoizedData}
+          data={users}
           enablePagination
           enableSorting
           enableColumnFiltering
