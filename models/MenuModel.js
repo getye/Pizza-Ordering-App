@@ -21,7 +21,7 @@ const viewMenus = async () => {
 
   try {
     const result = await pool.query(query);
-    return result.rows; 
+    return result; 
   } catch (err) {
     console.error('Error retrieving menus:', err);
     throw new Error('Could not retrieve menus');
