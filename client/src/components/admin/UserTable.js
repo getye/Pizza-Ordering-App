@@ -3,6 +3,7 @@ import { Box, Button, Snackbar, Alert } from '@mui/material';
 import { MaterialReactTable } from 'material-react-table';
 import ActionButtons from './ActionButtons.js';
 
+
 export const UserTable = ({ handleOpen }) => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);

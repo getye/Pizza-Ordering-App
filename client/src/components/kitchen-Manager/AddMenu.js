@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Box, TextField, Button, Alert, Snackbar, Typography, IconButton, FormLabel } from '@mui/material';
-import { Topping } from './Topping'; // Ensure your Topping component passes the correct name
+import { Topping } from './Topping'; 
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 
 export const AddMenu = () => {

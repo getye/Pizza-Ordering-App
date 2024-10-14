@@ -1,8 +1,8 @@
 const pool = require('../dbcon');
 
 const addMenu = async (id, menuName, toppings, price, picture, restaurantName) => {
-  const query = 'INSERT INTO menus(menu_id, menu_name, topping, price, photo, restaurant) VALUES($1,$2,$3,$4,$5,$6)';
-  const values = [ id, menuName, toppings, price, picture, restaurantName];
+  const query = 'INSERT INTO menus(menu_id, menu_name, topping, price, photo, restaurant) VALUES($1, $2, $3, $4, $5, $6)';
+  const values = [id, menuName, toppings, price, picture, restaurantName];
   return await pool.query(query, values);
 };
 

@@ -3,30 +3,47 @@ const MenuModel = require('../models/MenuModel');
 const UserModel = require('../models/UserModel');
 
 
+const cloudinary = require('cloudinary').v2;
+const { v4: uuidv4 } = require('uuid');
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
 const addMenu = async (req, res) => {
   const id = uuidv4();
   const manager_id = req.user.userId;
-  console.log("User ID: ", manager_id)
   const { menuName, toppings, price } = req.body;
   const image = req.file;
-  const picture = image.path;
-  
+
   try {
-        
     // Retrieve the Kitchen Manager's restaurant
     const restaurantName = await UserModel.getAdminRestaurant(manager_id);
-    console.log("Restaurant: ", restaurantName)
-
+    
     if (!restaurantName) {
       return res.status(404).json({ message: "Admin restaurant not found" });
     }
+
+    // Upload image to Cloudinary
+    const uploadResult = await cloudinary.uploader.upload(image.path, {
+      folder: 'uploads/pizza',  // folder on Cloudinary
+    });
+
+    // Get the secure URL for the uploaded image
+    const picture = uploadResult.secure_url;
+
+    // Insert menu details into the database
     await MenuModel.addMenu(id, menuName, toppings, price, picture, restaurantName);
-    res.status(201).json({ message: "Menu Successfully Added", imageUrl });
+
+    res.status(201).json({ message: "Menu Successfully Added", imageUrl: picture });
   } catch (err) {
     console.log(err);
-    res.status(500).json({ message: "Error, ",err });
+    res.status(500).json({ message: "Error adding menu", error: err });
   }
-}; 
+};
+
 
 const viewMenus = async (req, res) => {
   try {
