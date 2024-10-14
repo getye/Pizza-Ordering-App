@@ -25,8 +25,9 @@ export const EarningsChart = () => {
           if (!response.ok) {
             throw new Error('Network response was not ok');
           }
-       
-          setData(response.data);
+      
+          const result = await response.json();  
+          setData(result);
       } catch (error) {
         console.error('Error fetching earnings data:', error);
       }
