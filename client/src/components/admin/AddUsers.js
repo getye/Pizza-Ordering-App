@@ -9,14 +9,8 @@ export const ViewUsers = ({ handleOpen }) => {
   const dispatch = useDispatch();
 
   // Get users and loading state from Redux store
-  //const { users, loading, error } = useSelector((state) => state.user);
-  const [users, setUsers] = useState(
-    [
-      { user_name: 'John Doe', user_email: 'john@example.com', user_type: 'Admin' },
-      { user_name: 'Jane Doe', user_email: 'jane@example.com', user_type: 'User' }
-    ]
-    
-  )
+  const { users, loading, error } = useSelector((state) => state.user);
+
   const [showNotification, setShowNotification] = useState(false);
   const [notificationMessage, setNotificationMessage] = useState('');
   const [messageType, setMessageType] = useState('');
@@ -34,6 +28,15 @@ export const ViewUsers = ({ handleOpen }) => {
 
   console.log("Users: ", users)
 
+
+ 
+  if (loading) {
+    return <div>Loading...</div>; 
+  }
+
+  if (error) {
+    return <div style={{ color: 'red', textAlign: 'center' }}>{error}</div>;
+  }
 
   return (
     <>
