@@ -6,27 +6,35 @@ const addMenu = async (id, menuName, toppings, price, picture, restaurantName) =
   return await pool.query(query, values);
 };
 
+
 const viewMenus = async () => {
   const query = `
-    SELECT DISTINCT
-      menus.*, 
-      users.user_profile 
+    SELECT 
+      menus.menu_id, 
+      menus.menu_name, 
+      menus.topping, 
+      menus.price, 
+      menus.photo, 
+      ARRAY_AGG(DISTINCT users.user_profile) AS user_profiles 
     FROM 
       menus 
     JOIN 
       users ON users.user_restaurant = menus.restaurant 
     WHERE 
-      users.user_type = 'Restaurant Register';
+      users.user_type = 'Restaurant Register'
+    GROUP BY 
+      menus.menu_id;
   `;
 
   try {
     const result = await pool.query(query);
-    return (result.rows); 
+    return result.rows; 
   } catch (err) {
     console.error('Error retrieving menus:', err);
     throw new Error('Could not retrieve menus');
   }
 };
+
 
 
 const orderPizza = async (id, customer_id, menuName, toppings, price, quantity, restaurant, order_status, formattedDate) => {
