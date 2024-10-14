@@ -46,7 +46,7 @@ export const BranchManagerDashboard = () => {
               <CardMedia
                 component="img"
                 sx={{ width: 120, height: 120, borderRadius: '50%', marginTop: 2 }} // Make image circular and position it at the top
-                image={`${window.location.origin}/uploads/pizza/${menu.photo}`} // Image from the uploads/pizza directory
+                image={menu.photo} 
                 alt={menu.menu_name}
               />
               <CardContent sx={{ textAlign: 'center' }}> {/* Center align text */}

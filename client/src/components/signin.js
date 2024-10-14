@@ -32,7 +32,7 @@ export const Signin = () => {
         localStorage.setItem('userRole', responseData.user_role);
 
         if (responseData.user_role === "Super Admin") {
-          navigate("/superadmin/view/admins");
+          navigate("/superadmin/view/earnings");
         }else if (responseData.user_role === "Restaurant Register") {
           navigate("/admin/reports");
         } else if (responseData.user_role === "Kitchen Manager") {
