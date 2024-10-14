@@ -44,7 +44,7 @@ export const AddMenu = () => {
 
     const formData = new FormData();
     formData.append('menuName', menuData.menuName);
-    formData.append('toppings', JSON.stringify(menuData.toppings)); // This now sends an array
+    formData.append('toppings', JSON.stringify(menuData.toppings)); //sends an array
     formData.append('price', menuData.price);
     formData.append('picture', menuData.picture);
 
@@ -61,6 +61,7 @@ export const AddMenu = () => {
         },
         body: formData,
       });
+      console.log("Respons: ", response)
       if (response.ok) {
         setMessageType("Success");
         setNotificationMessage('Menu Successfully Added');
