@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react"; 
 import { Box, Typography, Card, CardContent, CardMedia, Grid } from "@mui/material";
 
 export const KichenManagerDashboard = () => {
@@ -7,31 +7,30 @@ export const KichenManagerDashboard = () => {
   // Fetch menu items when the component mounts
   useEffect(() => {
     const fetchMenus = async () => {
-        try {
-            const token = localStorage.getItem('token');
-            if (!token) {
-              console.log('No token found, please log in');
-              return;
-            }
-          
-            const response = await fetch(`${window.location.origin}/manager/view/menus`, {
-              method: 'GET',
-              headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}` // Add the token to the Authorization header
-              }
-            });
-          
-            if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
-            }
-          
-            const data = await response.json();
-            setMenus(data);
-          } catch (error) {
-            console.error('Error fetching menus:', error);
+      try {
+        const token = localStorage.getItem('token');
+        if (!token) {
+          console.log('No token found, please log in');
+          return;
+        }
+
+        const response = await fetch(`${window.location.origin}/manager/view/menus`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}` // Add the token to the Authorization header
           }
-          
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        setMenus(data);
+      } catch (error) {
+        console.error('Error fetching menus:', error);
+      }
     };
 
     fetchMenus();
@@ -46,7 +45,7 @@ export const KichenManagerDashboard = () => {
               <CardMedia
                 component="img"
                 sx={{ width: 120, height: 120, borderRadius: '50%', marginTop: 2 }} // Make image circular and position it at the top
-                image={`${window.location.origin}/uploads/pizza/${menu.photo}`} // Image from the uploads/pizza directory
+                image={menu.photo} // Use Cloudinary URL stored in database
                 alt={menu.menu_name}
               />
               <CardContent sx={{ textAlign: 'center' }}> {/* Center align text */}
