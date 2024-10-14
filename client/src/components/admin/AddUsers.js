@@ -60,7 +60,7 @@ export const ViewUsers = ({ handleOpen }) => {
           data={users}
           enableSorting
           enableColumnFiltering
-          initialState={{ pagination: { pageSize: 4 } }}
+          
           renderTopToolbarCustomActions={() => (
             <Button
               onClick={handleOpen}
