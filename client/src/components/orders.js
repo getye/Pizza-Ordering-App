@@ -51,7 +51,7 @@ export const Orders = () => {
                 </Button>
 
                 <Divider sx={{mt:2}}/>
-                  <CardMedia
+                  <Box
                     component="img"
                     sx={{ width: 80, height: 80, borderRadius: '50%', marginTop: 2 }} // Make image circular and position it at the top
                     image={menu.user_profile} 
