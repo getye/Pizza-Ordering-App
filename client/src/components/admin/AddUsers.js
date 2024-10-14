@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Button, Snackbar, Alert } from '@mui/material';
 import { MaterialReactTable } from 'material-react-table';
 import ActionButtons from './ActionButtons.js';
@@ -17,40 +17,20 @@ export const ViewUsers = ({ handleOpen }) => {
 
  
   useEffect(() => {
-    dispatch(fetchUsers());  // Fetch users on component mount
+    dispatch(fetchUsers());  
   }, [dispatch]);
 
-  const handleNotification = (message, type) => {
-    setNotificationMessage(message);
-    setMessageType(type);
+  const handleNotification = () => {
+    setNotificationMessage(notificationMessage);
+    setMessageType(messageType);
     setShowNotification(true);
   };
 
-  const columns = useMemo(
-    () => [
-      {
-        header: 'No.', // Header for the row number column
-        Cell: ({ row }) => row.index + 1, // Row index starts from 0, so add 1 for display
-      },
-      { accessorKey: 'user_name', header: 'User Name' },
-      { accessorKey: 'user_email', header: 'Email' },
-      { accessorKey: 'user_type', header: 'Role' },
-      {
-        header: 'Action',
-        Cell: ({ row }) => (
-          <ActionButtons
-            user={row.original}
-            onNotify={handleNotification}
-          />
-        ),
-      },
-    ],
-    []
-  );
+
 
  
   if (loading) {
-    return <div>Loading...</div>; // You can replace this with a spinner or a better loading indicator
+    return <div>Loading...</div>; 
   }
 
   if (error) {
@@ -61,7 +41,24 @@ export const ViewUsers = ({ handleOpen }) => {
     <>
       <Box sx={{ paddingLeft:32, paddingTop: 3, paddingRight:2 }}>
         <MaterialReactTable 
-          columns={columns}
+          columns={[
+            {
+              header: 'No.', // Header for the row number column
+              Cell: ({ row }) => row.index + 1, // Row index starts from 0, so add 1 for display
+            },
+            { accessorKey: 'user_name', header: 'User Name' },
+            { accessorKey: 'user_email', header: 'Email' },
+            { accessorKey: 'user_type', header: 'Role' },
+            {
+              header: 'Action',
+              Cell: ({ row }) => (
+                <ActionButtons
+                  user={row.original}
+                  onNotify={handleNotification}
+                />
+              ),
+            },
+          ]}
           data={users}
           enablePagination
           enableSorting
