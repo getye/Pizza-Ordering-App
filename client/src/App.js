@@ -36,7 +36,7 @@ function App() {
             <Route path="/signup" element={<Signup/>}/> 
             
             <Route
-              path="/superAdmin/view/earnings"
+              path="/superadmin/view/earnings"
               element={<AddAdmins />} 
             />
             <Route

@@ -8,7 +8,7 @@ const EarningsChart = () => {
     // Fetch the earnings data from the API
     const fetchEarnings = async () => {
       try {
-        const response = await fetch(`${window.location.origin}/superAdmin/view/earnings`); // Adjust API endpoint as needed
+        const response = await fetch(`${window.location.origin}/superadmin/view/earnings`); 
         const data = await response.json();
         setEarningsData(data); // Set the fetched data
       } catch (error) {

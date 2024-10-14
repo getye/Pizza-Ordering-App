@@ -89,7 +89,7 @@ const reports = async (restaurant) => {
   return await pool.query(query, values);
 };
 
-const viewEarnings = async (restaurant) => {
+const viewEarnings = async () => {
   try {
     const result = await pool.query(`
       SELECT restaurant, SUM(price * quantity) AS total_earnings
