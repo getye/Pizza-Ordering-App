@@ -56,7 +56,7 @@ export const EarningsChart = () => {
           <XAxis dataKey="restaurant" />
           <YAxis />
           <Tooltip />
-          <Bar dataKey="total_earnings" fill="#8884d8" />
+          <Bar dataKey="total_earnings" fill="#8884d8" barSize={40}/>
         </BarChart>
       </ResponsiveContainer>
     </Box>
