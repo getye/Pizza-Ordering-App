@@ -13,7 +13,7 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
-    folder: 'pizza', // Folder in Cloudinary where images will be uploaded
+    folder: 'upload/pizza', // Folder in Cloudinary where images will be uploaded
     format: async (req, file) => 'png', // Set image format (optional)
     public_id: (req, file) => {
       const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
@@ -24,7 +24,7 @@ const storage = new CloudinaryStorage({
 
 // File filter to accept only images
 const fileFilter = (req, file, cb) => {
-  if (file.mimetype.startsWith('uploads/image/')) {
+  if (file.mimetype.startsWith('image/')) {
     cb(null, true);
   } else {
     cb(new Error('Not an image! Please upload only images.'), false);

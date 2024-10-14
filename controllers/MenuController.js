@@ -2,14 +2,6 @@ const { v4: uuidv4 } = require('uuid');
 const MenuModel = require('../models/MenuModel');
 const UserModel = require('../models/UserModel');
 
-const cloudinary = require('cloudinary').v2;
-
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
-
 const addMenu = async (req, res) => {
   const id = uuidv4();
   const manager_id = req.user.userId;
@@ -17,30 +9,30 @@ const addMenu = async (req, res) => {
   const image = req.file;
 
   try {
-    // Retrieve the Kitchen Manager's restaurant
-    const restaurantName = await UserModel.getAdminRestaurant(manager_id);
-    
-    if (!restaurantName) {
-      return res.status(404).json({ message: "Admin restaurant not found" });
+    // Validate if an image is uploaded
+    if (!image) {
+      return res.status(400).json({ message: 'No image uploaded. Please upload an image.' });
     }
 
-    // Upload image to Cloudinary
-    const uploadResult = await cloudinary.uploader.upload(image.path, {
-      folder: 'uploads/pizza',  // folder on Cloudinary
-    });
+    const picture = image.path; // Cloudinary URL of the uploaded image
 
-    // Get the secure URL for the uploaded image
-    const picture = uploadResult.secure_url;
+    // Retrieve the Kitchen Manager's restaurant
+    const restaurantName = await UserModel.getAdminRestaurant(manager_id);
+    if (!restaurantName) {
+      return res.status(404).json({ message: 'Admin restaurant not found' });
+    }
 
     // Insert menu details into the database
     await MenuModel.addMenu(id, menuName, toppings, price, picture, restaurantName);
 
-    res.status(201).json({ message: "Menu Successfully Added", imageUrl: picture });
+    // Respond with success and image URL
+    res.status(201).json({ message: 'Menu Successfully Added', imageUrl: picture });
   } catch (err) {
-    console.log(err);
-    res.status(500).json({ message: "Error adding menu", error: err });
+    console.error(err);
+    res.status(500).json({ message: 'Error adding menu', error: err });
   }
 };
+
 
 
 const viewMenus = async (req, res) => {
