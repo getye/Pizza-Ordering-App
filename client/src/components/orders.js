@@ -52,13 +52,21 @@ export const Orders = () => {
                 </Button>
 
                 <Divider sx={{mt:2}}/>
-                  <CardMedia
-                    component="img"
-                    sx={{ width: 50, height: 50, borderRadius: '50%', marginTop: 2 }} // Make image circular and position it at the top
-                    image={menu.user_profile} 
-                    alt={" "}
-                  />
-                <Typography variant="body1" sx={{fontWeight: 'bold'}}>{menu.restaurant}</Typography>
+                <Grid container alignItems="center" spacing={2}>
+                  <Grid item>
+                      <CardMedia
+                        component="img"
+                        sx={{ width: 50, height: 50, borderRadius: '50%', marginTop: 2 }} // Make image circular and position it at the top
+                        image={menu.user_profile} 
+                        alt={" "}
+                      />
+                  </Grid>
+                  <Grid item>
+                    <Typography variant="body1" sx={{fontWeight: 'bold'}}>
+                      {menu.restaurant}
+                    </Typography>
+                  </Grid>
+                </Grid>
               </CardContent>
             </Card>
           </Grid>
