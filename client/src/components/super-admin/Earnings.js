@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2'; // Assuming you're using Chart.js
 
-const EarningsChart = () => {
+export const EarningsChart = () => {
   const [earningsData, setEarningsData] = useState([]);
 
   useEffect(() => {
@@ -60,4 +60,4 @@ const EarningsChart = () => {
   );
 };
 
-export default EarningsChart;
+

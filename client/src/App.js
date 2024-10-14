@@ -22,6 +22,7 @@ import { UpdateProfile } from './components/updateProfile';
 import { Unauthorized } from './components/unauthorized';
 import { OrdersInfo } from './components/cashier/orders';
 import { Report } from './components/admin/Report';
+import { EarningsChart } from './components/super-admin/Earnings';
 
 
 
@@ -37,7 +38,7 @@ function App() {
             
             <Route
               path="/superadmin/view/earnings"
-              element={<AddAdmins />} 
+              element={<EarningsChart />} 
             />
             <Route
               path="/superadmin/view/admins"
