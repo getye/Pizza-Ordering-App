@@ -1,74 +1,64 @@
-import { useEffect, useState } from 'react';
+import { Box, Typography } from '@mui/material';
+import React, { useEffect, useState } from 'react';
 import {
-    Chart as ChartJS,
-    CategoryScale, // for the x-axis
-    LinearScale,   // for the y-axis
-    BarElement,
-    Title,
-    Tooltip,
-    Legend,
-  } from 'chart.js';
-  import { Bar } from 'react-chartjs-2';
-  
-  // Register the required components
-  ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from 'recharts';
 
 export const EarningsChart = () => {
-  const [earningsData, setEarningsData] = useState([]);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
-    // Fetch the earnings data from the API
-    const fetchEarnings = async () => {
+    const fetchEarningsData = async () => {
       try {
-        const response = await fetch(`${window.location.origin}/superadmin/view/earnings`); 
-        const data = await response.json();
-        setEarningsData(data); // Set the fetched data
+        const response = await fetch(`${window.location.origin}/superadmin/view/earnings`, {
+            method: 'GET', 
+            headers: {
+              'Content-Type': 'application/json', 
+            },
+          });
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+      
+          const data = await response.json();  
+          setData(data);
       } catch (error) {
-        console.error('Error fetching earnings:', error);
+        console.error('Error fetching earnings data:', error);
       }
     };
 
-    fetchEarnings();
+    fetchEarningsData();
   }, []);
 
-  // Prepare data for the chart
-  const chartData = {
-    labels: earningsData.map((item) => item.restaurant), // Restaurant names as labels
-    datasets: [
-      {
-        label: 'Total Earnings',
-        data: earningsData.map((item) => item.total_earnings), // Total earnings as data
-        backgroundColor: 'rgba(75, 192, 192, 0.6)',
-        borderColor: 'rgba(75, 192, 192, 1)',
-        borderWidth: 1,
-      },
-    ],
-  };
-
   return (
-    <div>
-      <h2>Total Earnings by Restaurant</h2>
-      <Bar
-        data={chartData}
-        options={{
-          scales: {
-            y: {
-              beginAtZero: true,
-              title: {
-                display: true,
-                text: 'Total Earnings',
-              },
-            },
-            x: {
-              title: {
-                display: true,
-                text: 'Restaurant',
-              },
-            },
-          },
-        }}
-      />
-    </div>
+    <Box sx={{ paddingLeft:32, paddingTop:5, width: '98%', height: 400 }}>
+      <Typography variant='h3'>Total Earnings by Restaurant</Typography>
+      <ResponsiveContainer width="100%" height="100%">
+        <BarChart
+          width={500}
+          height={300}
+          data={data}
+          margin={{
+            top: 20,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="restaurant" />
+          <YAxis />
+          <Tooltip />
+          <Bar dataKey="total_earnings" fill="#8884d8" />
+        </BarChart>
+      </ResponsiveContainer>
+    </Box>
   );
 };
 
