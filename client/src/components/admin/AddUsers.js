@@ -42,6 +42,7 @@ export const ViewUsers = ({ handleOpen }) => {
     <>
       <Box sx={{ paddingLeft:32, paddingTop: 3, paddingRight:2 }}>
         <MaterialReactTable 
+          key={users.length}
           columns={[
             {
               header: 'No.', // Header for the row number column
@@ -64,7 +65,7 @@ export const ViewUsers = ({ handleOpen }) => {
           enablePagination
           enableSorting
           enableColumnFiltering
-          initialState={{ pagination: { pageSize: 3 } }}
+          initialState={{ pagination: { pageSize: 4 } }}
           renderTopToolbarCustomActions={() => (
             <Button
               onClick={handleOpen}
