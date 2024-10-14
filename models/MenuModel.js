@@ -8,7 +8,7 @@ const addMenu = async (id, menuName, toppings, price, picture, restaurantName) =
 
 const viewMenus = async () => {
   const query = `
-    SELECT 
+    SELECT DISTINCT
       menus.*, 
       users.user_profile 
     FROM 
@@ -16,12 +16,12 @@ const viewMenus = async () => {
     JOIN 
       users ON users.user_restaurant = menus.restaurant 
     WHERE 
-      users.user_type = 'Restaurant Register';
+      users.user_type = 'Restaurant_Register';
   `;
 
   try {
     const result = await pool.query(query);
-    return result; 
+    return result.rows; // Return only the rows to avoid duplication
   } catch (err) {
     console.error('Error retrieving menus:', err);
     throw new Error('Could not retrieve menus');
