@@ -26,6 +26,7 @@ export const ViewUsers = ({ handleOpen }) => {
     setShowNotification(true);
   };
 
+  console.log("Users: ", users)
 
 
  
