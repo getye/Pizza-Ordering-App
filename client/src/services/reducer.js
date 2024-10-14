@@ -1,4 +1,8 @@
-import { FETCH_USERS_REQUEST, FETCH_USERS_SUCCESS, FETCH_USERS_FAILURE } from './actions';
+import { 
+  FETCH_USERS_REQUEST, 
+  FETCH_USERS_SUCCESS, 
+  FETCH_USERS_FAILURE 
+  } from './action';
 
 // Initial state
 const initialState = {
