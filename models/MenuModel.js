@@ -96,10 +96,10 @@ const viewEarnings = async () => {
       FROM orders
       GROUP BY restaurant
     `);
-    res.json(result.rows); // Send the results as JSON
+    return result.rows; // Return the result (do not send response here)
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    console.error('Error executing query:', error);
+    throw error; // Throw the error so the controller can catch it
   }
 };
 

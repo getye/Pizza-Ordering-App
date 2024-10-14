@@ -153,14 +153,13 @@ const reports = async (req, res) => {
 };
 
 const viewEarnings = async (req, res) => {
-
   try {
-    const earnings = await MenuModel.viewEarnings();
-    console.log(earnings)
-    res.json(earnings.rows);
+    const earnings = await MenuModel.viewEarnings(); // Get data from model
+    console.log("earnings: ", earnings);
+    res.json(earnings); // Send the results as JSON to the client
   } catch (err) {
-    console.log(err);
-    res.status(500).json({ message: "Error retrieving order reports" });
+    console.error('Error retrieving earnings reports:', err);
+    res.status(500).json({ message: "Error retrieving earnings reports" });
   }
 };
 
