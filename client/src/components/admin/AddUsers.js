@@ -2,48 +2,23 @@ import React, { useEffect, useState, useMemo } from 'react';
 import { Box, Button, Snackbar, Alert } from '@mui/material';
 import { MaterialReactTable } from 'material-react-table';
 import ActionButtons from './ActionButtons.js';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchUsers } from '../../services/action.js';
 
 export const ViewUsers = ({ handleOpen }) => {
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const dispatch = useDispatch();
+
+  // Get users and loading state from Redux store
+  const { users, loading, error } = useSelector((state) => state.user);
+;
   const [showNotification, setShowNotification] = useState(false);
   const [notificationMessage, setNotificationMessage] = useState('');
   const [messageType, setMessageType] = useState('');
 
-  const fetchUsers = async () => {
-    try {
-      const token = localStorage.getItem('token');
-      if (!token) {
-        console.log('No token found, please log in');
-        return;
-      }
-
-      const response = await fetch(`${window.location.origin}/admin/users`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      const data = await response.json();
-
-      if (!Array.isArray(data)) {
-        throw new Error('Data is not an array');
-      }
-
-      setUsers(data);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
+ 
   useEffect(() => {
-    fetchUsers();
-  }, []);
+    dispatch(fetchUsers());  // Fetch users on component mount
+  }, [dispatch]);
 
   const handleNotification = (message, type) => {
     setNotificationMessage(message);
@@ -86,7 +61,6 @@ export const ViewUsers = ({ handleOpen }) => {
   return (
     <>
       <Box sx={{ paddingLeft:32, paddingTop: 3, paddingRight:2 }}>
-        {memoizedData.length > 0 ? (
         <MaterialReactTable 
           key={memoizedData.length} // Force re-render when data length changes
           columns={columns}
@@ -115,9 +89,6 @@ export const ViewUsers = ({ handleOpen }) => {
             </Button>
           )}
         />
-      ) : (
-        <div>No users to display</div> // Handle case when there is no data
-      )}
       </Box>
 
       <Snackbar
