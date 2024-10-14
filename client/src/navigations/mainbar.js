@@ -127,6 +127,14 @@ export const MainBar = (props) => {
       {/* Super Admin Links */}
       {userRole === "Super Admin" && (
           <>
+          <ListItem disablePadding onClick={() => { navigate("/admin/reports") }}>
+            <ListItemButton >
+              <ListItemIcon>
+                <SummarizeIcon />
+              </ListItemIcon>
+              <ListItemText primary="Dashboard" />
+            </ListItemButton>
+          </ListItem>
           <ListItem disablePadding onClick={() => { navigate("/superadmin/view/admins") }}>
               <ListItemButton>
                 <ListItemIcon>
