@@ -66,6 +66,7 @@ export const AdminTable = ({ handleOpen }) => {
           data={users}
           enableSorting
           enableColumnFiltering
+          initialState={{ pagination: { pageSize: 3 } }}
           renderTopToolbarCustomActions={() => (
             <Button
               onClick={handleOpen}
