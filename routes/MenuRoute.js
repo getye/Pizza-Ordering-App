@@ -12,6 +12,7 @@ menuRouter.get('/manager/view/orders', protect, MenuController.managerViewOrders
 menuRouter.get('/manager/view/menus', protect, MenuController.managerViewMenus); 
 menuRouter.put('/kitchen-managr/update/order/status/:order_id', MenuController.updateOrderStatus);
 menuRouter.get('/admin/reports', protect, MenuController.reports); 
+menuRouter.get('/superAdmin/view/earnings', MenuController.viewEarnings); 
 
 
 

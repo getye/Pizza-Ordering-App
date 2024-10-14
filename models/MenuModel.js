@@ -89,6 +89,19 @@ const reports = async (restaurant) => {
   return await pool.query(query, values);
 };
 
+const viewEarnings = async (restaurant) => {
+  try {
+    const result = await pool.query(`
+      SELECT restaurant, SUM(price * quantity) AS total_earnings
+      FROM orders
+      GROUP BY restaurant
+    `);
+    res.json(result.rows); // Send the results as JSON
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
 
 
 
@@ -102,4 +115,5 @@ module.exports = {
     updateOrderStatus,
     managerViewMenus,
     reports,
+    viewEarnings,
 };

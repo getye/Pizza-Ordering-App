@@ -152,6 +152,18 @@ const reports = async (req, res) => {
   }
 };
 
+const viewEarnings = async (req, res) => {
+
+  try {
+    const earnings = await MenuModel.viewEarnings();
+    console.log(earnings)
+    res.json(earnings.rows);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: "Error retrieving order reports" });
+  }
+};
+
 
 module.exports = {
     addMenu,
@@ -162,5 +174,6 @@ module.exports = {
     updateOrderStatus,
     managerViewMenus,
     reports,
+    viewEarnings,
 
 };
