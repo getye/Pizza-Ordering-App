@@ -7,9 +7,27 @@ const addMenu = async (id, menuName, toppings, price, picture, restaurantName) =
 };
 
 const viewMenus = async () => {
-  const query = 'SELECT * FROM menus';
-  return await pool.query(query);
-}; 
+  const query = `
+    SELECT 
+      menus.*, 
+      users.user_profile 
+    FROM 
+      menus 
+    JOIN 
+      users ON users.user_restaurant = menus.restaurant 
+    WHERE 
+      users.user_type = 'Restaurant Register';
+  `;
+
+  try {
+    const result = await pool.query(query);
+    return result.rows; // Return the rows from the query
+  } catch (err) {
+    console.error('Error retrieving menus:', err);
+    throw new Error('Could not retrieve menus');
+  }
+};
+
 
 const orderPizza = async (id, customer_id, menuName, toppings, price, quantity, restaurant, order_status, formattedDate) => {
   const query = 'INSERT INTO orders(order_id, customer_id, menu_name, topping, price, quantity, restaurant, order_status, created_at) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9)';
