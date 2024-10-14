@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import {
   BarChart,
@@ -36,9 +36,10 @@ export const EarningsChart = () => {
     fetchEarningsData();
   }, []);
 
+  console.log("data: ", data)
+
   return (
     <Box sx={{ paddingLeft:32, paddingTop:5, width: '98%', height: 400 }}>
-      <Typography variant='h3'>Total Earnings by Restaurant</Typography>
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
           width={500}
