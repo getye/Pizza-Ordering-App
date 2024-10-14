@@ -244,7 +244,7 @@ const addAdmin = async (req, res) => {
 
 const updateProfile = async (req, res) => {
   const user_id = req.user.userId;
-  const picture = req.file ? req.file.filename : null;
+  const picture = req.file ? req.file.path : null;
   console.log("Recived Data: ", picture)
   
   try {

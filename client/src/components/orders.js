@@ -29,7 +29,7 @@ export const Orders = () => {
             <Card sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 2 }}>
               <CardMedia
                 component="img"
-                sx={{ width: '80%', height: '80%', borderRadius: '50%', marginTop: 2 }} // Make image circular and position it at the top
+                sx={{ width: 120, height: 120, borderRadius: '50%', marginTop: 2 }} // Make image circular and position it at the top
                 image={menu.photo} 
                 alt={menu.menu_name}
               />
