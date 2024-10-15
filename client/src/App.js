@@ -46,7 +46,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <AbilityProvider>
       <MainBar />
       <Routes>
         {!isAuthenticated ? (
@@ -59,7 +59,7 @@ function App() {
             <Route path="/unauthorized" element={<Unauthorized />} />
           </>
         ) : (
-          <AbilityProvider>
+          <>
             <Route
               path="/superadmin/view/earnings"
               element={<ProtectedRoute action="read" subject="Earnings" element={<EarningsChart />} />}
@@ -112,10 +112,11 @@ function App() {
               path="/customer/menu"
               element={<ProtectedRoute action="create" subject="Order" element={<Menus />} />}
             />
-          </AbilityProvider>
+          </>
         )}
+      
       </Routes>
-    </>
+      </AbilityProvider>
   );
 }
 
