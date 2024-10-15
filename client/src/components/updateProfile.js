@@ -126,8 +126,17 @@ export const UpdateProfile = ({handleProfileModalClose}) => {
             </FormLabel>
           </Box>
         </Box>
-      <Button onClick={handleSubmit} sx={{ bgcolor: '#FF8C00', color: 'white', fontWeight:'bold', textTransform: 'none' }}>Update</Button>
-      <Button onClick={handleProfileModalClose}sx={{ bgcolor: 'red', color: 'white', fontWeight:'bold', textTransform: 'none'}}>Close</Button>
+      <Button onClick={handleSubmit} 
+        sx={{ 
+          bgcolor: '#FF8C00', 
+          color: 'white', 
+          fontWeight:'bold', 
+          textTransform: 'none', 
+          position: 'absolute',    // Make the button stay at a fixed position
+          bottom: 16,              // Adjust the distance from the bottom (16px)
+          left: '50%',             // Position the button in the center horizontally
+          transform: 'translateX(-50%)'
+          }}>Update</Button>
 
       <Snackbar
         open={showNotification}
