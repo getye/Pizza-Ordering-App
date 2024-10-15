@@ -76,7 +76,7 @@ export const UpdateProfile = ({handleProfileModalClose}) => {
         flexDirection: 'column',
         marginLeft: 'auto',
         marginRight: 'auto',
-        width: '80%',
+        width: '100%',
       }}
     >
       <Box
