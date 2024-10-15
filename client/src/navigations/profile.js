@@ -292,7 +292,7 @@ export const Profile = () => {
           <UpdateProfile onClose={handleProfileModalClose} />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleProfileModalClose}sx={{ bgcolor: 'red', color: 'white', fontWeight:'bold', textTransform: 'none'}}>Close</Button>
+          <Button onClick={handleProfileModalClose}sx={{ bgcolor: 'red', color: 'white', fontWeight:'bold', textTransform: 'none', position: 'absolute', bottom: 5}}>Close</Button>
         </DialogActions>
       </Dialog>
     </>

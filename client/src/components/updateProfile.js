@@ -133,7 +133,7 @@ export const UpdateProfile = ({handleProfileModalClose}) => {
           fontWeight:'bold', 
           textTransform: 'none', 
           position: 'absolute',    // Make the button stay at a fixed position
-          bottom: 2,              // Adjust the distance from the bottom (16px)
+          bottom: 5,              // Adjust the distance from the bottom (5px)
           left: '50%',             // Position the button in the center horizontally
           transform: 'translateX(-50%)'
           }}>Update</Button>
