@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { z } from 'zod';
 import Axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 import {
   Grid, Box, Typography, TextField, Button, Snackbar, Alert,
   FormControl, InputLabel, OutlinedInput, InputAdornment, IconButton,
-  Link,
   FormControlLabel,
   Checkbox,
-  Divider
+  Divider,
+  MenuItem
 } from '@mui/material';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
@@ -31,6 +33,7 @@ const signupSchema = z.object({
 });
 
 export const Signup = () => {
+  const navigate = useNavigate();
   const initialFormValues = {
     email: '',
     password: '',
@@ -230,7 +233,7 @@ export const Signup = () => {
               Sign up
             </Button>
             <Typography component="h5">
-              Have an account? <Link to="/signin">Sign in</Link>
+              Have an account? <MenuItem onClick={() =>{navigate("/signin")}}>Sign in</MenuItem>
             </Typography>
           </Box>
         </Grid>
