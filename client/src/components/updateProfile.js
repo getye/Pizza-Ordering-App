@@ -135,7 +135,7 @@ export const UpdateProfile = ({handleProfileModalClose}) => {
           textTransform: 'none', 
           position: 'absolute',    
           bottom: 5,              
-          left: 1,             
+          left: 6,             
           }}>Update</Button>
 
       <Snackbar
