@@ -56,7 +56,7 @@ export const Orders = () => {
                   <Grid item xs={3}>
                       <CardMedia
                         component="img"
-                        sx={{ width: 50, height: 50, borderRadius: '50%', marginTop: 2 }} // Make image circular and position it at the top
+                        sx={{ width: 40, height: 40, borderRadius: '50%', marginTop: 2 }} // Make image circular and position it at the top
                         image={menu.user_profile} 
                         alt={" "}
                       />

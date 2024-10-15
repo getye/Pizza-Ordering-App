@@ -117,7 +117,21 @@ export const Menus = () => {
                 </Button>
 
                 <Divider sx={{ mt: 2 }} />
-                <Typography variant="body1" sx={{ fontWeight: 'bold' }}>{menu.restaurant}</Typography>
+                <Grid container alignItems="center" spacing={2}>
+                  <Grid item xs={3}>
+                      <CardMedia
+                        component="img"
+                        sx={{ width: 40, height: 40, borderRadius: '50%', marginTop: 2 }} // Make image circular and position it at the top
+                        image={menu.user_profile} 
+                        alt={" "}
+                      />
+                  </Grid>
+                  <Grid item xs={9}>
+                    <Typography variant="body1" sx={{fontWeight: 'bold'}}>
+                      {menu.restaurant}
+                    </Typography>
+                  </Grid>
+                </Grid>
               </CardContent>
             </Card>
           </Grid>

@@ -1,6 +1,6 @@
 
 import { MainBar } from './navigations/mainbar';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import {Signin} from './components/signin'
 import { Signup } from './components/signup';
 import { Home } from './components/home'
@@ -18,18 +18,32 @@ import { CustomerOrders } from './components/kitchen-Manager/customerOrders';
 
 import { UpdateProfile } from './components/updateProfile';
 
+import { AbilityProvider } from './AbilityProvider'; 
+import { AbilityContext } from './AbilityProvider';
+import { Can } from '@casl/react';
+import React, { useContext } from 'react';
+
 
 import { Unauthorized } from './components/unauthorized';
 import { OrdersInfo } from './components/cashier/orders';
 import { Report } from './components/admin/Report';
 import { EarningsChart } from './components/super-admin/Earnings';
 
+const ProtectedRoute = ({ action, subject, element }) => {
+  const ability = useContext(AbilityContext);
+
+  return (
+    <Can I={action} a={subject} ability={ability}>
+      {(allowed) => (allowed ? element : <Navigate to="/unauthorized" />)}
+    </Can>
+  );
+};
 
 
 function App() {
 
   return (
-    <>
+    <AbilityProvider>
         <MainBar/>
         <Routes>
             <Route path="/" element={<Home/>}/>
@@ -38,62 +52,62 @@ function App() {
             
             <Route
               path="/superadmin/view/earnings"
-              element={<EarningsChart />} 
+              element={<ProtectedRoute action="read" subject="Earnings" element={<EarningsChart />} />}
             />
             <Route
               path="/superadmin/view/admins"
-              element={<AddAdmins />} 
+              element={<ProtectedRoute action="create" subject="Admins" element={<AddAdmins />} />}
             />
             <Route
               path="/admin/users"
-              element={<ViewUsers />} 
+              element={<ProtectedRoute action="create" subject="User" element={<ViewUsers />} />}
             />
             <Route
               path="/admin/reports"
-              element={<Report />} 
+              element={<ProtectedRoute action="read" subject="Reports" element={<Report />} />}
             />
             <Route
               path="/admin/roles"
-              element={<AddRoles />} 
+              element={<ProtectedRoute action="create" subject="Role" element={<AddRoles />} />}
             />
 
             <Route
               path="/kichen-manager/dashboard"
-              element={<KichenManagerDashboard />}
+              element={<ProtectedRoute action="read" subject="Menu" element={<KichenManagerDashboard />} />}
             />
 
             <Route
               path="/kichen-manager/add/menu"
-              element={<AddMenu />} 
+              element={<ProtectedRoute action="create" subject="Menu" element={<AddMenu />} />}
             />
 
             <Route
               path="/kichen-manager/view/orders"
-              element={<CustomerOrders />} 
+              element={<ProtectedRoute action="update" subject="OrderStatus" element={<CustomerOrders />} />}
             />
 
             <Route
               path="/branch-manager/dashboard"
-              element={<BranchManagerDashboard />} 
+              element={<ProtectedRoute action="read" subject="Menu" element={<BranchManagerDashboard />} />}
             />
             <Route
               path="/branch-manager/view/orders"
-              element={<OrderRequests />} 
+              element={<ProtectedRoute action="read" subject="Orders" element={<OrderRequests />} />}
             />
             
             <Route
               path="/cashier/view/orders"
-              element={<OrdersInfo />} 
+              element={<ProtectedRoute action="read" subject="Orders" element={<OrdersInfo />} />}
             />
             
             <Route
               path="/users/update/profile"
-              element={<UpdateProfile />} 
+              element={<ProtectedRoute action="update" subject="Profile" element={<UpdateProfile />} />}
             />
             
             <Route
               path="/customer/menu"
-              element={<Menus />} 
+              element={<ProtectedRoute action="create" subject="Order" element={<Menus />} />}
             /> 
             <Route
               path="/customer/view/orders"
@@ -104,7 +118,7 @@ function App() {
             <Route path='/orders' element={<Orders/>}/>
             <Route path="/unauthorized" element={<Unauthorized />} />
         </Routes>
-    </>
+    </AbilityProvider>
   );
 }
 

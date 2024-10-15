@@ -6,7 +6,8 @@ import {
   FormControl, InputLabel, OutlinedInput, InputAdornment, IconButton,
   Link,
   FormControlLabel,
-  Checkbox
+  Checkbox,
+  Divider
 } from '@mui/material';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
@@ -114,6 +115,8 @@ export const Signup = () => {
         <Grid item xs={6} sx={{ paddingLeft: 0 }}>
           <Box sx={{ paddingLeft: 0, width: '80%' }}>
             <img src={pizza} alt='Pizza' />
+            <Typography variant='h6'>Customer Registration</Typography>
+            <Divider/>
             <TextField
               size="small"
               sx={{ paddingBottom: 1 }}
@@ -197,7 +200,6 @@ export const Signup = () => {
             />
             <TextField
               size="small"
-              sx={{ paddingBottom: 1 }}
               type="text"
               name="location"
               value={formValues.location}
