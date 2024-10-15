@@ -4,7 +4,7 @@ import { Snackbar, Alert, Grid, Box, Typography, TextField, Button, Link, FormCo
 import sideFrame from '../assets/sideFrame.png'
 import pizza from '../assets/pizza.png'
 
-export const Signin = () => {
+export const Signin = ({setIsAuthenticated}) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -30,6 +30,7 @@ export const Signin = () => {
       if (response.ok) {
         localStorage.setItem('token', responseData.token);
         localStorage.setItem('userRole', responseData.user_role);
+        setIsAuthenticated(true); // Update the authentication state
 
         if (responseData.user_role === "Super Admin") {
           navigate("/superadmin/view/earnings");
