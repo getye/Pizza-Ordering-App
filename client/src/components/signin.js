@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Snackbar, Alert, Grid, Box, Typography, TextField, Button, Link, FormControlLabel, Checkbox, Divider, MenuItem } from '@mui/material';
+import { useNavigate, Link } from 'react-router-dom';
+import { Snackbar, Alert, Grid, Box, Typography, TextField, Button, FormControlLabel, Checkbox, Divider } from '@mui/material';
 import sideFrame from '../assets/sideFrame.png'
 import pizza from '../assets/pizza.png'
 
@@ -122,7 +122,7 @@ export const Signin = ({setIsAuthenticated}) => {
             </Button>
             <Grid className="footer">
               <Typography component="h5">
-                Don't have an account? <MenuItem onClick={() =>{navigate("/signup")}}>Register</MenuItem>
+                Don't have an account? <Link to={"/signup"}>Register</Link>
               </Typography>
             </Grid>
           </Box>
