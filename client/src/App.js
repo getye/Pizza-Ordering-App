@@ -46,20 +46,20 @@ function App() {
   }, []);
 
   return (
-    <AbilityProvider>
+    <>
       <MainBar />
-      <Routes>
         {!isAuthenticated ? (
-          <>
+          <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/signin" element={<Signin setIsAuthenticated={setIsAuthenticated} />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/customer/view/orders" element={<Order />} />
             <Route path='/orders' element={<Orders />} />
             <Route path="/unauthorized" element={<Unauthorized />} />
-          </>
+          </Routes>
         ) : (
-          <>
+        <AbilityProvider>
+          <Routes>
             <Route
               path="/superadmin/view/earnings"
               element={<ProtectedRoute action="read" subject="Earnings" element={<EarningsChart />} />}
@@ -112,11 +112,12 @@ function App() {
               path="/customer/menu"
               element={<ProtectedRoute action="create" subject="Order" element={<Menus />} />}
             />
-          </>
+          </Routes>
+        </AbilityProvider>
         )}
       
-      </Routes>
-      </AbilityProvider>
+
+      </>
   );
 }
 
