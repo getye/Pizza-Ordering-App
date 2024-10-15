@@ -77,7 +77,7 @@ export const UpdateProfile = ({open, close}) => {
         maxWidth: '35%'
       }}
     >
-      <Dialog open onClose >
+      <Dialog open={open} onClose ={close} >
         <DialogTitle>Update Profile</DialogTitle>
         <DialogContent>
           <Typography variant='h5'>Update Profile</Typography>
