@@ -13,8 +13,7 @@ import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { z } from 'zod';
-import { UpdateProfile } from '../components/updateProfile';
-
+import {UpdateProfile} from '../components/updateProfile'; 
 
 const passwordSchema = z.object({
   newPassword: z.string().min(6, { message: "Password must be at least 6 characters long" }),
@@ -28,6 +27,7 @@ export const Profile = () => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false); // Modal open state
+  const [profileModalOpen, setProfileModalOpen] = useState(false); // Profile modal state
   const anchorRef = useRef(null);
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -38,7 +38,7 @@ export const Profile = () => {
 
   const [showNotification, setShowNotification] = useState(false);
   const [notificationMessage, setNotificationMessage] = useState('');
-  const [messageType, setMessageType] =useState('')
+  const [messageType, setMessageType] = useState('');
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleClickShowConfirm = () => setShowConfirm((show) => !show);
@@ -78,14 +78,8 @@ export const Profile = () => {
     navigate('/');
   };
 
-  // Update Password Modal
+  // Handle modal open/close
   const handleModalOpen = () => {
-    setModalOpen(true);
-    setOpen(false); // Close menu when opening modal
-  };
-
-  // Profile Modal
-  const profileModal = () => {
     setModalOpen(true);
     setOpen(false); // Close menu when opening modal
   };
@@ -97,66 +91,69 @@ export const Profile = () => {
     setErrors({});
   };
 
+  // Handle profile modal open/close
+  const handleProfileModalOpen = () => {
+    setProfileModalOpen(true);
+    setOpen(false); // Close menu when opening profile modal
+  };
+
+  const handleProfileModalClose = () => {
+    setProfileModalOpen(false);
+  };
+
   // Handle password update
   const handleNewPasswordChange = (e) => setNewPassword(e.target.value);
   const handleConfirmPasswordChange = (e) => setConfirmPassword(e.target.value);
 
   const handleUpdatePassword = async () => {
-
     const result = passwordSchema.safeParse({ newPassword, confirmPassword });
-    
+
     if (!result.success) {
       const formErrors = result.error.format();
       setErrors({
         newPassword: formErrors.newPassword?._errors[0],
         confirmPassword: formErrors.confirmPassword?._errors[0],
       });
-
-      }else{
-        try {
-          const token = localStorage.getItem('token');
-          if(!token){
-            setMessageType('Error');
-            setModalOpen(false); // Close the modal
-            setNotificationMessage('Token is expired login again');
-            setShowNotification(true);
-          }
-          const response = await fetch(`${window.location.origin}/user/update/password`, {
-            method: 'PUT',
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${token}`, 
-            },
-            body: JSON.stringify({
-              password: newPassword,
-            }),
-          });
-      
-          // Check if the update was successful
-          if (response.ok) {
-
-            setMessageType('Success');
-            setModalOpen(false); // Close the modal
-            setNotificationMessage('Password Successfully Updated');
-            setShowNotification(true);
-          } else {
-            // Handle error response
-            const errorData = await response.json();
-            setMessageType('Error');
-            setNotificationMessage(`Error: ${errorData.message}`);
-            setShowNotification(true);
-          }
-        } catch (err) {
-          setNotificationMessage('An unexpected error occurred');
+    } else {
+      try {
+        const token = localStorage.getItem('token');
+        if (!token) {
+          setMessageType('Error');
+          setModalOpen(false); // Close the modal
+          setNotificationMessage('Token is expired login again');
           setShowNotification(true);
-          console.error(err);
         }
+        const response = await fetch(`${window.location.origin}/user/update/password`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            password: newPassword,
+          }),
+        });
+
+        // Check if the update was successful
+        if (response.ok) {
+          setMessageType('Success');
+          setModalOpen(false); // Close the modal
+          setNotificationMessage('Password Successfully Updated');
+          setShowNotification(true);
+        } else {
+          // Handle error response
+          const errorData = await response.json();
+          setMessageType('Error');
+          setNotificationMessage(`Error: ${errorData.message}`);
+          setShowNotification(true);
+        }
+      } catch (err) {
+        setNotificationMessage('An unexpected error occurred');
+        setShowNotification(true);
+        console.error(err);
       }
-
-    handleModalClose();
+    }
   };
-
-  
 
   return (
     <>
@@ -185,8 +182,7 @@ export const Profile = () => {
               <Grow
                 {...TransitionProps}
                 style={{
-                  transformOrigin:
-                    placement === 'bottom-start' ? 'left top' : 'left bottom',
+                  transformOrigin: placement === 'bottom-start' ? 'left top' : 'left bottom',
                 }}
               >
                 <Paper>
@@ -197,8 +193,8 @@ export const Profile = () => {
                       aria-labelledby="composition-button"
                       onKeyDown={handleListKeyDown}
                     >
-                      <MenuItem onClick={ profileModal }>My Profile</MenuItem>
-                      <MenuItem onClick={handleModalOpen}>Update Password</MenuItem> {/* Open modal */}
+                      <MenuItem onClick={handleProfileModalOpen}>My Profile</MenuItem> {/* Open profile modal */}
+                      <MenuItem onClick={handleModalOpen}>Update Password</MenuItem> {/* Open password modal */}
                       <MenuItem onClick={handleSignOut}>Logout</MenuItem>
                     </MenuList>
                   </ClickAwayListener>
@@ -208,7 +204,7 @@ export const Profile = () => {
           </Popper>
         </div>
       </Stack>
-      <UpdateProfile open={modalOpen} onClose={handleModalClose}/>
+
       {/* Modal for updating password */}
       <Dialog open={modalOpen} onClose={handleModalClose} >
         <DialogTitle>Update Password</DialogTitle>
@@ -272,27 +268,35 @@ export const Profile = () => {
             </FormControl>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleModalClose} sx={{ bgcolor: 'red', color: 'white', textTransform: 'none' }}>Cancel</Button>
-          <Button onClick={handleUpdatePassword}sx={{ bgcolor: '#FF8C00', color: 'white', textTransform: 'none' }}>Update</Button>
+          <Button onClick={handleModalClose}>Cancel</Button>
+          <Button onClick={handleUpdatePassword} variant="contained">Update</Button>
         </DialogActions>
       </Dialog>
+
+      {/* Snackbar for notifications */}
       <Snackbar
         open={showNotification}
         autoHideDuration={6000}
         onClose={() => setShowNotification(false)}
-        anchorOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
-        }}
-        >
-        <Alert
-            onClose={() => setShowNotification(false)}
-            severity={String(messageType).includes('Success') ? 'success' : 'error'}
-            sx={{ width: '100%' }}
-        >
-            {notificationMessage}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+      >
+        <Alert onClose={() => setShowNotification(false)} severity={messageType.toLowerCase()}>
+          {notificationMessage}
         </Alert>
       </Snackbar>
+
+      {/* Modal for updating profile */}
+      <Dialog open={profileModalOpen} onClose={handleProfileModalClose} >
+        <DialogTitle>Update Profile</DialogTitle>
+        <DialogContent>
+          <UpdateProfile onClose={handleProfileModalClose} />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleProfileModalClose}>Close</Button>
+        </DialogActions>
+      </Dialog>
     </>
   );
 };
+
+
