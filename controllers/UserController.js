@@ -250,7 +250,7 @@ const updateProfile = async (req, res) => {
   try {
         
     await UserModel.updateProfile(user_id, picture);
-    res.status(201).json({ message: "Profile Successfully Updated" });
+    res.status(200).json({ message: "Profile Successfully Updated" });
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Error, ",err });

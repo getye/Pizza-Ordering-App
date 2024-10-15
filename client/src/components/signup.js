@@ -230,7 +230,7 @@ export const Signup = () => {
               Sign up
             </Button>
             <Typography component="h5">
-              Have an account? <Link href="/signin">Sign in</Link>
+              Have an account? <Link to="/signin">Sign in</Link>
             </Typography>
           </Box>
         </Grid>

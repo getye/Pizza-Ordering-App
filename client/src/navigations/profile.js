@@ -286,7 +286,7 @@ export const Profile = () => {
       </Snackbar>
 
       {/* Modal for updating profile */}
-      <Dialog open={profileModalOpen} onClose={handleProfileModalClose} sx={{width:'60%'}} >
+      <Dialog open={profileModalOpen} onClose={handleProfileModalClose} >
         <DialogTitle>Update Profile</DialogTitle>
         <DialogContent>
           <UpdateProfile onClose={handleProfileModalClose} />
