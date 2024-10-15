@@ -1,8 +1,8 @@
-import { AbilityBuilder, Ability } from '@casl/ability';
+import { AbilityBuilder } from '@casl/ability';
 
 export const defineAbilitiesFor = (role) => {
 
-  const { can, cannot, build } = new AbilityBuilder(Ability);
+  const { can, cannot, build } = new AbilityBuilder();
 
   switch (role) {
     case 'Super Admin':
