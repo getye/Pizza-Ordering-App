@@ -1,7 +1,6 @@
 import { AbilityBuilder, Ability } from '@casl/ability';
 
-export const defineAbilitiesFor = () => {
-  const role = localStorage.getItem('userRole');
+export const defineAbilitiesFor = (role) => {
 
   const { can, cannot, build } = new AbilityBuilder(Ability);
 
