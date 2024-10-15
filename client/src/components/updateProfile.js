@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, TextField, Button, Alert, Snackbar, Typography, IconButton, FormLabel } from '@mui/material';
+import { Box, TextField, Button, Alert, Snackbar, IconButton, FormLabel } from '@mui/material';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 
 export const UpdateProfile = () => {
@@ -74,12 +74,9 @@ export const UpdateProfile = () => {
         flexDirection: 'column',
         marginLeft: 'auto',
         marginRight: 'auto',
-        maxWidth: '35%'
       }}
     >
-      <Typography variant='h5'>Update Profile</Typography>
-      <Box>
-        <Box
+      <Box
           sx={{
             display: 'flex',
             alignItems: 'center',
@@ -127,7 +124,6 @@ export const UpdateProfile = () => {
             </FormLabel>
           </Box>
         </Box>
-      </Box>
       <Button onClick={handleSubmit} sx={{ bgcolor: '#FF8C00', color: 'white', fontWeight:'bold', textTransform: 'none' }}>Update</Button>
 
       <Snackbar
