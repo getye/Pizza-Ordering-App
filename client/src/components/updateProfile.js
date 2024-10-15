@@ -76,6 +76,7 @@ export const UpdateProfile = ({handleProfileModalClose}) => {
         flexDirection: 'column',
         marginLeft: 'auto',
         marginRight: 'auto',
+        width: '80%',
       }}
     >
       <Box
@@ -134,7 +135,7 @@ export const UpdateProfile = ({handleProfileModalClose}) => {
           textTransform: 'none', 
           position: 'absolute',    
           bottom: 5,              
-          left: '1',             
+          left: 1,             
           }}>Update</Button>
 
       <Snackbar
