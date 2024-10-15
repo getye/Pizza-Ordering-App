@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Box, TextField, Button, Alert, Snackbar, IconButton, FormLabel } from '@mui/material';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 
-export const UpdateProfile = () => {
+export const UpdateProfile = ({handleProfileModalClose}) => {
   const [profile, setProfile] = useState(null);
   const [showNotification, setShowNotification] = useState(false);
   const [notificationMessage, setNotificationMessage] = useState('');
@@ -125,6 +125,7 @@ export const UpdateProfile = () => {
           </Box>
         </Box>
       <Button onClick={handleSubmit} sx={{ bgcolor: '#FF8C00', color: 'white', fontWeight:'bold', textTransform: 'none' }}>Update</Button>
+      <Button onClick={handleProfileModalClose}sx={{ bgcolor: 'red', color: 'white', fontWeight:'bold', textTransform: 'none'}}>Close</Button>
 
       <Snackbar
         open={showNotification}
