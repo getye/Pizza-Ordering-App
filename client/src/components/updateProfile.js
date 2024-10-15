@@ -45,6 +45,8 @@ export const UpdateProfile = ({handleProfileModalClose}) => {
         setNotificationMessage('Profile Successfully updated');
         setShowNotification(true);
         setProfile(null); // Reset form
+        // Close the modal after a successful update
+        handleProfileModalClose();
       } else {
         setMessageType("Error");
         setNotificationMessage('Error in Updating Profile');
