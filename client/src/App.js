@@ -60,6 +60,11 @@ function App() {
         ) : (
         <AbilityProvider>
           <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/signin" element={<Signin setIsAuthenticated={setIsAuthenticated} />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/customer/view/orders" element={<Order />} />
+            <Route path='/orders' element={<Orders />} />
             <Route
               path="/superadmin/view/earnings"
               element={<ProtectedRoute action="read" subject="Earnings" element={<EarningsChart />} />}

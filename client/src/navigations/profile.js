@@ -13,6 +13,7 @@ import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { z } from 'zod';
+import { UpdateProfile } from '../components/updateProfile';
 
 
 const passwordSchema = z.object({
@@ -77,8 +78,14 @@ export const Profile = () => {
     navigate('/');
   };
 
-  // Handle modal open/close
+  // Update Password Modal
   const handleModalOpen = () => {
+    setModalOpen(true);
+    setOpen(false); // Close menu when opening modal
+  };
+
+  // Profile Modal
+  const profileModal = () => {
     setModalOpen(true);
     setOpen(false); // Close menu when opening modal
   };
@@ -190,7 +197,7 @@ export const Profile = () => {
                       aria-labelledby="composition-button"
                       onKeyDown={handleListKeyDown}
                     >
-                      <MenuItem onClick={() => { navigate("users/update/profile") }}>My Profile</MenuItem>
+                      <MenuItem onClick={ profileModal }>My Profile</MenuItem>
                       <MenuItem onClick={handleModalOpen}>Update Password</MenuItem> {/* Open modal */}
                       <MenuItem onClick={handleSignOut}>Logout</MenuItem>
                     </MenuList>
@@ -201,7 +208,7 @@ export const Profile = () => {
           </Popper>
         </div>
       </Stack>
-
+      <UpdateProfile open={modalOpen} onClose={handleModalClose}/>
       {/* Modal for updating password */}
       <Dialog open={modalOpen} onClose={handleModalClose} >
         <DialogTitle>Update Password</DialogTitle>
