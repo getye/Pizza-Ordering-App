@@ -132,10 +132,9 @@ export const UpdateProfile = ({handleProfileModalClose}) => {
           color: 'white', 
           fontWeight:'bold', 
           textTransform: 'none', 
-          position: 'absolute',    // Make the button stay at a fixed position
-          bottom: 5,              // Adjust the distance from the bottom (5px)
-          left: '50%',             // Position the button in the center horizontally
-          transform: 'translateX(-50%)'
+          position: 'absolute',    
+          bottom: 5,              
+          left: '1',             
           }}>Update</Button>
 
       <Snackbar
