@@ -48,6 +48,7 @@ const Footer = () => (
       backgroundColor: 'black', 
       color:'white',
       zIndex: 1000,
+      position: 'fixed',
       bottom: 0, 
       left: 0, 
       right: 0,
@@ -109,7 +110,7 @@ export const MainBar = (props) => {
 
   const isMobile = useMediaQuery((theme) => theme.breakpoints.down('sm'));
   if (isMobile){
-    setLeftBar(true);
+    setLeftBar(false);
   }
 
 
@@ -128,7 +129,7 @@ export const MainBar = (props) => {
 
   
   const drawer = (
-    <List sx={{ height: "90%", borderColor: 'gray' }}>
+    <List sx={{ height: 'auto', borderColor: 'gray' }}>
       {(leftBar)? (
           <IconButton
               color="inherit"
