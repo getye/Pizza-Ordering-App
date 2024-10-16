@@ -113,7 +113,7 @@ export const MainBar = (props) => {
 
   
   const drawer = (
-    <List sx={{ height: "100%", borderColor: 'gray' }}>
+    <List sx={{ height: "100%", borderColor: 'gray', justifyContent:"space-between"  }}>
       <Stack justifyContent={'space-between'} padding={1.5} direction="row" gap={3}>
         <Stack direction="row" gap={2}>
           <Typography variant="h6">Pizza</Typography>
