@@ -141,8 +141,8 @@ export const CustomerOrders = () => {
     <Box 
       sx={{ 
         pt: 5, 
-        ml: {xs: '5%', sm: '8%', md: '12%', lg: '17%'},
-        mr: {xs: '5%', sm: '8%', md: '12%', lg: '17%'}
+        ml: {xs: '5%', sm: '10%', md: '15%', lg: '20%'},
+        mr: {xs: '1%', sm: '3%', md: '5%', lg: '7%'}
       }}>
       {orders.length > 0 ? (
         <Box>
