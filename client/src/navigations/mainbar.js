@@ -295,7 +295,15 @@ export const MainBar = (props) => {
     <Box sx={{ display: 'flex', flexDirection: 'column', paddingBottom: '56px' }}>
       <CssBaseline />
       <AppBar position="fixed" sx={{ width: 1, backgroundColor: 'white', color: 'black' }}>
-             
+          <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                edge="start"
+                onClick={handleDrawerToggle}
+                sx={{ mr: 2, display: { sm: 'none' } }} // Hamburger icon only visible on mobile
+              >
+                <MenuIcon />
+              </IconButton>
           {(!userRole) ? (
           <Toolbar sx={{ justifyContent: { xs: 'space-between', sm: 'space-between' }, flexDirection: { xs: 'column', sm: 'row' } }}>
             <img src={pizza} alt="Pizza Logo" style={{ width: '80px', marginBottom: { xs: 1, sm: 0 } }} />
@@ -313,22 +321,11 @@ export const MainBar = (props) => {
                   },
                 }}>Register</MenuItem>
               <MenuItem onClick={() => navigate('/signin')}>Sign in</MenuItem>
-            </Toolbar>
+          </Toolbar>
           ) : (
-            <>
-              <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                edge="start"
-                onClick={handleDrawerToggle}
-                sx={{ mr: 2, display: { sm: 'none' } }} // Hamburger icon only visible on mobile
-              >
-                <MenuIcon />
-              </IconButton>
             <Toolbar sx={{ justifyContent: 'flex-end' }}>
               <Profile role={userRole}/>
             </Toolbar>
-            </>
           )}
         
       </AppBar>
