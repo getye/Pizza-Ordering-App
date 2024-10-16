@@ -169,15 +169,18 @@ const addUser = async (req, res) => {
 const updatePassword = async (req, res) => {
   
   const user_id = req.user.userId;
-  const { password, oldPassword } = req.body; // Get the new status from the request body
+  const { password, oldPassword } = req.body; 
   console.log("user id: ", user_id)
-  console.log("password: ", password)
+  console.log("Old password: ", oldPassword)
+  console.log("New password: ", password)
   const hashedpass = await bcrypt.hash(password, 10);
   const oldhashedpass = await bcrypt.hash(oldPassword, 10);
   console.log("hashed password: ", hashedpass)
+  
 
   try {  
     const uesrPassword = await UserModel.getPassword(user_id);
+    console.log("Old password from DB: ", uesrPassword)
     if (!uesrPassword) {
       return res.status(404).json({ message: 'User not found' });
     }else if(oldhashedpass !== uesrPassword){
