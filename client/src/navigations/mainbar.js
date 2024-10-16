@@ -22,7 +22,7 @@ import MenuIcon from '@mui/icons-material/Menu';  // Hamburger icon for mobile
 
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import { Divider, MenuItem, Link, IconButton } from '@mui/material';
+import { Divider, MenuItem, Link, IconButton, useMediaQuery } from '@mui/material';
 import { Profile } from './profile';
 import pizza from '../assets/pizza.png';
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -107,6 +107,8 @@ export const MainBar = (props) => {
   const { window } = props;
   // State to control the mobile drawer
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const isMobile = useMediaQuery((theme) => theme.breakpoints.down('sm'));
+
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -294,14 +296,12 @@ export const MainBar = (props) => {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', paddingBottom: '56px' }}>
       <CssBaseline />
-      <AppBar 
-            container={container}
-            variant="temporary"
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            position="fixed" 
-            sx={{ width: 1, backgroundColor: 'white', color: 'black' }}>
-          <IconButton
+      <AppBar position="fixed" sx={{ width: 1, backgroundColor: 'white', color: 'black', padding: { xs: '0 8px', sm: '0 16px' } }}>
+
+          {(!userRole) ? (
+          <Toolbar sx={{ justifyContent: { xs: 'space-between', sm: 'space-between' }, flexDirection: { xs: 'column', sm: 'row' } }}>
+            {(isMobile)?(
+            <IconButton
                 color="inherit"
                 aria-label="open drawer"
                 edge="start"
@@ -309,9 +309,9 @@ export const MainBar = (props) => {
                 sx={{ mr: 2, display: { sm: 'none' } }} // Hamburger icon only visible on mobile
                 >
                 <MenuIcon />
-          </IconButton>
-          {(!userRole) ? (
-          <Toolbar sx={{ justifyContent: { xs: 'space-between', sm: 'space-between' }, flexDirection: { xs: 'column', sm: 'row' } }}>
+            </IconButton>
+            ):(
+              <>
             <img src={pizza} alt="Pizza Logo" style={{ width: '80px', marginBottom: { xs: 1, sm: 0 } }} />
             <MenuItem onClick={() => navigate('/')}>Home</MenuItem>
             <MenuItem onClick={() => navigate('/orders')}>Orders</MenuItem>
@@ -327,6 +327,8 @@ export const MainBar = (props) => {
                   },
                 }}>Register</MenuItem>
               <MenuItem onClick={() => navigate('/signin')}>Sign in</MenuItem>
+              </>
+            )}
           </Toolbar>
           ) : (
             <Toolbar sx={{ justifyContent: 'flex-end' }}>
@@ -369,7 +371,7 @@ export const MainBar = (props) => {
       )}
       <Box sx={{ flexGrow: 1 }} />
           <Footer />
-      </Box>
+    </Box>
   );
 };
 
