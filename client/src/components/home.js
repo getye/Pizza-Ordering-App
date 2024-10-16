@@ -41,7 +41,7 @@ return (
         }}
         >
         
-      <Grid item xs={10} sx={{ 
+      <Grid item xs={8} sx={{ 
         display: 'flex', flexDirection: 'column', alignItems: 'flex-start',
         ml: {xs: '1%', sm: '2%', md: '5%', lg: '7%'}
          }}>
@@ -89,21 +89,21 @@ return (
         </Paper>
       </Grid>
 
-      <Grid item xs={2} sx={{ display: 'flex', justifyContent: 'end'}}>
+      <Grid item xs={4} sx={{ display: 'flex', justifyContent: 'end'}}>
         <img src={home1} alt='Pizza' style={{maxWidth:'65%', maxHeight:'22vb'}}/>
         <img src={home2} alt='Pizza' style={{maxWidth:'80%', maxHeight:'80vb'}}/>
       </Grid>
     </Grid>
     <Box sx={{
-      ml: {xs: '1%', sm: '2%', md: '5%', lg: '7%'},
+      ml: {xs: '1%', sm: '2%', md: '4%', lg: '6%'},
       pb:{xs:4, sm:6, md:9, lg:13}}}>
         <Typography sx={{color:'gray', fontSize:{xs:'10px', sm:'12px', md:'16', lg:'22px'}}}>Featured Pizza</Typography>
-        <Box sx={{ maxwidth: '60%', maxheight: '300px', display: 'flex', justifyContent: 'center' }}>
+    <Box sx={{ maxwidth: '60%', maxheight: '300px', display: 'flex', justifyContent: 'center' }}>
       <div className="glide">
         <div className="glide__track" data-glide-el="track">
           <ul className="glide__slides">
             <li className="glide__slide">
-              <Grid container sx={{ bgcolor: '#3D3C3A', maxWidth: '100%', borderRadius: 10, paddingLeft: 5 }}>
+              <Grid container sx={{ bgcolor: '#3D3C3A', maxWidth: '80%', borderRadius: 10, paddingLeft: 5 }}>
                 <Grid item xs={6} sx={{ paddingTop: 6 }}>
                   <Typography sx={{ pb:{xs:4, sm:6, md:9, lg:13}, color: 'white', 
                     fontSize:{xs:'10px', sm:'12px', md:'16', lg:'22px'}
@@ -127,7 +127,7 @@ return (
               </Grid>
             </li>
             <li className="glide__slide">
-              <Grid container sx={{ bgcolor: '#4E5B31', maxWidth: '100%', borderRadius: 10, paddingLeft: 5 }}>
+              <Grid container sx={{ bgcolor: '#4E5B31', maxWidth: '80%', borderRadius: 10, paddingLeft: 5 }}>
                 <Grid item xs={6} sx={{ paddingTop: 6 }}>
                   <Typography  
                     sx={{ pb:{xs:4, sm:6, md:9, lg:13},
@@ -153,7 +153,7 @@ return (
               </Grid>
             </li>
             <li className="glide__slide">
-              <Grid container sx={{ bgcolor: '#438D80', maxWidth: '100%', borderRadius: 10, paddingLeft: 5 }}>
+              <Grid container sx={{ bgcolor: '#438D80', maxWidth: '80%', borderRadius: 10, paddingLeft: 5 }}>
                 <Grid item xs={6} sx={{ paddingTop: 6 }}>
                   <Typography sx={{ pb:{xs:4, sm:6, md:9, lg:13}, color: 'white',
                     fontSize:{xs:'10px', sm:'12px', md:'16', lg:'22px'}
