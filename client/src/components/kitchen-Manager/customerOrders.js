@@ -50,6 +50,7 @@ export const CustomerOrders = () => {
     } finally {
       setLoading(false); // Handle loading state
     }
+    console.log("drawerWidth: ", drawerWidth)
   };
 
   useEffect(() => {
@@ -139,7 +140,7 @@ export const CustomerOrders = () => {
   }
 
   return (
-    <Box sx={{ pt: 5, ml: {drawerWidth}}}>
+    <Box sx={{ pt: 5, ml: `${drawerWidth}px`}}>
       {orders.length > 0 ? (
         <Box>
           <MaterialReactTable
