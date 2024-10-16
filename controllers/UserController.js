@@ -182,15 +182,14 @@ const updatePassword = async (req, res) => {
       return res.status(404).json({ message: 'User not found' });
     }else if(oldhashedpass !== uesrPassword){
       return res.status(401).json({ message: 'incorrect password' });
-    }
-    // Call the model function to update the user Passord
-    const updatedPasswored = await UserModel.updatePassword(user_id, hashedpass);
+    }else{
+      const updatedPasswored = await UserModel.updatePassword(user_id, hashedpass);
 
-    if (!updatedPasswored) {
-      return res.status(404).json({ message: 'User not found' });
+      if (!updatedPasswored) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+      return res.status(200).json({ message: 'Your Passwored is Updated Successfully'});
     }
-
-    return res.status(200).json({ message: 'Your Passwored is Updated Successfully'});
   } catch (error) {
     console.error('Error updating password:', error);
     return res.status(500).json({ message: 'Internal server error' });

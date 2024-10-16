@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, TextField, Button, Alert, Snackbar, Typography, IconButton, FormLabel } from '@mui/material';
 import { Topping } from './Topping'; 
-import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
+import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
 
 export const AddMenu = () => {
   const [menuData, setMenuData] = useState({ menuName: '', toppings: [], price: '', picture: null });
@@ -161,7 +161,7 @@ export const AddMenu = () => {
                   textAlign: 'center',
                 }}
               >
-                <FileDownloadOutlinedIcon />
+                <FileUploadOutlinedIcon />
                 {menuData.picture ? menuData.picture.name : ' Upload Pizza Photo'}
               </IconButton>
             </FormLabel>

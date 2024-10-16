@@ -311,8 +311,24 @@ export const Profile = ({role}) => {
           </FormControl>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleModalClose}>Cancel</Button>
-          <Button onClick={handleUpdatePassword} variant="contained">Update</Button>
+          <Button 
+              onClick={handleModalClose}
+              sx={{
+                bgcolor: 'red', 
+                color: 'white', 
+                fontWeight:'bold', 
+                textTransform: 'none',
+                }}
+              >Cancel</Button>
+          <Button 
+              onClick={handleUpdatePassword} 
+              sx={{
+                bgcolor: '#FF8C00', 
+                color: 'white', 
+                fontWeight:'bold', 
+                textTransform: 'none',
+                }}
+              >Update</Button>
         </DialogActions>
       </Dialog>
 
