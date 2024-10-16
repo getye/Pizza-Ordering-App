@@ -58,7 +58,11 @@ const handleSubmit = async () => {
   };
 
   return (
-    <Box sx={{ paddingTop: 2, marginLeft: 32, justifyContent: 'center' }}>
+    <Box sx={{ paddingTop: 2, justifyContent: 'center',
+      ml: {xs: '5%', sm: '10%', md: '15%', lg: '20%'},
+      mr: {xs: '1%', sm: '3%', md: '5%', lg: '7%'},
+      mb: {xs: 1, sm: 2, md: 3, lg: 4},
+    }}>
       <AdminTable handleOpen={handleOpen} />
       <AddAdminModal
         open={open}

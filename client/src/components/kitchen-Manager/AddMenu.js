@@ -88,10 +88,8 @@ export const AddMenu = () => {
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'column',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        maxWidth: '40%',
-        bgcolor:'#F8F8FF'
+        ml: {xs: '5%', sm: '10%', md: '15%', lg: '20%'},
+        mr: {xs: '1%', sm: '3%', md: '5%', lg: '7%'}
       }}
     >
       <Box sx={{bgcolor:'#F8F8FF', maxWidth:'80%', justifyContent: 'center',

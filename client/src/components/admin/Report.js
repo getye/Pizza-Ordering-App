@@ -55,7 +55,11 @@ export const Report = () => {
     };
 
     return (
-        <Box sx={{ paddingTop: 3, marginLeft: 32, justifyContent: 'center' }}>
+        <Box sx={{ paddingTop: 3, justifyContent: 'center',
+            ml: {xs: '5%', sm: '10%', md: '15%', lg: '20%'},
+            mr: {xs: '1%', sm: '3%', md: '5%', lg: '7%'},
+            mb: {xs: 1, sm: 2, md: 3, lg: 4},
+        }}>
             <ResponsiveContainer width="90%" height={400}>
                 <LineChart data={isTotalOrders ? totalOrdersData : totalEarningsData}>
                     <CartesianGrid strokeDasharray="3 3" />

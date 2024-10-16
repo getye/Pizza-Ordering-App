@@ -40,7 +40,11 @@ export const ViewUsers = ({ handleOpen }) => {
 
   return (
     <>
-      <Box sx={{ paddingLeft:32, paddingTop: 3, paddingRight:2 }}>
+      <Box sx={{ paddingTop: 3, 
+        ml: {xs: '5%', sm: '10%', md: '15%', lg: '20%'},
+        mr: {xs: '1%', sm: '3%', md: '5%', lg: '7%'},
+        mb: {xs: 1, sm: 2, md: 3, lg: 4},
+       }}>
         <MaterialReactTable 
           key={users.length}
           columns={[

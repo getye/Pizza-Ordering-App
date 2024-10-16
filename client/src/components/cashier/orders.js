@@ -82,7 +82,10 @@ export const OrdersInfo = () => {
   if (error) return <div style={{ color: 'red', textAlign: 'center' }}>{error}</div>;
 
   return (
-    <Box sx={{ pt: 5, ml: 32 }}>
+    <Box sx={{ pt: 5,
+      ml: {xs: '5%', sm: '10%', md: '15%', lg: '20%'},
+      mr: {xs: '1%', sm: '3%', md: '5%', lg: '7%'},
+    }}>
       {orders.length > 0 ? (
         <Box>
           <MaterialReactTable

@@ -47,7 +47,7 @@ const Footer = () => (
       backgroundColor: 'black', 
       color:'white',
       zIndex: 1000,
-      position: 'fixed',
+      position: {lg: 'fixed'},
       bottom: 0, 
       left: 0, 
       right: 0,
@@ -55,7 +55,7 @@ const Footer = () => (
     }}
   >
     <Stack 
-      direction={{ xs: 'column', sm: 'row' }}
+      direction={{ xs: 'column', sm: 'column', md: 'row', lg: 'row' }}
       spacing={2} 
       justifyContent="space-between" 
       alignItems="center" 

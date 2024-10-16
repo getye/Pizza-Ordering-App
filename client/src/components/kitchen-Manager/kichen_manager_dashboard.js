@@ -37,7 +37,11 @@ export const KichenManagerDashboard = () => {
   }, []);
 
   return (
-    <Box sx={{ paddingTop: 5, marginBottom:6, paddingLeft: 32, mr:3 }}>
+    <Box sx={{ paddingTop: 5, 
+      ml: {xs: '5%', sm: '10%', md: '15%', lg: '20%'},
+      mr: {xs: '1%', sm: '3%', md: '5%', lg: '7%'},
+      mb: {xs: 1, sm: 2, md: 3, lg: 4},
+      }}>
       <Grid container spacing={3}> 
         {menus.map((menu) => (
           <Grid item xs={12} sm={4} key={menu.menu_id}> 
