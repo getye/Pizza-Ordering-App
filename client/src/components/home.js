@@ -66,7 +66,6 @@ return (
           <Paper
             component="form"
             sx={{
-              p: { xs: '8px 2px', sm: '10px 3px', md: '12px 4px', lg: '13px 4px' }, 
               borderRadius: 10,
               display: 'flex',
               alignItems: 'center',
