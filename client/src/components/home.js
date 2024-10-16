@@ -38,18 +38,17 @@ return (
         sx={{
             alignItems: 'center', 
             paddingTop: 2, 
-            pl: {xs: '5%', sm: '10%', md: '15%', lg: '20%'},
+            pl: {xs: '1%', sm: '2%', md: '3%', lg: '5%'},
             background: 'linear-gradient(to bottom, #FFFFFF, #F5D58E, #FFFFFF)',
         }}
         >
       <Grid item xs={10} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
         <Typography 
-          variant='h1' 
           sx={{
             background: 'linear-gradient(to right, #FF8C00, #FFCBA4)', 
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
-            fontSize: '6rem', 
+            fontSize: {xs: '1rem', sm: '2rem', md: '4rem', lg: '6rem'},
             fontWeight: 'bold',
           }}
         >

@@ -65,9 +65,10 @@ export const Signin = ({setIsAuthenticated}) => {
 
   return (
     <Box component={'form'} onSubmit={handleSubmit}>
-      <Grid container sx={{ paddingTop: 4, width: '80%', 
-              ml: {xs: '5%', sm: '10%', md: '15%', lg: '20%'},
-              mr: {xs: '1%', sm: '3%', md: '5%', lg: '7%'},
+      <Grid container sx={{ paddingTop: 4, 
+              width: {xs: '100%', sm: '95%', md: '85%', lg: '65%'},
+              ml: {xs: '1%', sm: '5%', md: '10%', lg: '15%'},
+              mr: {xs: '1%', sm: '5%', md: '10%', lg: '15%'},
               mb: {xs: 1, sm: 2, md: 3, lg: 4},
       }}>
         <Grid item xs={6} sx={{  height: '70vh', display: 'flex', alignContent: 'center', justifyContent: 'center' }}>
