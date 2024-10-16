@@ -89,7 +89,7 @@ return (
         </Paper>
       </Grid>
 
-      <Grid item xs={4} sx={{ display: 'flex', justifyContent: 'flex-end'}}>
+      <Grid item xs={4} sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'end'}}>
         <img src={home1} alt='Pizza' style={{maxWidth:'40%', maxHeight:'22vh'}}/>
         <img src={home2} alt='Pizza' style={{maxWidth:'60%', maxHeight:'80vh'}}/>
       </Grid>
