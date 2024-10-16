@@ -37,10 +37,10 @@ return (
         sx={{
             alignItems: 'center', 
             paddingTop: 2, 
-            ml: {xs: '5%', sm: '10%', md: '15%', lg: '20%'},
             background: 'linear-gradient(to bottom, #FFFFFF, #F5D58E, #FFFFFF)',
         }}
         >
+        <Box sx={{ml: {xs: '5%', sm: '10%', md: '15%', lg: '20%'},}}>
       <Grid item xs={10} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
         <Typography 
           variant= 'h1' 
@@ -91,6 +91,7 @@ return (
         <img src={home1} alt='Pizza' style={{maxWidth:'65%', maxHeight:'22vb'}}/>
         <img src={home2} alt='Pizza' style={{maxWidth:'80%', maxHeight:'80vb'}}/>
       </Grid>
+      </Box>
     </Grid>
     <Box sx={{
       ml: {xs: '5%', sm: '10%', md: '15%', lg: '20%'},
