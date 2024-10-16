@@ -66,6 +66,7 @@ return (
           <Paper
             component="form"
             sx={{
+              p: { xs: '8px 2px', sm: '10px 3px', md: '12px 4px', lg: '13px 4px' }, 
               borderRadius: 10,
               display: 'flex',
               alignItems: 'center',
@@ -88,8 +89,6 @@ return (
                 bgcolor: '#FF8C00',
                 borderRadius: '50%',
                 display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
                 width: { xs: '35px', sm: '38px', md: '40px', lg: '45px' }, 
                 height: { xs: '35px', sm: '38px', md: '40px', lg: '45px' }, 
                 transition: 'background-color 0.3s',
