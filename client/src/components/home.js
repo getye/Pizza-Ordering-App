@@ -54,8 +54,15 @@ return (
         >
           Order us
         </Typography>
-        <Typography>Order Pizzas with different toppings. Select toppings as you went. </Typography>
-        <Typography sx={{paddingBottom:4}}>Serach Pizzas here.</Typography>
+        <Typography 
+          sx={{
+            fontSize: {xs: '8px', sm: '10px', md: '12px', lg: '14px'},
+          }}
+        >Order Pizzas with different toppings. Select toppings as you went. </Typography>
+        <Typography sx={{
+           fontSize: {xs: '8px', sm: '10px', md: '12px', lg: '14px'},
+           pb:{xs: 1, sm: 2, md: 3, lg: 4}
+           }}>Serach Pizzas here.</Typography>
         <Paper
           component="form"
           sx={{ p: '13px 4px', borderRadius: 10, display: 'flex', alignItems: 'center', width:'60%' }}
@@ -93,7 +100,11 @@ return (
       </Grid>
     </Grid>
     <Box sx={{paddingLeft:8, paddingBottom:12}}>
-        <Typography variant='h5' sx={{color:'gray'}}>Featured Pizza</Typography>
+        <Typography 
+          sx={{
+            color:'gray',
+            fontSize: {xs: '12px', sm: '14px', md: '16px', lg: '18px'}
+            }}>Featured Pizza</Typography>
         <Box sx={{ width: '60%', height: '300px', display: 'flex', justifyContent: 'center' }}>
       <div className="glide">
         <div className="glide__track" data-glide-el="track">
@@ -101,9 +112,13 @@ return (
             <li className="glide__slide">
               <Grid container sx={{ bgcolor: '#3D3C3A', maxWidth: '100%', borderRadius: 10, paddingLeft: 5 }}>
                 <Grid item xs={6} sx={{ paddingTop: 6 }}>
-                  <Typography variant="h6" sx={{ paddingBottom: 3, color: 'white' }}>
+                  <Typography
+                     sx={{ paddingBottom: 3, color: 'white',
+                      fontSize: {xs: '12px', sm: '14px', md: '16px', lg: '18px'}
+                     }}>
                     Make Your First Order and Get
-                    <Typography variant="h6" component="span" sx={{ color: '#FF8C00', paddingLeft: 2 }}>
+                    <Typography component="span" sx={{ color: '#FF8C00', paddingLeft: 2, 
+                      fontSize: {xs: '12px', sm: '14px', md: '16px', lg: '18px'}}}>
                       50% Off
                     </Typography>
                   </Typography>
@@ -121,9 +136,13 @@ return (
             <li className="glide__slide">
               <Grid container sx={{ bgcolor: '#4E5B31', maxWidth: '100%', borderRadius: 10, paddingLeft: 5 }}>
                 <Grid item xs={6} sx={{ paddingTop: 6 }}>
-                  <Typography variant="h6" sx={{ paddingBottom: 3, color: 'white' }}>
+                  <Typography sx={{ paddingBottom: 3, color: 'white',
+                    fontSize: {xs: '12px', sm: '14px', md: '16px', lg: '18px'}
+                  }}>
                     Make Your First Order and Get
-                    <Typography variant="h6" component="span" sx={{ color: '#FF8C00', paddingLeft: 2 }}>
+                    <Typography component="span" sx={{ color: '#FF8C00', paddingLeft: 2,
+                      fontSize: {xs: '12px', sm: '14px', md: '16px', lg: '18px'}
+                     }}>
                       50% Off
                     </Typography>
                   </Typography>
@@ -141,9 +160,12 @@ return (
             <li className="glide__slide">
               <Grid container sx={{ bgcolor: '#438D80', maxWidth: '100%', borderRadius: 10, paddingLeft: 5 }}>
                 <Grid item xs={6} sx={{ paddingTop: 6 }}>
-                  <Typography variant="h6" sx={{ paddingBottom: 3, color: 'white' }}>
+                  <Typography sx={{ paddingBottom: 3, color: 'white', 
+                      fontSize: {xs: '12px', sm: '14px', md: '16px', lg: '18px'}}}>
                     Make Your First Order and Get
-                    <Typography variant="h6" component="span" sx={{ color: '#FF8C00', paddingLeft: 2 }}>
+                    <Typography component="span" sx={{ color: '#FF8C00', paddingLeft: 2,
+                      fontSize: {xs: '12px', sm: '14px', md: '16px', lg: '18px'}
+                     }}>
                       50% Off
                     </Typography>
                   </Typography>
