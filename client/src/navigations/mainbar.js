@@ -60,7 +60,7 @@ const Footer = () => (
       spacing={2} 
       justifyContent="space-between" 
       alignItems="center" 
-      sx={{ width: '100%', maxWidth: 'lg', mx: 'auto' }}
+      sx={{ pl:30, width: '100%', maxWidth: 'lg', mx: 'auto' }}
     >
       <Box sx={{ display: 'flex', gap: 2 }}>
         <Typography variant="body2" color="white">
