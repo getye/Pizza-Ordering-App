@@ -38,7 +38,7 @@ import liftIcon from '../assets/packedPizza.jpg';
 
 
 
-const drawerWidth = 240;
+const drawerWidth = 'auto';
 
 const Footer = () => (
   <Box 
@@ -108,7 +108,9 @@ export const MainBar = (props) => {
   const [leftBar, setLeftBar] = React.useState(false);
 
   const isMobile = useMediaQuery((theme) => theme.breakpoints.down('sm'));
-
+  if (isMobile){
+    setLeftBar(true);
+  }
 
 
   const handleDrawerToggle = () => {
@@ -117,7 +119,6 @@ export const MainBar = (props) => {
 
   const handleLeftBar = () => {
     setLeftBar(!leftBar);
-    console.log("Left bar open: ", leftBar)
   };
 
   const handleSignOut = () => {
