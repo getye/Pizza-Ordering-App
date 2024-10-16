@@ -110,8 +110,11 @@ export const MainBar = (props) => {
   const isMobile = useMediaQuery((theme) => theme.breakpoints.down('sm'));
 
 
+
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
+    console.log("handleDrawerToggle")
+    console.log("mobileOpen: ", mobileOpen)
   };
 
   const handleSignOut = () => {
@@ -305,9 +308,8 @@ export const MainBar = (props) => {
                 color="inherit"
                 aria-label="open drawer"
                 edge="start"
-                onClick={handleDrawerToggle}
                 sx={{ mr: 2, display: { sm: 'none' } }} // Hamburger icon only visible on mobile
-                >
+                onClick={handleDrawerToggle}>
                 <MenuIcon />
             </IconButton>
             ):(
