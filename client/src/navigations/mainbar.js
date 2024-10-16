@@ -60,7 +60,7 @@ const Footer = () => (
       spacing={2} 
       justifyContent="space-between" 
       alignItems="center" 
-      sx={{ width: '100%', maxWidth: 'lg', mx: 'auto', ml:35 }}
+      sx={{ width: '100%', maxWidth: 'lg', mx: 'auto' }}
     >
       <Box sx={{ display: 'flex', gap: 2 }}>
         <Typography variant="body2" color="white">
@@ -109,9 +109,6 @@ export const MainBar = (props) => {
   const [leftBar, setLeftBar] = React.useState(false);
 
   const isMobile = useMediaQuery((theme) => theme.breakpoints.down('sm'));
-  if (isMobile){
-    setLeftBar(false);
-  }
 
 
   const handleDrawerToggle = () => {
