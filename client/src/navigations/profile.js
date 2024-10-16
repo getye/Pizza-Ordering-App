@@ -89,6 +89,7 @@ export const Profile = ({role}) => {
   const handleModalClose = () => {
     setModalOpen(false);
     setNewPassword('');
+    setOldPassword('');    
     setConfirmPassword('');
     setErrors({});
   };

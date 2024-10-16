@@ -65,7 +65,7 @@ const getPassword = async (user_id) => {
   const selectQuery = 'SELECT user_password FROM accounts WHERE user_id = $1';
   const selectedValues = [user_id];
   const result = await pool.query(selectQuery, selectedValues);
-  return result.rows.length > 0 ? result.rows[0]: null;
+  return result.rows.length > 0 ? result.rows[0].user_password : null;
 };
 
 const updatePassword = async (user_id, password) => {
