@@ -16,7 +16,7 @@ import { z } from 'zod';
 import {UpdateProfile} from '../components/updateProfile'; 
 
 const passwordSchema = z.object({
-  oldPassword: z.string().required({ message: "Old Password is Empty" }),
+  oldPassword: z.string().min(1, { message: "Old Password is Empty" }),
   newPassword: z.string().min(6, { message: "Password must be at least 6 characters long" }),
   confirmPassword: z.string(),
 }).refine((data) => data.newPassword === data.confirmPassword, {
