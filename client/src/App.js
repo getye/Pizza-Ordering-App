@@ -18,6 +18,8 @@ import { UpdateProfile } from './components/updateProfile';
 import { AbilityProvider } from './AbilityProvider'; 
 import { AbilityContext } from './AbilityProvider';
 import { Can } from '@casl/react';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
 import React, { useContext, useEffect, useState } from 'react';
 import { Unauthorized } from './components/unauthorized';
 import { OrdersInfo } from './components/cashier/orders';
@@ -34,6 +36,8 @@ const ProtectedRoute = ({ action, subject, element }) => {
   );
 };
 
+const theme = createTheme();
+
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -47,8 +51,10 @@ function App() {
 
   return (
     <>
-      <MainBar />
-        {!isAuthenticated ? (
+      <ThemeProvider theme={theme}>
+        <MainBar />
+      </ThemeProvider>
+      {!isAuthenticated ? (
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/signin" element={<Signin setIsAuthenticated={setIsAuthenticated} />} />
