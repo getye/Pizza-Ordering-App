@@ -167,37 +167,47 @@ const addUser = async (req, res) => {
 };
 
 const updatePassword = async (req, res) => {
-  
-  const user_id = req.user.userId;
-  const { password, oldPassword } = req.body; 
-  console.log("user id: ", user_id)
-  console.log("Old password: ", oldPassword)
-  console.log("New password: ", password)
-  const hashedpass = await bcrypt.hash(password, 10);
-  const oldhashedpass = await bcrypt.hash(oldPassword, 10);
-  console.log("hashed password: ", hashedpass)
-  
+  const user_id = req.user.userId; 
+  const { password, oldPassword } = req.body;
 
   try {  
-    const uesrPassword = await UserModel.getPassword(user_id);
-    console.log("Old password from DB: ", uesrPassword)
+    // Get the hashed password from the database
+    const uesrPassword = await UserModel.getPassword(user_id); 
+    console.log("Old password from DB (hashed): ", uesrPassword);
+    
+    // If the user doesn't exist or has no password, return a 404 error
     if (!uesrPassword) {
       return res.status(404).json({ message: 'User not found' });
-    }else if(oldhashedpass !== uesrPassword){
-      return res.status(401).json({ message: 'incorrect password' });
-    }else{
-      const updatedPasswored = await UserModel.updatePassword(user_id, hashedpass);
-
-      if (!updatedPasswored) {
-        return res.status(404).json({ message: 'User not found' });
-      }
-      return res.status(200).json({ message: 'Your Passwored is Updated Successfully'});
     }
+
+    // Compare the provided old password with the hashed password from the DB
+    const isMatch = await bcrypt.compare(oldPassword, uesrPassword);
+    
+    // If the passwords don't match, return a 401 error
+    if (!isMatch) {
+      return res.status(401).json({ message: 'Incorrect password' });
+    }
+
+    // Hash the new password before saving it to the database
+    const hashedPassword = await bcrypt.hash(password, 10);
+    console.log("New hashed password: ", hashedPassword);
+
+    // Update the user's password in the database
+    const updatedPassword = await UserModel.updatePassword(user_id, hashedPassword);
+
+    if (!updatedPassword) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    // If the password is updated successfully, return a success message
+    return res.status(200).json({ message: 'Your password has been updated successfully' });
+    
   } catch (error) {
     console.error('Error updating password:', error);
     return res.status(500).json({ message: 'Internal server error' });
   }
 };
+
 
 const deleteUser = async (req, res) => {
   const { user_email} = req.params; // Get role_id from URL params
