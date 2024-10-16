@@ -303,7 +303,25 @@ export const MainBar = (props) => {
 
           {(!userRole) ? (
           <Toolbar sx={{ justifyContent: 'space-between', flexDirection: { xs: 'column', sm: 'row' } }}>
-
+            {(!isMobile) && (
+              <>
+              <img src={pizza} alt="Pizza Logo" style={{ width: '80px', marginBottom: { xs: 1, sm: 0 } }} />
+              <MenuItem onClick={() => navigate('/')}>Home</MenuItem>
+              <MenuItem onClick={() => navigate('/orders')}>Orders</MenuItem>
+              <MenuItem onClick={() => navigate('/contact')}>Who we are</MenuItem>
+              <MenuItem
+                  onClick={() => navigate('/signup')}
+                  sx={{
+                    bgcolor: '#FF6700',
+                    color: 'white',
+                    '&:hover': {
+                      bgcolor: '#FF6700',
+                      opacity: 0.9,
+                    },
+                  }}>Register</MenuItem>
+                <MenuItem onClick={() => navigate('/signin')}>Sign in</MenuItem>
+              </>
+            )}
             {(isMobile)&&(
               <>
             <IconButton
