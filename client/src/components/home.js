@@ -41,9 +41,8 @@ return (
         }}
         >
         
-      <Grid item xs={10} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' , ml: {xs: '5%', sm: '10%', md: '15%', lg: '20%'}}}>
+      <Grid item xs={10} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
         <Typography 
-          variant= 'h1' 
           sx={{
             background: 'linear-gradient(to right, #FF8C00, #FFCBA4)', 
             WebkitBackgroundClip: 'text',
