@@ -384,8 +384,8 @@ export const MainBar = (props) => {
       {(userRole) && (
         <Box component="nav" 
             sx={{ 
-              width: { xs: 15, sm: 20, md:25, lg:30}, 
-              flexShrink: { sm: 0 } }} aria-label="mailbox folders">
+              width: { xs: 120, sm: 160, md:200, lg:240}}} 
+              aria-label="mailbox folders">
             {/* Drawer for mobile */}
             <Drawer
               container={container}
@@ -397,7 +397,7 @@ export const MainBar = (props) => {
               }}
               sx={{
                 display: { xs: 'block', sm: 'none' },
-                '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 15 },
+                '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 120 },
               }}
             >
               {drawer}
@@ -408,7 +408,7 @@ export const MainBar = (props) => {
               variant="permanent"
               sx={{
                 display: { xs: 'none', sm: 'block' },
-                '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 30 },
+                '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 240 },
               }}
               open
               >
