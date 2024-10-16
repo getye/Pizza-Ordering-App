@@ -18,10 +18,11 @@ import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined
 import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 import LocalPizzaOutlinedIcon from '@mui/icons-material/LocalPizzaOutlined';
 import SummarizeIcon from '@mui/icons-material/Summarize';
+import MenuIcon from '@mui/icons-material/Menu';  // Hamburger icon for mobile
 
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import { Divider, MenuItem, Link } from '@mui/material';
+import { Divider, MenuItem, Link, IconButton } from '@mui/material';
 import { Profile } from './profile';
 import pizza from '../assets/pizza.png';
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -104,7 +105,12 @@ export const MainBar = (props) => {
   const userRole = localStorage.getItem('userRole');
   const navigate = useNavigate();
   const { window } = props;
+  // State to control the mobile drawer
+  const [mobileOpen, setMobileOpen] = React.useState(false);
 
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
 
   const handleSignOut = () => {
     localStorage.clear();
@@ -113,7 +119,7 @@ export const MainBar = (props) => {
 
   
   const drawer = (
-    <List sx={{ height: "100%", borderColor: 'gray', justifyContent:"space-between"  }}>
+    <List sx={{ height: "100%", borderColor: 'gray' }}>
       <Stack justifyContent={'space-between'} padding={1.5} direction="row" gap={3}>
         <Stack direction="row" gap={2}>
           <Typography variant="h6">Pizza</Typography>
@@ -288,11 +294,10 @@ export const MainBar = (props) => {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', paddingBottom: '56px' }}>
       <CssBaseline />
-      <AppBar position="fixed" gap={2} sx={{ width: 1, backgroundColor: 'white', color: 'black' }}>
-        
-          
+      <AppBar position="fixed" sx={{ width: 1, backgroundColor: 'white', color: 'black' }}>
+             
           {(!userRole) ? (
-          <Toolbar sx={{ justifyContent: { xs: 'space-between', sm: 'flex-start' }, flexDirection: { xs: 'column', sm: 'row' } }}>
+          <Toolbar sx={{ justifyContent: { xs: 'space-between', sm: 'space-between' }, flexDirection: { xs: 'column', sm: 'row' } }}>
             <img src={pizza} alt="Pizza Logo" style={{ width: '80px', marginBottom: { xs: 1, sm: 0 } }} />
             <MenuItem onClick={() => navigate('/')}>Home</MenuItem>
             <MenuItem onClick={() => navigate('/orders')}>Orders</MenuItem>
@@ -310,18 +315,31 @@ export const MainBar = (props) => {
               <MenuItem onClick={() => navigate('/signin')}>Sign in</MenuItem>
             </Toolbar>
           ) : (
-            
+            <>
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                edge="start"
+                onClick={handleDrawerToggle}
+                sx={{ mr: 2, display: { sm: 'none' } }} // Hamburger icon only visible on mobile
+              >
+                <MenuIcon />
+              </IconButton>
             <Toolbar sx={{ justifyContent: 'flex-end' }}>
               <Profile role={userRole}/>
             </Toolbar>
+            </>
           )}
         
       </AppBar>
       {userRole && (
         <Box component="nav" sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }} aria-label="mailbox folders">
+          {/* Drawer for mobile */}
           <Drawer
             container={container}
             variant="temporary"
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
             ModalProps={{
               keepMounted: true, // Better open performance on mobile.
             }}
@@ -332,16 +350,18 @@ export const MainBar = (props) => {
           >
             {drawer}
           </Drawer>
-        <Drawer
-          variant="permanent"
-          sx={{
-            display: { xs: 'none', sm: 'block' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-          }}
-          open
-        >
-          {drawer}
-        </Drawer>
+
+          {/* Permanent Drawer for desktop */}
+          <Drawer
+            variant="permanent"
+            sx={{
+              display: { xs: 'none', sm: 'block' },
+              '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            }}
+            open
+          >
+            {drawer}
+          </Drawer>
       </Box>
       )}
       <Box sx={{ flexGrow: 1 }} />
