@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Dialog, DialogTitle, DialogContent, DialogActions, Button, Typography, Autocomplete, TextField, Alert, Snackbar } from '@mui/material';
 import { MaterialReactTable } from 'material-react-table';
-import { drawerWidth } from '../../navigations/mainbar'
 
 
 export const CustomerOrders = () => {
@@ -50,7 +49,6 @@ export const CustomerOrders = () => {
     } finally {
       setLoading(false); // Handle loading state
     }
-    console.log("drawerWidth: ", drawerWidth)
   };
 
   useEffect(() => {
@@ -140,7 +138,7 @@ export const CustomerOrders = () => {
   }
 
   return (
-    <Box sx={{ pt: 5, ml: `${drawerWidth}px`}}>
+    <Box sx={{ pt: 5, ml: {xs: '5%', sm: '10%', md: '15%', lg: '20%'}}}>
       {orders.length > 0 ? (
         <Box>
           <MaterialReactTable

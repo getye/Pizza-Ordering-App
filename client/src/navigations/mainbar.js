@@ -37,7 +37,7 @@ import liftIcon from '../assets/packedPizza.jpg';
 
 
 
-export const drawerWidth = 'auto';
+ const drawerWidth = 'auto';
 
 const Footer = () => (
   <Box 
