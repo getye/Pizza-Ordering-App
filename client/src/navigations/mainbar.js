@@ -311,7 +311,7 @@ export const MainBar = (props) => {
           ) : (
             
             <Toolbar sx={{ justifyContent: 'flex-end' }}>
-              <Profile />
+              <Profile role={userRole}/>
             </Toolbar>
           )}
         
