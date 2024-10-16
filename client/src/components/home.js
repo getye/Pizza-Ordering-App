@@ -92,7 +92,9 @@ return (
         <img src={home2} alt='Pizza' style={{maxWidth:'80%', maxHeight:'80vb'}}/>
       </Grid>
     </Grid>
-    <Box sx={{paddingLeft:8, pb:{xs:4, sm:6, md:9, lg:13}}}>
+    <Box sx={{
+      ml: {xs: '5%', sm: '10%', md: '15%', lg: '20%'},
+      pb:{xs:4, sm:6, md:9, lg:13}}}>
         <Typography sx={{color:'gray', fontSize:{xs:'10px', sm:'12px', md:'16', lg:'22px'}}}>Featured Pizza</Typography>
         <Box sx={{ maxwidth: '60%', maxheight: '300px', display: 'flex', justifyContent: 'center' }}>
       <div className="glide">
