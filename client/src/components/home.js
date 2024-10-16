@@ -13,6 +13,7 @@ import Glide from '@glidejs/glide';
 import '@glidejs/glide/dist/css/glide.core.min.css';
 import '@glidejs/glide/dist/css/glide.theme.min.css';
   
+   
 export const Home =() =>{
   useEffect(() => {
     const glide = new Glide('.glide', {
@@ -37,20 +38,18 @@ return (
         sx={{
             alignItems: 'center', 
             paddingTop: 2, 
+            paddingLeft: 8,
             background: 'linear-gradient(to bottom, #FFFFFF, #F5D58E, #FFFFFF)',
         }}
         >
-        
-      <Grid item xs={12} sm={12} md={8} lg={8}  sx={{ 
-        display: 'flex', flexDirection: 'column', alignItems: 'flex-start',
-        ml: {xs: '1%', sm: '2%', md: '5%', lg: '7%'}
-         }}>
+      <Grid item xs={10} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
         <Typography 
+          variant='h1' 
           sx={{
             background: 'linear-gradient(to right, #FF8C00, #FFCBA4)', 
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
-            fontSize: {lg:'6rem', md:'4rem', sm:'2rem', xs:'1rem'}, 
+            fontSize: '6rem', 
             fontWeight: 'bold',
           }}
         >
@@ -89,114 +88,108 @@ return (
         </Paper>
       </Grid>
 
-      <Grid item xs={12} sm={12} md={4} lg={4} sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'end'}}>
-        <img src={home1} alt='Pizza' style={{maxWidth:'40%', maxHeight:'22vh'}}/>
-        <img src={home2} alt='Pizza' style={{maxWidth:'60%', maxHeight:'80vh'}}/>
+      <Grid item xs={2} sx={{ display: 'flex', justifyContent: 'end' }}>
+        <img src={home1} alt='Pizza' style={{maxWidth:'65%', maxHeight:'22vb'}}/>
+        <img src={home2} alt='Pizza' style={{maxWidth:'80%', maxHeight:'80vb'}}/>
       </Grid>
     </Grid>
-    <Box
-      sx={{
-        ml: { xs: '1%', sm: '2%', md: '4%', lg: '6%' },
-        pb: { xs: 4, sm: 6, md: 9, lg: 13 }
-      }}
-    >
-      <Typography sx={{ color: 'gray', fontSize: { xs: '10px', sm: '12px', md: '16', lg: '22px' } }}>
-        Featured Pizza
-      </Typography>
-      <Box sx={{ maxWidth: '60%', maxHeight: '300px', display: 'flex', justifyContent: 'center', flexDirection: 'column', position: 'relative' }}>
-        <div className="glide">
-          <div className="glide__track" data-glide-el="track">
-            <ul className="glide__slides">
-              {/* Slide 1 */}
-              <li className="glide__slide">
-                <Grid container sx={{ bgcolor: '#3D3C3A', maxWidth: '80%', borderRadius: 10, paddingLeft: 5 }}>
-                  <Grid item xs={6} sx={{ paddingTop: 6 }}>
-                    <Typography sx={{ pb: { xs: 4, sm: 6, md: 9, lg: 13 }, color: 'white', fontSize: { xs: '10px', sm: '12px', md: '16', lg: '22px' } }}>
-                      Make Your First Order and Get
-                      <Typography component="span" sx={{ color: '#FF8C00', paddingLeft: 2, fontSize: { xs: '10px', sm: '12px', md: '16', lg: '22px' } }}>
-                        50% Off
-                      </Typography>
+    <Box sx={{paddingLeft:8, paddingBottom:12}}>
+        <Typography variant='h5' sx={{color:'gray'}}>Featured Pizza</Typography>
+        <Box sx={{ width: '60%', height: '300px', display: 'flex', justifyContent: 'center' }}>
+      <div className="glide">
+        <div className="glide__track" data-glide-el="track">
+          <ul className="glide__slides">
+            <li className="glide__slide">
+              <Grid container sx={{ bgcolor: '#3D3C3A', maxWidth: '100%', borderRadius: 10, paddingLeft: 5 }}>
+                <Grid item xs={6} sx={{ paddingTop: 6 }}>
+                  <Typography variant="h6" sx={{ paddingBottom: 3, color: 'white' }}>
+                    Make Your First Order and Get
+                    <Typography variant="h6" component="span" sx={{ color: '#FF8C00', paddingLeft: 2 }}>
+                      50% Off
                     </Typography>
-                    <Button sx={{ bgcolor: '#FF6F00', color: 'white' }}>
-                      <Typography sx={{ textTransform: 'capitalize' }}>Order Now</Typography>
-                    </Button>
-                  </Grid>
-                  <Grid item xs={6} sx={{ justifyContent: 'end' }}>
-                    <img src={featured1} alt="Pizza" style={{ width: '100%', maxHeight: '35vh', borderRadius: '50px' }} />
-                  </Grid>
-                </Grid>
-              </li>
-              {/* Slide 2 */}
-              <li className="glide__slide">
-                <Grid container sx={{ bgcolor: '#4E5B31', maxWidth: '80%', borderRadius: 10, paddingLeft: 5 }}>
-                  <Grid item xs={6} sx={{ paddingTop: 6 }}>
-                    <Typography sx={{ pb: { xs: 4, sm: 6, md: 9, lg: 13 }, fontSize: { xs: '10px', sm: '12px', md: '16', lg: '22px' }, color: 'white' }}>
-                      Make Your First Order and Get
-                      <Typography component="span" sx={{ color: '#FF8C00', paddingLeft: 2, fontSize: { xs: '10px', sm: '12px', md: '16', lg: '22px' } }}>
-                        50% Off
-                      </Typography>
+                  </Typography>
+                  <Button sx={{ bgcolor: '#FF6F00', color: 'white' }}>
+                    <Typography sx={{ textTransform: 'capitalize' }}>
+                      Order Now
                     </Typography>
-                    <Button sx={{ bgcolor: '#FF6F00', color: 'white' }}>
-                      <Typography sx={{ textTransform: 'capitalize' }}>Order Now</Typography>
-                    </Button>
-                  </Grid>
-                  <Grid item xs={6} sx={{ justifyContent: 'end' }}>
-                    <img src={featured2} alt="Pizza" style={{ width: '100%', maxHeight: '35vh', borderRadius: '50px' }} />
-                  </Grid>
+                  </Button>
                 </Grid>
-              </li>
-              {/* Slide 3 */}
-              <li className="glide__slide">
-                <Grid container sx={{ bgcolor: '#438D80', maxWidth: '80%', borderRadius: 10, paddingLeft: 5 }}>
-                  <Grid item xs={6} sx={{ paddingTop: 6 }}>
-                    <Typography sx={{ pb: { xs: 4, sm: 6, md: 9, lg: 13 }, color: 'white', fontSize: { xs: '10px', sm: '12px', md: '16', lg: '22px' } }}>
-                      Make Your First Order and Get
-                      <Typography component="span" sx={{ color: '#FF8C00', paddingLeft: 2, fontSize: { xs: '10px', sm: '12px', md: '16', lg: '22px' } }}>
-                        50% Off
-                      </Typography>
+                <Grid item xs={6} sx={{ justifyContent: 'end' }}>
+                  <img src={featured1} alt="Pizza" style={{ width: '100%', maxHeight: '35vh', borderRadius: '50px' }} />
+                </Grid>
+              </Grid>
+            </li>
+            <li className="glide__slide">
+              <Grid container sx={{ bgcolor: '#4E5B31', maxWidth: '100%', borderRadius: 10, paddingLeft: 5 }}>
+                <Grid item xs={6} sx={{ paddingTop: 6 }}>
+                  <Typography variant="h6" sx={{ paddingBottom: 3, color: 'white' }}>
+                    Make Your First Order and Get
+                    <Typography variant="h6" component="span" sx={{ color: '#FF8C00', paddingLeft: 2 }}>
+                      50% Off
                     </Typography>
-                    <Button sx={{ bgcolor: '#FF6F00', color: 'white' }}>
-                      <Typography sx={{ textTransform: 'capitalize' }}>Order Now</Typography>
-                    </Button>
-                  </Grid>
-                  <Grid item xs={6} sx={{ justifyContent: 'end' }}>
-                    <img src={featured3} alt="Pizza" style={{ width: '100%', maxHeight: '35vh', borderRadius: '50px' }} />
-                  </Grid>
+                  </Typography>
+                  <Button sx={{ bgcolor: '#FF6F00', color: 'white' }}>
+                    <Typography sx={{ textTransform: 'capitalize' }}>
+                      Order Now
+                    </Typography>
+                  </Button>
                 </Grid>
-              </li>
-            </ul>
-          </div>
-          {/* Dots below the slider */}
-          <Box className="glide__bullets" data-glide-el="controls[nav]" sx={{ display: 'flex', justifyContent: 'center', marginTop: 2 }}>
-            {Array.from({ length: 3 }).map((_, index) => (
-              <Button
-                key={index}
-                className="glide__bullet"
-                data-glide-dir={`=${index}`}
-                sx={{
-                  backgroundColor: '#FF8C00', // Orange color
-                  height: 10,
-                  width: 10,
-                  minWidth: 0, // This is important to make the Button keep its small size
-                  padding: 0,
-                  borderRadius: '50%',
-                  opacity: 0.5, // Initial opacity
-                  transition: 'opacity 0.3s ease',
-                  '&:hover': {
-                    opacity: 1, // Full opacity on hover
-                  },
-                  '&.glide__bullet--active': {
-                    opacity: 1, // Full opacity when active
-                  },
-                  mx: 0.5 // Optional: add some horizontal space between dots
-                }}
-              />
-            ))}
-          </Box>
+                <Grid item xs={6} sx={{ justifyContent: 'end' }}>
+                  <img src={featured2} alt="Pizza" style={{ width: '100%', maxHeight: '35vh', borderRadius: '50px' }} />
+                </Grid>
+              </Grid>
+            </li>
+            <li className="glide__slide">
+              <Grid container sx={{ bgcolor: '#438D80', maxWidth: '100%', borderRadius: 10, paddingLeft: 5 }}>
+                <Grid item xs={6} sx={{ paddingTop: 6 }}>
+                  <Typography variant="h6" sx={{ paddingBottom: 3, color: 'white' }}>
+                    Make Your First Order and Get
+                    <Typography variant="h6" component="span" sx={{ color: '#FF8C00', paddingLeft: 2 }}>
+                      50% Off
+                    </Typography>
+                  </Typography>
+                  <Button sx={{ bgcolor: '#FF6F00', color: 'white' }}>
+                    <Typography sx={{ textTransform: 'capitalize' }}>
+                      Order Now
+                    </Typography>
+                  </Button>
+                </Grid>
+                <Grid item xs={6} sx={{ justifyContent: 'end' }}>
+                  <img src={featured3} alt="Pizza" style={{ width: '100%', maxHeight: '35vh', borderRadius: '50px' }} />
+                </Grid>
+              </Grid>
+            </li>
+          </ul>
         </div>
+        <Box className="glide__bullets" data-glide-el="controls[nav]">
+      {Array.from({ length: 3 }).map((_, index) => (
+        <Button
+          key={index}
+          className="glide__bullet"
+          data-glide-dir={`=${index}`}
+          sx={{
+            backgroundColor: '#FF8C00', // Orange color
+            height: 10,
+            width: 10,
+            minWidth: 0, // This is important to make the Button keep its small size
+            padding: 0,
+            borderRadius: '50%',
+            opacity: 0.5, // Initial opacity
+            transition: 'opacity 0.3s ease',
+            '&:hover': {
+              opacity: 1, // Full opacity on hover
+            },
+            '&.glide__bullet--active': {
+              opacity: 1, // Full opacity when active
+            },
+          }}
+        />
+      ))}
       </Box>
+      </div>
     </Box>
-
+    
+    </Box>
     </>
     );
    }
