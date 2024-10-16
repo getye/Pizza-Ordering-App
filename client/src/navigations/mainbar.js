@@ -110,9 +110,8 @@ export const MainBar = (props) => {
   const [leftBar, setLeftBar] = React.useState(false);
 
   const isMobile = useMediaQuery((theme) => theme.breakpoints.down('sm'));
-  if (isMobile){
-    setLeftBar(false)
-  }
+
+
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -130,6 +129,14 @@ export const MainBar = (props) => {
   
   const drawer = (
     <List sx={{ height: "100%", borderColor: 'gray' }}>
+      <Stack justifyContent={'space-between'} padding={1.5} direction="row" gap={3}>
+        <Stack direction="row" gap={2}>
+          <Typography variant="h6">Pizza</Typography>
+        </Stack>
+          <MenuOpenIcon onClick={handleLeftBar}/>
+        
+      </Stack>
+      <Divider />
 
       <img src={topLeft} alt='Pizza' width={'100%'} />
       
@@ -374,13 +381,6 @@ export const MainBar = (props) => {
               '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
             }}
           >
-          <Stack justifyContent={'space-between'} padding={1.5} direction="row" gap={3}>
-            <Stack direction="row" gap={2}>
-              <Typography variant="h6">Pizza</Typography>
-            </Stack>
-              <MenuOpenIcon onClick={handleLeftBar} />
-          </Stack>
-          <Divider />
             {drawer}
           </Drawer>
 
