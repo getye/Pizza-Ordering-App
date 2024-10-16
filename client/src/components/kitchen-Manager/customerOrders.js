@@ -139,7 +139,7 @@ export const CustomerOrders = () => {
   }
 
   return (
-    <Box sx={{ pt: 5, ml: drawerWidth}}>
+    <Box sx={{ pt: 5, ml: {drawerWidth}}}>
       {orders.length > 0 ? (
         <Box>
           <MaterialReactTable
