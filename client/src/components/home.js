@@ -63,35 +63,47 @@ return (
            fontSize: {xs: '8px', sm: '10px', md: '12px', lg: '14px'},
            pb:{xs: 1, sm: 2, md: 3, lg: 4}
            }}>Serach Pizzas here.</Typography>
-        <Paper
-          component="form"
-          sx={{ p: '13px 4px', borderRadius: 10, display: 'flex', alignItems: 'center', width:'60%' }}
-        >
-          <InputBase
-            sx={{ ml: 3, flex: 1 }}
-            placeholder="Search"
-            inputProps={{ 'aria-label': 'search' }}
-          />
-          <IconButton 
-            type="button" 
+          <Paper
+            component="form"
             sx={{
-              bgcolor: '#FF8C00', 
-              borderRadius: '50%', 
-              display: 'flex', 
-              justifyContent: 'center',
+              p: { xs: '8px 2px', sm: '10px 3px', md: '12px 4px', lg: '13px 4px' }, 
+              borderRadius: 10,
+              display: 'flex',
               alignItems: 'center',
-              width: '40px', 
-              height: '40px', 
-              transition: 'background-color 0.3s', 
-              '&:hover': {
-                bgcolor: '#FF6F00', 
-              },
+              width: { xs: '90%', sm: '75%', md: '65%', lg: '60%' }, 
+              mx: 'auto' // Centers the Paper component horizontally
             }}
-            aria-label="search"
           >
-            <SearchIcon sx={{ color: 'white' }} />
-          </IconButton>
-        </Paper>
+            <InputBase
+              sx={{
+                ml: { xs: 1, sm: 2, md: 3 }, 
+                flex: 1,
+                fontSize: { xs: '12px', sm: '14px', md: '16px', lg: '18px' } 
+              }}
+              placeholder="Search"
+              inputProps={{ 'aria-label': 'search' }}
+            />
+            <IconButton
+              type="button"
+              sx={{
+                bgcolor: '#FF8C00',
+                borderRadius: '50%',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: { xs: '35px', sm: '38px', md: '40px', lg: '45px' }, 
+                height: { xs: '35px', sm: '38px', md: '40px', lg: '45px' }, 
+                transition: 'background-color 0.3s',
+                '&:hover': {
+                  bgcolor: '#FF6F00',
+                },
+              }}
+              aria-label="search"
+            >
+              <SearchIcon sx={{ color: 'white', fontSize: { xs: '18px', sm: '20px', md: '24px', lg: '28px' } }} /> {/* Adjust icon size */}
+            </IconButton>
+          </Paper>
+
       </Grid>
 
       <Grid item xs={2} sx={{ display: 'flex', justifyContent: 'end' }}>
