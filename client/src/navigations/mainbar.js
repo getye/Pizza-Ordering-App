@@ -37,7 +37,7 @@ import liftIcon from '../assets/packedPizza.jpg';
 
 
 
- const drawerWidth = 'auto';
+
 
 const Footer = () => (
   <Box 
@@ -382,7 +382,10 @@ export const MainBar = (props) => {
         
       </AppBar>
       {(userRole) && (
-        <Box component="nav" sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }} aria-label="mailbox folders">
+        <Box component="nav" 
+            sx={{ 
+              width: { xs: 15, sm: 20, md:25, lg:30}, 
+              flexShrink: { sm: 0 } }} aria-label="mailbox folders">
             {/* Drawer for mobile */}
             <Drawer
               container={container}
@@ -394,7 +397,7 @@ export const MainBar = (props) => {
               }}
               sx={{
                 display: { xs: 'block', sm: 'none' },
-                '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+                '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 15 },
               }}
             >
               {drawer}
@@ -405,7 +408,7 @@ export const MainBar = (props) => {
               variant="permanent"
               sx={{
                 display: { xs: 'none', sm: 'block' },
-                '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+                '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 30 },
               }}
               open
               >

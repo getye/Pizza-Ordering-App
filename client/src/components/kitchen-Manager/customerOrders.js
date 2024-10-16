@@ -138,7 +138,12 @@ export const CustomerOrders = () => {
   }
 
   return (
-    <Box sx={{ pt: 5, ml: {xs: '3%', sm: '5%', md: '8%', lg: '10%'}}}>
+    <Box 
+      sx={{ 
+        pt: 5, 
+        ml: {xs: '5%', sm: '8%', md: '12%', lg: '17%'},
+        mr: {xs: '5%', sm: '8%', md: '12%', lg: '17%'}
+      }}>
       {orders.length > 0 ? (
         <Box>
           <MaterialReactTable
