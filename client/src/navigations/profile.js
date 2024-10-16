@@ -109,11 +109,12 @@ export const Profile = ({role}) => {
   const handleConfirmPasswordChange = (e) => setConfirmPassword(e.target.value);
 
   const handleUpdatePassword = async () => {
-    const result = passwordSchema.safeParse({ newPassword, confirmPassword });
+    const result = passwordSchema.safeParse({ oldPassword, newPassword, confirmPassword });
 
     if (!result.success) {
       const formErrors = result.error.format();
       setErrors({
+        oldPassword: formErrors.oldPassword?._errors[0],
         newPassword: formErrors.newPassword?._errors[0],
         confirmPassword: formErrors.confirmPassword?._errors[0],
       });
