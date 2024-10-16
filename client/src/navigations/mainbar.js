@@ -106,7 +106,7 @@ export const MainBar = (props) => {
   const navigate = useNavigate();
   const { window } = props;
   // State to control the mobile drawer
-  const [mobileOpen, setMobileOpen] = React.useState(true);
+  const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -301,9 +301,9 @@ export const MainBar = (props) => {
                 edge="start"
                 onClick={handleDrawerToggle}
                 sx={{ mr: 2, display: { sm: 'none' } }} // Hamburger icon only visible on mobile
-              >
+                >
                 <MenuIcon />
-              </IconButton>
+          </IconButton>
           {(!userRole) ? (
           <Toolbar sx={{ justifyContent: { xs: 'space-between', sm: 'space-between' }, flexDirection: { xs: 'column', sm: 'row' } }}>
             <img src={pizza} alt="Pizza Logo" style={{ width: '80px', marginBottom: { xs: 1, sm: 0 } }} />
@@ -338,7 +338,7 @@ export const MainBar = (props) => {
             open={mobileOpen}
             onClose={handleDrawerToggle}
             ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
+              keepMounted: true, 
             }}
             sx={{
               display: { xs: 'block', sm: 'none' },
@@ -356,7 +356,7 @@ export const MainBar = (props) => {
               '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
             }}
             open
-          >
+            >
             {drawer}
           </Drawer>
       </Box>
