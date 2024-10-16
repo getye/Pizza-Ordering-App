@@ -51,11 +51,12 @@ const Footer = () => (
       zIndex: 1000,
       bottom: 0, 
       left: 0, 
-      right: 0 
+      right: 0,
+      paddingX: { xs: 2, sm: 4 },
     }}
   >
     <Stack 
-      direction="row" 
+      direction={{ xs: 'column', sm: 'row' }}
       spacing={2} 
       justifyContent="space-between" 
       alignItems="center" 
@@ -291,12 +292,12 @@ export const MainBar = (props) => {
         
           
           {(!userRole) ? (
-            <Toolbar sx={{ justifyContent: 'space-between' }}>
-              <img src={pizza} alt='Pizza' />
-              <MenuItem onClick={() => navigate('/')}>Home</MenuItem>
-              <MenuItem onClick={() => navigate('/orders')}>Orders</MenuItem>
-              <MenuItem onClick={() => navigate('/contact')}>Who we are</MenuItem>
-              <MenuItem
+          <Toolbar sx={{ justifyContent: { xs: 'space-between', sm: 'flex-start' }, flexDirection: { xs: 'column', sm: 'row' } }}>
+            <img src={pizza} alt="Pizza Logo" style={{ width: '80px', marginBottom: { xs: 1, sm: 0 } }} />
+            <MenuItem onClick={() => navigate('/')}>Home</MenuItem>
+            <MenuItem onClick={() => navigate('/orders')}>Orders</MenuItem>
+            <MenuItem onClick={() => navigate('/contact')}>Who we are</MenuItem>
+            <MenuItem
                 onClick={() => navigate('/signup')}
                 sx={{
                   bgcolor: '#FF6700',
