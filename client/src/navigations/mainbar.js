@@ -33,12 +33,11 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 import LocalPizzaIcon from '@mui/icons-material/LocalPizza';
 import topLeft from '../assets/topLeftPizza.png';
 import liftIcon from '../assets/packedPizza.jpg';
-import { CustomerOrders } from '../components/kitchen-Manager/customerOrders';
 
 
 
 
-const drawerWidth = 'auto';
+export const drawerWidth = 'auto';
 
 const Footer = () => (
   <Box 
@@ -412,7 +411,6 @@ export const MainBar = (props) => {
               >
               {drawer}
             </Drawer>
-            <CustomerOrders drawerWidth={drawerWidth} />
         </Box>
       )}
       <Box sx={{ flexGrow: 1 }} />
