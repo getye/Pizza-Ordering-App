@@ -122,7 +122,7 @@ export const Signin = ({setIsAuthenticated}) => {
             </Button>
             <Grid className="footer">
               <Typography component="h5">
-                Don't have an account? <Link to={"/signup"}>Register</Link>
+                Don't have an account? <Link to={'/signup'}>Register</Link>
               </Typography>
             </Grid>
           </Box>

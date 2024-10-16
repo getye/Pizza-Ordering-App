@@ -67,18 +67,7 @@ export const UpdateProfile = ({handleProfileModalClose}) => {
   };
 
   return (
-    <Box
-      sx={{
-        paddingTop: 3,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'column',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        width: '100%',
-      }}
-    >
+    <>
       <Box
           sx={{
             display: 'flex',
@@ -154,6 +143,6 @@ export const UpdateProfile = ({handleProfileModalClose}) => {
           {notificationMessage}
         </Alert>
       </Snackbar>
-    </Box>
+  </>
   );
 };

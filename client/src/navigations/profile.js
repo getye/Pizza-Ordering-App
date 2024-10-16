@@ -16,6 +16,7 @@ import { z } from 'zod';
 import {UpdateProfile} from '../components/updateProfile'; 
 
 const passwordSchema = z.object({
+  oldPassword: z.string().required({ message: "Old Password is Empty" }),
   newPassword: z.string().min(6, { message: "Password must be at least 6 characters long" }),
   confirmPassword: z.string(),
 }).refine((data) => data.newPassword === data.confirmPassword, {
@@ -23,12 +24,13 @@ const passwordSchema = z.object({
   path: ["confirmPassword"],
 });
 
-export const Profile = () => {
+export const Profile = ({role}) => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false); // Modal open state
   const [profileModalOpen, setProfileModalOpen] = useState(false); // Profile modal state
   const anchorRef = useRef(null);
+  const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errors, setErrors] = useState({});
@@ -103,6 +105,7 @@ export const Profile = () => {
 
   // Handle password update
   const handleNewPasswordChange = (e) => setNewPassword(e.target.value);
+  const handleOldPasswordChange = (e) => setOldPassword(e.target.value);
   const handleConfirmPasswordChange = (e) => setConfirmPassword(e.target.value);
 
   const handleUpdatePassword = async () => {
@@ -131,6 +134,7 @@ export const Profile = () => {
           },
           body: JSON.stringify({
             password: newPassword,
+            oldPassword: oldPassword,
           }),
         });
 
@@ -193,9 +197,19 @@ export const Profile = () => {
                       aria-labelledby="composition-button"
                       onKeyDown={handleListKeyDown}
                     >
-                      <MenuItem onClick={handleProfileModalOpen}>My Profile</MenuItem> {/* Open profile modal */}
-                      <MenuItem onClick={handleModalOpen}>Update Password</MenuItem> {/* Open password modal */}
-                      <MenuItem onClick={handleSignOut}>Logout</MenuItem>
+                      {(role==="Customer")? (
+                        <>
+                        <MenuItem onClick={handleModalOpen}>Update Password</MenuItem> {/* Open password modal */}
+                        <MenuItem onClick={handleSignOut}>Logout</MenuItem>
+                        </>
+                      ):(
+                        <>
+                        <MenuItem onClick={handleProfileModalOpen}>My Profile</MenuItem> {/* Open profile modal */}
+                        <MenuItem onClick={handleModalOpen}>Update Password</MenuItem> {/* Open password modal */}
+                        <MenuItem onClick={handleSignOut}>Logout</MenuItem>
+                        </>
+                      ) }
+                      
                     </MenuList>
                   </ClickAwayListener>
                 </Paper>
@@ -209,6 +223,35 @@ export const Profile = () => {
       <Dialog open={modalOpen} onClose={handleModalClose} >
         <DialogTitle>Update Password</DialogTitle>
         <DialogContent>
+          <FormControl size='small' sx={{ paddingBottom: 1, width: '100%', mt:2 }} variant="outlined">
+              <InputLabel htmlFor="oldPassword">Old Password</InputLabel>
+              <OutlinedInput
+                id="oldPassword"
+                type={showPassword ? 'text' : 'password'}
+                name="oldPassword"
+                value={oldPassword}
+                onChange={handleOldPasswordChange}
+                required
+                fullWidth
+                autoComplete='off'
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                    >
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                }
+                label="Old Password"
+              />
+              {errors.oldPassword && (
+                <Typography style={{ color: 'red', margin: 0 }}>{errors.OldPassword}</Typography>
+              )}
+          </FormControl>
           <FormControl size='small' sx={{ paddingBottom: 1, width: '100%', mt:2 }} variant="outlined">
               <InputLabel htmlFor="newPassword">New Password</InputLabel>
               <OutlinedInput
@@ -237,8 +280,8 @@ export const Profile = () => {
               {errors.newPassword && (
                 <Typography style={{ color: 'red', margin: 0 }}>{errors.newPassword}</Typography>
               )}
-            </FormControl>
-            <FormControl size='small' sx={{ width: '100%', paddingBottom: 2 }} variant="outlined">
+          </FormControl>
+          <FormControl size='small' sx={{ width: '100%', paddingBottom: 2 }} variant="outlined">
               <InputLabel htmlFor="confirm">Confirm Password</InputLabel>
               <OutlinedInput
                 id="confirm"
@@ -265,7 +308,7 @@ export const Profile = () => {
               {errors.confirmPassword && (
                 <Typography style={{ color: 'red', margin: 0 }}>{errors.confirmPassword}</Typography>
               )}
-            </FormControl>
+          </FormControl>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleModalClose}>Cancel</Button>

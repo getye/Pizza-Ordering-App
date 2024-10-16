@@ -61,6 +61,13 @@ const addUser = async (id, userName, email, hashedpass, phone, location, role, u
   return await pool.query(query, values);
 };
 
+const getPassword = async (user_id) => {
+  const selectQuery = 'SELECT user_password FROM accounts WHERE user_id = $1';
+  const selectedValues = [user_id];
+  const result = await pool.query(selectQuery, selectedValues);
+  return result.rows.length > 0 ? result.rows[0].user_password : null;
+};
+
 const updatePassword = async (user_id, password) => {
   const result = await pool.query(
     'UPDATE accounts SET user_password = $1 WHERE user_id = $2 RETURNING *',
@@ -127,6 +134,7 @@ module.exports = {
   updateUserStatus,
   getAdminRestaurant,
   addUser,
+  getPassword,
   updatePassword,
   deleteUser,
   getAllAdmins,
