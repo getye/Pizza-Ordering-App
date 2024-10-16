@@ -137,7 +137,7 @@ export const Profile = ({role}) => {
             oldPassword: oldPassword,
           }),
         });
-
+        console.log("Respons: ", response)
         // Check if the update was successful
         if (response.ok) {
           setMessageType('Success');

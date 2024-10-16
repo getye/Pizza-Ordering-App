@@ -11,8 +11,6 @@ export const AbilityProvider = ({ children }) => {
     if (role) {
       const userAbility = defineAbilitiesFor(role); // Define abilities based on the role
       setAbility(userAbility); // Update ability state
-      console.log("Role: ", role);  // For debugging
-      console.log("Ability: ", userAbility);  // For debugging
     }
   }, []); // Runs only once after the component mounts
 
