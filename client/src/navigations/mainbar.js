@@ -107,14 +107,19 @@ export const MainBar = (props) => {
   const { window } = props;
   // State to control the mobile drawer
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [leftBar, setLeftBar] = React.useState(false);
+
   const isMobile = useMediaQuery((theme) => theme.breakpoints.down('sm'));
-
-
+  if (isMobile){
+    setLeftBar(false)
+  }
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
-    console.log("handleDrawerToggle")
-    console.log("mobileOpen: ", mobileOpen)
+  };
+
+  const handleLeftBar = () => {
+    setLeftBar(!leftBar);
   };
 
   const handleSignOut = () => {
@@ -125,14 +130,6 @@ export const MainBar = (props) => {
   
   const drawer = (
     <List sx={{ height: "100%", borderColor: 'gray' }}>
-      <Stack justifyContent={'space-between'} padding={1.5} direction="row" gap={3}>
-        <Stack direction="row" gap={2}>
-          <Typography variant="h6">Pizza</Typography>
-        </Stack>
-          <MenuOpenIcon />
-        
-      </Stack>
-      <Divider />
 
       <img src={topLeft} alt='Pizza' width={'100%'} />
       
@@ -361,14 +358,14 @@ export const MainBar = (props) => {
           )}
         
       </AppBar>
-      {userRole && (
+      {(userRole) && (
         <Box component="nav" sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }} aria-label="mailbox folders">
           {/* Drawer for mobile */}
           <Drawer
             container={container}
             variant="temporary"
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
+            open={leftBar}
+            onClose={handleLeftBar}
             ModalProps={{
               keepMounted: true, 
             }}
@@ -377,6 +374,13 @@ export const MainBar = (props) => {
               '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
             }}
           >
+          <Stack justifyContent={'space-between'} padding={1.5} direction="row" gap={3}>
+            <Stack direction="row" gap={2}>
+              <Typography variant="h6">Pizza</Typography>
+            </Stack>
+              <MenuOpenIcon onClick={handleLeftBar} />
+          </Stack>
+          <Divider />
             {drawer}
           </Drawer>
 
