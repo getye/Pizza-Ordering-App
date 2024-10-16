@@ -31,8 +31,8 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 
 
 import LocalPizzaIcon from '@mui/icons-material/LocalPizza';
+import AllInboxSharpIcon from '@mui/icons-material/AllInboxSharp';
 import topLeft from '../assets/topLeftPizza.png';
-import liftIcon from '../assets/packedPizza.jpg';
 
 
 
@@ -123,7 +123,7 @@ export const MainBar = (props) => {
     navigate('/')
   };
 
-  
+  const navWidth = (leftBar)?(35):(240)
   const drawer = (
     <List sx={{ height: 'auto', borderColor: 'gray' }}>
       {(leftBar)? (
@@ -229,7 +229,7 @@ export const MainBar = (props) => {
             <ListItem disablePadding onClick={() => { navigate("/kichen-manager/view/orders") }}>
               <ListItemButton>
                 <ListItemIcon>
-                <img src={liftIcon} alt='Pizza' width={40} />
+                  <AllInboxSharpIcon/>
                 </ListItemIcon>
                 <ListItemText primary="Orders" />
               </ListItemButton>
@@ -252,7 +252,7 @@ export const MainBar = (props) => {
             <ListItem disablePadding onClick={() => { navigate("/branch-manager/view/orders") }}>
               <ListItemButton>
                 <ListItemIcon>
-                <img src={liftIcon} alt='Pizza' width={40} />
+                  <AllInboxSharpIcon/>
                 </ListItemIcon>
                 <ListItemText primary="Orders" />
               </ListItemButton>
@@ -384,7 +384,7 @@ export const MainBar = (props) => {
       {(userRole) && (
         <Box component="nav" 
             sx={{ 
-              width: { xs: 120, sm: 160, md:200, lg:240}}} 
+              width: navWidth}} 
               aria-label="mailbox folders">
             {/* Drawer for mobile */}
             <Drawer
@@ -397,7 +397,7 @@ export const MainBar = (props) => {
               }}
               sx={{
                 display: { xs: 'block', sm: 'none' },
-                '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 120 },
+                '& .MuiDrawer-paper': { boxSizing: 'border-box', width: navWidth },
               }}
             >
               {drawer}
@@ -408,7 +408,7 @@ export const MainBar = (props) => {
               variant="permanent"
               sx={{
                 display: { xs: 'none', sm: 'block' },
-                '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 240 },
+                '& .MuiDrawer-paper': { boxSizing: 'border-box', width: navWidth },
               }}
               open
               >
