@@ -302,8 +302,10 @@ export const MainBar = (props) => {
       <AppBar position="fixed" sx={{ width: 1, backgroundColor: 'white', color: 'black', padding: { xs: '0 8px', sm: '0 16px' } }}>
 
           {(!userRole) ? (
-          <Toolbar sx={{ justifyContent: { xs: 'space-between', sm: 'space-between' }, flexDirection: { xs: 'column', sm: 'row' } }}>
-            {(isMobile)?(
+          <Toolbar sx={{ justifyContent: 'space-between', flexDirection: { xs: 'column', sm: 'row' } }}>
+
+            {(isMobile)&&(
+              <>
             <IconButton
                 color="inherit"
                 aria-label="open drawer"
@@ -312,9 +314,11 @@ export const MainBar = (props) => {
                 onClick={handleDrawerToggle}>
                 <MenuIcon />
             </IconButton>
-            ):(
-              <>
             <img src={pizza} alt="Pizza Logo" style={{ width: '80px', marginBottom: { xs: 1, sm: 0 } }} />
+            </>
+            )}
+            {(isMobile & mobileOpen) && (
+              <>
             <MenuItem onClick={() => navigate('/')}>Home</MenuItem>
             <MenuItem onClick={() => navigate('/orders')}>Orders</MenuItem>
             <MenuItem onClick={() => navigate('/contact')}>Who we are</MenuItem>
