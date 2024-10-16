@@ -41,7 +41,7 @@ return (
         }}
         >
         
-      <Grid item xs={12} sm={8} sx={{ 
+      <Grid item   sx={{ 
         display: 'flex', flexDirection: 'column', alignItems: 'flex-start',
         ml: {xs: '1%', sm: '2%', md: '5%', lg: '7%'}
          }}>
@@ -89,7 +89,7 @@ return (
         </Paper>
       </Grid>
 
-      <Grid item xs={12} sm={4} sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'end'}}>
+      <Grid item  sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'end'}}>
         <img src={home1} alt='Pizza' style={{maxWidth:'40%', maxHeight:'22vh'}}/>
         <img src={home2} alt='Pizza' style={{maxWidth:'60%', maxHeight:'80vh'}}/>
       </Grid>
