@@ -38,7 +38,7 @@ return (
         sx={{
             alignItems: 'center', 
             paddingTop: 2, 
-            paddingLeft: 8,
+            pl: {xs: '5%', sm: '10%', md: '15%', lg: '20%'},
             background: 'linear-gradient(to bottom, #FFFFFF, #F5D58E, #FFFFFF)',
         }}
         >
