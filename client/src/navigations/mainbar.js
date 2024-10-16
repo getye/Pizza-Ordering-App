@@ -133,7 +133,14 @@ export const MainBar = (props) => {
         <Stack direction="row" gap={2}>
           <Typography variant="h6">Pizza</Typography>
         </Stack>
-          <MenuOpenIcon onClick={handleLeftBar}/>
+          <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                edge="start"
+                sx={{ display: { sm: 'none' } }} // Hamburger icon only visible on mobile
+                onClick={handleLeftBar}>
+                <MenuOpenIcon />
+            </IconButton>
         
       </Stack>
       <Divider />
