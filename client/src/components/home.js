@@ -41,7 +41,10 @@ return (
         }}
         >
         
-      <Grid item xs={10} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+      <Grid item xs={10} sx={{ 
+        display: 'flex', flexDirection: 'column', alignItems: 'flex-start',
+        ml: {xs: '1%', sm: '2%', md: '5%', lg: '7%'}
+         }}>
         <Typography 
           sx={{
             background: 'linear-gradient(to right, #FF8C00, #FFCBA4)', 
@@ -92,7 +95,7 @@ return (
       </Grid>
     </Grid>
     <Box sx={{
-      ml: {xs: '5%', sm: '10%', md: '15%', lg: '20%'},
+      ml: {xs: '1%', sm: '2%', md: '5%', lg: '7%'},
       pb:{xs:4, sm:6, md:9, lg:13}}}>
         <Typography sx={{color:'gray', fontSize:{xs:'10px', sm:'12px', md:'16', lg:'22px'}}}>Featured Pizza</Typography>
         <Box sx={{ maxwidth: '60%', maxheight: '300px', display: 'flex', justifyContent: 'center' }}>
