@@ -137,7 +137,6 @@ export const MainBar = (props) => {
                 color="inherit"
                 aria-label="open drawer"
                 edge="start"
-                sx={{ display: { sm: 'none' } }} // Hamburger icon only visible on mobile
                 onClick={handleLeftBar}>
                 <MenuOpenIcon />
             </IconButton>
