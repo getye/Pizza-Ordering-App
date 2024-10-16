@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Box, Dialog, DialogTitle, DialogContent, DialogActions, Button, Typography, Autocomplete, TextField, Alert, Snackbar } from '@mui/material';
 import { MaterialReactTable } from 'material-react-table';
 
-export const CustomerOrders = () => {
+export const CustomerOrders = ({drawerWidth}) => {
   const [orders, setOrders] = useState([]);
   const [orderStatus, setOrderStatus] = useState('');
   const [loading, setLoading] = useState(true);
@@ -137,7 +137,7 @@ export const CustomerOrders = () => {
   }
 
   return (
-    <Box sx={{ pt: 5, ml: 32 }}>
+    <Box sx={{ pt: 5, ml: { sm: `${drawerWidth}px` }}}>
       {orders.length > 0 ? (
         <Box>
           <MaterialReactTable

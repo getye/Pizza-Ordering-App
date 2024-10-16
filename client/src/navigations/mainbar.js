@@ -15,8 +15,7 @@ import { useNavigate } from 'react-router-dom';
 import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
 import Person2OutlinedIcon from '@mui/icons-material/Person2Outlined';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
-import LocalPizzaOutlinedIcon from '@mui/icons-material/LocalPizzaOutlined';
+import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';import LocalPizzaOutlinedIcon from '@mui/icons-material/LocalPizzaOutlined';
 import SummarizeIcon from '@mui/icons-material/Summarize';
 import MenuIcon from '@mui/icons-material/Menu';  // Hamburger icon for mobile
 
@@ -34,6 +33,7 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 import LocalPizzaIcon from '@mui/icons-material/LocalPizza';
 import topLeft from '../assets/topLeftPizza.png';
 import liftIcon from '../assets/packedPizza.jpg';
+import { CustomerOrders } from '../components/kitchen-Manager/customerOrders';
 
 
 
@@ -303,7 +303,7 @@ export const MainBar = (props) => {
           <ListItem disablePadding onClick={ handleSignOut } sx={{maxWidth:'80%', marginLeft:3, paddingTop:2}}>
               <ListItemButton sx={{marginLeft:2}}>
                 <ListItemIcon>
-                  <LoginOutlinedIcon sx={{color:'red'}}/>
+                  <LogoutOutlinedIcon sx={{color:'red'}}/>
                 </ListItemIcon>
                 <ListItemText primary="Logout" sx={{color:'red'}}/>
               </ListItemButton>
@@ -384,35 +384,36 @@ export const MainBar = (props) => {
       </AppBar>
       {(userRole) && (
         <Box component="nav" sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }} aria-label="mailbox folders">
-          {/* Drawer for mobile */}
-          <Drawer
-            container={container}
-            variant="temporary"
-            open={leftBar}
-            onClose={handleLeftBar}
-            ModalProps={{
-              keepMounted: true, 
-            }}
-            sx={{
-              display: { xs: 'block', sm: 'none' },
-              '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-            }}
-          >
-            {drawer}
-          </Drawer>
-
-          {/* Permanent Drawer for desktop */}
-          <Drawer
-            variant="permanent"
-            sx={{
-              display: { xs: 'block', sm: 'block' },
-              '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-            }}
-            open
+            {/* Drawer for mobile */}
+            <Drawer
+              container={container}
+              variant="temporary"
+              open={leftBar}
+              onClose={handleLeftBar}
+              ModalProps={{
+                keepMounted: true, 
+              }}
+              sx={{
+                display: { xs: 'block', sm: 'none' },
+                '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+              }}
             >
-            {drawer}
-          </Drawer>
-      </Box>
+              {drawer}
+            </Drawer>
+
+            {/* Permanent Drawer for desktop */}
+            <Drawer
+              variant="permanent"
+              sx={{
+                display: { xs: 'none', sm: 'block' },
+                '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+              }}
+              open
+              >
+              {drawer}
+            </Drawer>
+            <CustomerOrders drawerWidth={drawerWidth} />
+        </Box>
       )}
       <Box sx={{ flexGrow: 1 }} />
           <Footer />
