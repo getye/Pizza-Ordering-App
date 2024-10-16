@@ -106,7 +106,7 @@ export const MainBar = (props) => {
   const navigate = useNavigate();
   const { window } = props;
   // State to control the mobile drawer
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = React.useState(true);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
