@@ -181,7 +181,7 @@ export const MainBar = (props) => {
       {/* Kichen manager Links */}
       {userRole === "Kitchen Manager" && (
         <>
-          <ListItem disablePadding sx={{ display: "block" }} onClick={() => { navigate("/kichen-manager/dashboard") }}>
+          <ListItem disablePadding onClick={() => { navigate("/kichen-manager/dashboard") }}>
             <ListItemButton>
               <ListItemIcon>
                 <SpaceDashboardIcon />
@@ -189,7 +189,7 @@ export const MainBar = (props) => {
               <ListItemText primary="Dashboard" />
             </ListItemButton>
           </ListItem>
-          <ListItem disablePadding sx={{ display: "block" }} onClick={() => { navigate("/kichen-manager/add/menu") }}>
+          <ListItem disablePadding onClick={() => { navigate("/kichen-manager/add/menu") }}>
             <ListItemButton>
               <ListItemIcon>
                 <LocalPizzaOutlinedIcon />
