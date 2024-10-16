@@ -44,11 +44,9 @@ const Footer = () => (
   <Box 
     sx={{ 
       p: 1, 
-      paddingLeft:32,
       textAlign: 'center', 
       backgroundColor: 'black', 
       color:'white',
-      position: 'fixed', 
       zIndex: 1000,
       bottom: 0, 
       left: 0, 
@@ -61,7 +59,7 @@ const Footer = () => (
       spacing={2} 
       justifyContent="space-between" 
       alignItems="center" 
-      sx={{ width: '100%', maxWidth: 'lg', mx: 'auto' }}
+      sx={{ width: '100%', maxWidth: 'lg', mx: 'auto', ml:35 }}
     >
       <Box sx={{ display: 'flex', gap: 2 }}>
         <Typography variant="body2" color="white">
@@ -119,6 +117,7 @@ export const MainBar = (props) => {
 
   const handleLeftBar = () => {
     setLeftBar(!leftBar);
+    console.log("Left bar open: ", leftBar)
   };
 
   const handleSignOut = () => {
@@ -128,179 +127,192 @@ export const MainBar = (props) => {
 
   
   const drawer = (
-    <List sx={{ height: "100%", borderColor: 'gray' }}>
-      <Stack justifyContent={'space-between'} padding={1.5} direction="row" gap={3}>
-        <Stack direction="row" gap={2}>
-          <Typography variant="h6">Pizza</Typography>
-        </Stack>
+    <List sx={{ height: "90%", borderColor: 'gray' }}>
+      {(leftBar)? (
           <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                edge="start"
-                onClick={handleLeftBar}>
-                <MenuOpenIcon />
-            </IconButton>
-        
-      </Stack>
-      <Divider />
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleLeftBar}>
+              <MenuOpenIcon />
+          </IconButton> 
+      ):(
+        <>
+        <Stack justifyContent={'space-between'} padding={1.5} direction="row" gap={3}>
+          <Stack direction="row" gap={2}>
+            <Typography variant="h6">Pizza</Typography>
+          </Stack>
+            <IconButton
+                  color="inherit"
+                  aria-label="open drawer"
+                  edge="start"
+                  onClick={handleLeftBar}>
+                  <MenuOpenIcon />
+              </IconButton>     
+        </Stack>
+        <Divider />
 
-      <img src={topLeft} alt='Pizza' width={'100%'} />
-      
-      {/* Super Admin Links */}
-      {userRole === "Super Admin" && (
+        <img src={topLeft} alt='Pizza' width={'100%'} />
+        
+        {/* Super Admin Links */}
+        {userRole === "Super Admin" && (
+            <>
+            <ListItem disablePadding onClick={() => { navigate("/superadmin/view/earnings") }}>
+              <ListItemButton >
+                <ListItemIcon>
+                  <SummarizeIcon />
+                </ListItemIcon>
+                <ListItemText primary="Dashboard" />
+              </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding onClick={() => { navigate("/superadmin/view/admins") }}>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <AccountCircleOutlinedIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Admins" />
+                </ListItemButton>
+              </ListItem>
+
+            </>
+          )}
+
+        {/* Restaurant Register/Admin Links */}
+        {userRole === "Restaurant Register" && (
           <>
-          <ListItem disablePadding onClick={() => { navigate("/superadmin/view/earnings") }}>
-            <ListItemButton >
-              <ListItemIcon>
-                <SummarizeIcon />
-              </ListItemIcon>
-              <ListItemText primary="Dashboard" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding onClick={() => { navigate("/superadmin/view/admins") }}>
+          <ListItem disablePadding onClick={() => { navigate("/admin/reports") }}>
+              <ListItemButton >
+                <ListItemIcon>
+                  <SummarizeIcon />
+                </ListItemIcon>
+                <ListItemText primary="Dashboard" />
+              </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding onClick={() => { navigate("/admin/roles") }}>
+              <ListItemButton >
+                <ListItemIcon>
+                  <Person2OutlinedIcon />
+                </ListItemIcon>
+                <ListItemText primary="Role" />
+              </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding onClick={() => { navigate("/admin/users") }}>
               <ListItemButton>
                 <ListItemIcon>
                   <AccountCircleOutlinedIcon />
                 </ListItemIcon>
-                <ListItemText primary="Admins" />
+                <ListItemText primary="User" />
               </ListItemButton>
             </ListItem>
 
           </>
         )}
 
-      {/* Restaurant Register/Admin Links */}
-      {userRole === "Restaurant Register" && (
-        <>
-        <ListItem disablePadding onClick={() => { navigate("/admin/reports") }}>
-            <ListItemButton >
-              <ListItemIcon>
-                <SummarizeIcon />
-              </ListItemIcon>
-              <ListItemText primary="Dashboard" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding onClick={() => { navigate("/admin/roles") }}>
-            <ListItemButton >
-              <ListItemIcon>
-                <Person2OutlinedIcon />
-              </ListItemIcon>
-              <ListItemText primary="Role" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding onClick={() => { navigate("/admin/users") }}>
-            <ListItemButton>
-              <ListItemIcon>
-                <AccountCircleOutlinedIcon />
-              </ListItemIcon>
-              <ListItemText primary="User" />
-            </ListItemButton>
-          </ListItem>
+        {/* Kichen manager Links */}
+        {userRole === "Kitchen Manager" && (
+          <>
+            <ListItem disablePadding onClick={() => { navigate("/kichen-manager/dashboard") }}>
+              <ListItemButton>
+                <ListItemIcon>
+                  <SpaceDashboardIcon />
+                </ListItemIcon>
+                <ListItemText primary="Dashboard" />
+              </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding onClick={() => { navigate("/kichen-manager/add/menu") }}>
+              <ListItemButton>
+                <ListItemIcon>
+                  <LocalPizzaOutlinedIcon />
+                </ListItemIcon>
+                <ListItemText primary="Add Menu" />
+              </ListItemButton>
+            </ListItem>
 
+            <ListItem disablePadding onClick={() => { navigate("/kichen-manager/view/orders") }}>
+              <ListItemButton>
+                <ListItemIcon>
+                <img src={liftIcon} alt='Pizza' width={40} />
+                </ListItemIcon>
+                <ListItemText primary="Orders" />
+              </ListItemButton>
+            </ListItem>
+          </>
+        )}
+
+        {/* Branch manager Links */}
+        {userRole === 'Branch Manager' && (
+          <>
+            <ListItem disablePadding onClick={() => { navigate("/branch-manager/dashboard") }}>
+              <ListItemButton>
+                <ListItemIcon>
+                  <SpaceDashboardIcon />
+                </ListItemIcon>
+                <ListItemText primary="Dashboard" />
+              </ListItemButton>
+            </ListItem>
+
+            <ListItem disablePadding onClick={() => { navigate("/branch-manager/view/orders") }}>
+              <ListItemButton>
+                <ListItemIcon>
+                <img src={liftIcon} alt='Pizza' width={40} />
+                </ListItemIcon>
+                <ListItemText primary="Orders" />
+              </ListItemButton>
+            </ListItem>
+
+          </>
+        )}
+
+              {/* Cashier Links */}
+        {userRole === 'Cashier' && (
+          <>
+            <ListItem disablePadding onClick={() => { navigate("/cashier/view/orders") }}>
+              <ListItemButton>
+                <ListItemIcon>
+                  <SpaceDashboardIcon />
+                </ListItemIcon>
+                <ListItemText primary="Dashboard" />
+              </ListItemButton>
+            </ListItem>
+          </>
+        )}
+
+        {/* Customer Links */}
+        {userRole === 'Customer' && (
+          <>
+            <ListItem disablePadding onClick={() => { navigate("/customer/view/orders") }}>
+              <ListItemButton>
+                <ListItemIcon>
+                  <SpaceDashboardIcon />
+                </ListItemIcon>
+                <ListItemText primary="Dashboard" />
+              </ListItemButton>
+            </ListItem>
+
+            <ListItem disablePadding onClick={() => { navigate("/customer/menu") }}>
+              <ListItemButton>
+                <ListItemIcon>
+                  <LocalPizzaIcon />
+                </ListItemIcon>
+                <ListItemText primary="Menu" />
+              </ListItemButton>
+            </ListItem>
+
+          </>
+        )}
+        <Divider/>
+          <ListItem disablePadding onClick={ handleSignOut } sx={{maxWidth:'80%', marginLeft:3, paddingTop:2}}>
+              <ListItemButton sx={{marginLeft:2}}>
+                <ListItemIcon>
+                  <LoginOutlinedIcon sx={{color:'red'}}/>
+                </ListItemIcon>
+                <ListItemText primary="Logout" sx={{color:'red'}}/>
+              </ListItemButton>
+          </ListItem>
         </>
-      )}
-
-      {/* Kichen manager Links */}
-      {userRole === "Kitchen Manager" && (
-        <>
-          <ListItem disablePadding onClick={() => { navigate("/kichen-manager/dashboard") }}>
-            <ListItemButton>
-              <ListItemIcon>
-                <SpaceDashboardIcon />
-              </ListItemIcon>
-              <ListItemText primary="Dashboard" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding onClick={() => { navigate("/kichen-manager/add/menu") }}>
-            <ListItemButton>
-              <ListItemIcon>
-                <LocalPizzaOutlinedIcon />
-              </ListItemIcon>
-              <ListItemText primary="Add Menu" />
-            </ListItemButton>
-          </ListItem>
-
-          <ListItem disablePadding onClick={() => { navigate("/kichen-manager/view/orders") }}>
-            <ListItemButton>
-              <ListItemIcon>
-              <img src={liftIcon} alt='Pizza' width={40} />
-              </ListItemIcon>
-              <ListItemText primary="Orders" />
-            </ListItemButton>
-          </ListItem>
-        </>
-      )}
-
-      {/* Branch manager Links */}
-      {userRole === 'Branch Manager' && (
-        <>
-          <ListItem disablePadding onClick={() => { navigate("/branch-manager/dashboard") }}>
-            <ListItemButton>
-              <ListItemIcon>
-                <SpaceDashboardIcon />
-              </ListItemIcon>
-              <ListItemText primary="Dashboard" />
-            </ListItemButton>
-          </ListItem>
-
-          <ListItem disablePadding onClick={() => { navigate("/branch-manager/view/orders") }}>
-            <ListItemButton>
-              <ListItemIcon>
-              <img src={liftIcon} alt='Pizza' width={40} />
-              </ListItemIcon>
-              <ListItemText primary="Orders" />
-            </ListItemButton>
-          </ListItem>
-
-        </>
-      )}
-
-            {/* Cashier Links */}
-      {userRole === 'Cashier' && (
-        <>
-          <ListItem disablePadding onClick={() => { navigate("/cashier/view/orders") }}>
-            <ListItemButton>
-              <ListItemIcon>
-                <SpaceDashboardIcon />
-              </ListItemIcon>
-              <ListItemText primary="Dashboard" />
-            </ListItemButton>
-          </ListItem>
-        </>
-      )}
-
-       {/* Customer Links */}
-       {userRole === 'Customer' && (
-        <>
-          <ListItem disablePadding onClick={() => { navigate("/customer/view/orders") }}>
-            <ListItemButton>
-              <ListItemIcon>
-                <SpaceDashboardIcon />
-              </ListItemIcon>
-              <ListItemText primary="Dashboard" />
-            </ListItemButton>
-          </ListItem>
-
-          <ListItem disablePadding onClick={() => { navigate("/customer/menu") }}>
-            <ListItemButton>
-              <ListItemIcon>
-                <LocalPizzaIcon />
-              </ListItemIcon>
-              <ListItemText primary="Menu" />
-            </ListItemButton>
-          </ListItem>
-
-        </>
-      )}
-      <Divider/>
-        <ListItem disablePadding onClick={ handleSignOut } sx={{maxWidth:'80%', marginLeft:3, paddingTop:2}}>
-            <ListItemButton sx={{marginLeft:2}}>
-              <ListItemIcon>
-                <LoginOutlinedIcon sx={{color:'red'}}/>
-              </ListItemIcon>
-              <ListItemText primary="Logout" sx={{color:'red'}}/>
-            </ListItemButton>
-        </ListItem>
+      ) }
+        
+          
     </List>
   );
 
