@@ -294,7 +294,13 @@ export const MainBar = (props) => {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', paddingBottom: '56px' }}>
       <CssBaseline />
-      <AppBar position="fixed" sx={{ width: 1, backgroundColor: 'white', color: 'black' }}>
+      <AppBar 
+            container={container}
+            variant="temporary"
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            position="fixed" 
+            sx={{ width: 1, backgroundColor: 'white', color: 'black' }}>
           <IconButton
                 color="inherit"
                 aria-label="open drawer"
