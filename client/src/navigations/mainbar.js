@@ -299,7 +299,7 @@ export const MainBar = (props) => {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', paddingBottom: '56px' }}>
       <CssBaseline />
-      <AppBar position="fixed" sx={{ width: 1, backgroundColor: 'white', color: 'black', padding: { xs: '0 8px', sm: '0 16px' } }}>
+      <AppBar position="fixed" sx={{ width: '100%', backgroundColor: 'white', color: 'black', padding: { xs: '0 8px', sm: '0 16px' } }}>
 
           {(!userRole) ? (
           <Toolbar sx={{ justifyContent: 'space-between', flexDirection: { xs: 'column', sm: 'row' } }}>
@@ -335,7 +335,7 @@ export const MainBar = (props) => {
             <img src={pizza} alt="Pizza Logo" style={{ width: '80px', marginBottom: { xs: 1, sm: 0 } }} />
             </>
             )}
-            {(isMobile & mobileOpen) && (
+            {(isMobile && mobileOpen) && (
               <>
             <MenuItem onClick={() => navigate('/')}>Home</MenuItem>
             <MenuItem onClick={() => navigate('/orders')}>Orders</MenuItem>
