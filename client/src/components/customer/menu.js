@@ -151,8 +151,8 @@ export const Menus = () => {
                 <CardMedia
                   component="img"
                   sx={{ width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover', marginBottom: 2 }}
-                  image={`${window.location.origin}/uploads/pizza/${selectedMenu?.photo}`}
-                  alt={selectedMenu?.menu_name}
+                  image={selectedMenu.photo}
+                  alt={selectedMenu.menu_name}
                 />
               </Grid>
 

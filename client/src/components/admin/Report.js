@@ -23,6 +23,7 @@ export const Report = () => {
                 });
 
                 const data = await response.json();
+                console.log("Respons: ", data)
                 setReportData(data);
             } catch (error) {
                 console.error('Error fetching report data:', error);
@@ -53,6 +54,7 @@ export const Report = () => {
     const handlePrevious = () => {
         setCurrentPage(0);
     };
+    const chartHeight = isTotalOrders ? reportData.total_orders : reportData.total_earnings;
 
     return (
         <Box sx={{ paddingTop: 3, justifyContent: 'center',
@@ -60,7 +62,7 @@ export const Report = () => {
             mr: {xs: '1%', sm: '3%', md: '5%', lg: '7%'},
             mb: {xs: 1, sm: 2, md: 3, lg: 4},
         }}>
-            <ResponsiveContainer width="90%" height={400}>
+            <ResponsiveContainer width="90%" height={chartHeight}>
                 <LineChart data={isTotalOrders ? totalOrdersData : totalEarningsData}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="month" />
