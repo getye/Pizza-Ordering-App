@@ -61,7 +61,7 @@ export const Report = () => {
             mr: {xs: '1%', sm: '3%', md: '5%', lg: '7%'},
             mb: {xs: 1, sm: 2, md: 3, lg: 4},
         }}>
-            <ResponsiveContainer width="90%" height={400}>
+            <ResponsiveContainer width="90%" height={'auto'}>
                 <LineChart data={isTotalOrders ? totalOrdersData : totalEarningsData}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="month" />
