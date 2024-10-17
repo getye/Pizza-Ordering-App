@@ -39,7 +39,7 @@ export const EarningsChart = () => {
   console.log("data: ", data)
 
   return (
-    <Box sx={{ paddingTop:5, width: '98%', height: 400,
+    <Box sx={{ paddingTop:5, height: 400,
       ml: {xs: '5%', sm: '10%', md: '15%', lg: '20%'},
       mr: {xs: '1%', sm: '3%', md: '5%', lg: '7%'},
       mb: {xs: 1, sm: 2, md: 3, lg: 4},
