@@ -4,32 +4,49 @@ import { MaterialReactTable } from 'material-react-table';
 import ActionButtons from './ActionButtons.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUsers } from '../../services/action.js';
+import { AddUserModal } from './AddUserModal'; 
 
-export const ViewUsers = ({ handleOpen }) => {
+export const ViewUsers = () => {
   const dispatch = useDispatch();
-
-  // Get users and loading state from Redux store
   const { users, loading, error } = useSelector((state) => state.user);
 
   const [showNotification, setShowNotification] = useState(false);
   const [notificationMessage, setNotificationMessage] = useState('');
   const [messageType, setMessageType] = useState('');
+  
+  const [modalOpen, setModalOpen] = useState(false); 
+  const [newUser, setNewUser] = useState({
+    userName: '',
+    email: '',
+    location: '',
+    phone: '',
+    role: ''
+  });
 
- 
   useEffect(() => {
     dispatch(fetchUsers());  
   }, [dispatch]);
 
-  const handleNotification = () => {
-    setNotificationMessage(notificationMessage);
-    setMessageType(messageType);
+  const handleNotification = (message, type) => {
+    setNotificationMessage(message);
+    setMessageType(type);
     setShowNotification(true);
   };
 
-  console.log("Users: ", users)
+  const handleOpen = () => setModalOpen(true); // Open modal
+  const handleClose = () => setModalOpen(false); // Close modal
 
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setNewUser(prevState => ({ ...prevState, [name]: value }));
+  };
 
- 
+  const handleSubmit = () => {
+    // Logic to submit new user
+    handleNotification('User added successfully', 'Success');
+    handleClose(); // Close the modal after submission
+  };
+
   if (loading) {
     return <div>Loading...</div>; 
   }
@@ -64,7 +81,6 @@ export const ViewUsers = ({ handleOpen }) => {
           data={users}
           enableSorting
           enableColumnFiltering
-          
           renderTopToolbarCustomActions={() => (
             <Button
               onClick={handleOpen}
@@ -100,6 +116,14 @@ export const ViewUsers = ({ handleOpen }) => {
           {notificationMessage}
         </Alert>
       </Snackbar>
+
+      <AddUserModal
+        open={modalOpen}
+        handleClose={handleClose}
+        newUser={newUser}
+        handleInputChange={handleInputChange}
+        handleSubmit={handleSubmit}
+      />
     </>
   );
 };
