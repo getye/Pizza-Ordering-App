@@ -40,12 +40,12 @@ export const UpdateProfile = ({handleProfileModalClose}) => {
       });
       console.log("Data: ", profile)
       console.log("Rsponse: ", response)
-      if (response.ok) {
+      if (response.ok || response.status(200)) {
         setMessageType("Success");
         setNotificationMessage('Profile Successfully updated');
         setShowNotification(true);
-        setProfile(null); // Reset form
-        // Close the modal after a successful update
+        setProfile(null); 
+
         handleProfileModalClose();
       } else {
         setMessageType("Error");
