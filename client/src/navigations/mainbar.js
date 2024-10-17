@@ -105,15 +105,17 @@ const Footer = ({open, handleClose, handleOpen}) => (
           width: 400, bgcolor: 'background.paper', border: '2px solid #000', boxShadow: 24, p: 4,
         }}>
           <Typography variant="h6" component="h2">
-            Developer Information
+            Developer 
           </Typography>
+          <Divider/>
           <Typography sx={{ mt: 2 }}>
-            Name: John Doe<br />
-            Role: Full Stack Developer<br />
-            Contact: johndoe@example.com
+            Getye Demil<br />
+            Full Stack Developer<br />
+            getye2008@gmail.com
           </Typography>
+          <Link href={'https://getye.github.io/'}>More About</Link>
           <Box textAlign="right" sx={{ mt: 2 }}>
-            <IconButton onClick={handleClose}>Close</IconButton>
+            <IconButton onClick={handleClose} sx={{textTransform:'none'}}>Close</IconButton>
           </Box>
         </Box>
       </Modal>
