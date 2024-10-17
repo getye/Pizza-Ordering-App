@@ -89,7 +89,7 @@ export const AddMenu = () => {
         alignItems: 'center',
         flexDirection: 'column',
         ml: {xs: '5%', sm: '10%', md: '15%', lg: '20%'},
-        mr: {xs: '1%', sm: '3%', md: '5%', lg: '7%'}
+        mr: {xs: '1%', sm: '5%', md: '10%', lg: '20%'}
       }}
     >
       <Box sx={{bgcolor:'#F8F8FF', maxWidth:'80%', justifyContent: 'center',

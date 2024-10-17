@@ -40,7 +40,7 @@ export const UpdateProfile = ({handleProfileModalClose}) => {
       });
       console.log("Data: ", profile)
       console.log("Rsponse: ", response)
-      if (response.ok || response.status(200)) {
+      if (response.status === 200) {
         setMessageType("Success");
         setNotificationMessage('Profile Successfully updated');
         setShowNotification(true);
