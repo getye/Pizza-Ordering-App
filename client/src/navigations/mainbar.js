@@ -21,7 +21,7 @@ import MenuIcon from '@mui/icons-material/Menu';  // Hamburger icon for mobile
 
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import { Divider, MenuItem, Link, IconButton, useMediaQuery } from '@mui/material';
+import { Divider, MenuItem, Link, IconButton, useMediaQuery, Modal } from '@mui/material';
 import { Profile } from './profile';
 import pizza from '../assets/pizza.png';
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -39,7 +39,8 @@ import topLeft from '../assets/topLeftPizza.png';
 
 
 
-const Footer = () => (
+const Footer = ({open, handleClose, handleOpen}) => (
+
   <Box 
     sx={{ 
       p: 1, 
@@ -81,19 +82,42 @@ const Footer = () => (
         </Link>
       </Box>
       <Box sx={{ display: 'flex', gap: 1 }}>
-        <Link href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-          <FacebookIcon />
-        </Link>
-        <Link href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-          <LinkedInIcon />
-        </Link>
-        <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-          <TwitterIcon />
-        </Link>
-        <Link href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
-          <YouTubeIcon />
-        </Link>
-      </Box>
+      <Link href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+        <FacebookIcon />
+      </Link>
+      <Link href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+        <LinkedInIcon />
+      </Link>
+      <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+        <TwitterIcon />
+      </Link>
+      <Link href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
+        <YouTubeIcon />
+      </Link>
+      <Link onClick={handleOpen} sx={{ cursor: 'pointer' }}>
+        Developer
+      </Link>
+
+      {/* Modal for Developer Info */}
+      <Modal open={open} onClose={handleClose}>
+        <Box sx={{
+          position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
+          width: 400, bgcolor: 'background.paper', border: '2px solid #000', boxShadow: 24, p: 4,
+        }}>
+          <Typography variant="h6" component="h2">
+            Developer Information
+          </Typography>
+          <Typography sx={{ mt: 2 }}>
+            Name: John Doe<br />
+            Role: Full Stack Developer<br />
+            Contact: johndoe@example.com
+          </Typography>
+          <Box textAlign="right" sx={{ mt: 2 }}>
+            <IconButton onClick={handleClose}>Close</IconButton>
+          </Box>
+        </Box>
+      </Modal>
+    </Box>
     </Stack>
   </Box>
 );
@@ -106,6 +130,11 @@ export const MainBar = (props) => {
   // State to control the mobile drawer
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [leftBar, setLeftBar] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
 
   const isMobile = useMediaQuery((theme) => theme.breakpoints.down('sm'));
 
@@ -417,7 +446,7 @@ export const MainBar = (props) => {
         </Box>
       )}
       <Box sx={{ flexGrow: 1 }} />
-          <Footer />
+          <Footer open={open} handleClose={handleClose} handleOpen={handleOpen}/>
     </Box>
   );
 };
