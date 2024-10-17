@@ -54,8 +54,11 @@ export const Report = () => {
     const handlePrevious = () => {
         setCurrentPage(0);
     };
-    const chartHeight = isTotalOrders ? reportData.total_orders : reportData.total_earnings;
-
+    const maxOrders = Math.max(...totalOrdersData.map(item => item.total_orders), 0);
+    const maxEarnings = Math.max(...totalEarningsData.map(item => item.total_earnings), 0);
+    
+    // Set height dynamically based on the maximum value
+    const chartHeight = isTotalOrders ? maxOrders * 10 : maxEarnings * 10;
     return (
         <Box sx={{ paddingTop: 3, justifyContent: 'center',
             ml: {xs: '5%', sm: '10%', md: '15%', lg: '20%'},
