@@ -34,18 +34,59 @@ export const ViewUsers = () => {
   };
 
   const handleOpen = () => setModalOpen(true); // Open modal
-  const handleClose = () => setModalOpen(false); // Close modal
+  const handleClose = () => {
+    setModalOpen(false)
+    setNewUser({ 
+      userName: '',
+      email: '',
+      location: '',
+      phone: '',
+      role: ''
+    });
+  }; // Close modal
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setNewUser(prevState => ({ ...prevState, [name]: value }));
   };
+  const handleSubmit = async () => {
+    try {
+        const token = localStorage.getItem('token'); // Retrieve the token from storage
+      if (!token) {
+        console.log('No token found, please log in');
+        return;
+      }
+      // API call to add admin
+      const response = await fetch(`${window.location.origin}/admin/add/user`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`, // Include the JWT token
+        },
+        body: JSON.stringify(newUser),
+      });
 
-  const handleSubmit = () => {
-    // Logic to submit new user
-    handleNotification('User added successfully', 'Success');
-    handleClose(); // Close the modal after submission
+      if (response.ok) {
+        setMessageType('Success');
+        setNotificationMessage('User Successfully Added');
+        setShowNotification(true);
+      // Close the modal and reset form
+      handleClose();
+      setNewUser({ userName: '', email: '', phone: '', restaurant: '', location: '' });
+    }else{
+      // Handle error response
+      const errorData = await response.json();
+      setMessageType('Error');
+      setNotificationMessage(`Error: ${errorData.message}`);
+      setShowNotification(true);
+    }
+    } catch (error) {
+      setNotificationMessage('An unexpected error occurred');
+      setShowNotification(true);
+      console.error('Error adding user:', error);
+    }
   };
+
 
   if (loading) {
     return <div>Loading...</div>; 
