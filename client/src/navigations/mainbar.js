@@ -159,7 +159,7 @@ export const MainBar = (props) => {
   const navWidth = (leftBar || isMobile || verySmall)?(35):(240)
   const drawer = (
     <List sx={{ height: 'auto', borderColor: 'gray' }}>
-      {(leftBar || isMobile || verySmall)? (
+      {(!leftBar)? (
           <IconButton
               color="inherit"
               aria-label="open drawer"
