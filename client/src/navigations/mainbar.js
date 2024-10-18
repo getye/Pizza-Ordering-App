@@ -21,7 +21,7 @@ import MenuIcon from '@mui/icons-material/Menu';  // Hamburger icon for mobile
 
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import { Divider, MenuItem, Link, IconButton, useMediaQuery, Modal, useTheme } from '@mui/material';
+import { Divider, MenuItem, Link, IconButton, useMediaQuery, Modal, useTheme, Grid } from '@mui/material';
 import { Profile } from './profile';
 import pizza from '../assets/pizza.png';
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -385,7 +385,7 @@ export const MainBar = (props) => {
           <Toolbar sx={{ justifyContent: 'space-between', flexDirection: { xs: 'column', sm: 'row' } }}>
             {(!isMobile) && (
               <>
-              <img src={pizza} alt="Pizza Logo" style={{ width: '80px', marginBottom: { xs: 1, sm: 0 } }} />
+              <img src={pizza} alt="Pizza Logo" style={{ width: '80px' }} />
               <MenuItem onClick={() => navigate('/')}>Home</MenuItem>
               <MenuItem onClick={() => navigate('/orders')}>Orders</MenuItem>
               <MenuItem onClick={() => navigate('/contact')}>Who we are</MenuItem>
@@ -403,17 +403,22 @@ export const MainBar = (props) => {
               </>
             )}
             {(isMobile)&&(
-              <>
-            <img src={pizza} alt="Pizza Logo" style={{ width: '80px' }} />
-            <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                edge="end"
-                sx={{ mr: 2, display: { sm: 'none' } }} // Hamburger icon only visible on mobile
-                onClick={handleDrawerToggle}>
-                <MenuIcon />
-            </IconButton>
-            </>
+                <Grid container alignItems="center" spacing={2} sx={{ padding: '16px' }}>
+                  <Grid item sx={{ marginLeft: 'auto' }}> {/* This will push the logo to the right */}
+                    <img src={pizza} alt="Pizza Logo" style={{ width: '80px' }} />
+                  </Grid>
+                  <Grid item>
+                    <IconButton
+                      color="inherit"
+                      aria-label="open drawer"
+                      edge="start"
+                      sx={{ display: { sm: 'none' } }} // Hamburger icon only visible on mobile
+                      onClick={handleDrawerToggle}
+                    >
+                      <MenuIcon />
+                    </IconButton>
+                  </Grid>
+              </Grid>
             )}
             {(isMobile && mobileOpen) && (
               <>
