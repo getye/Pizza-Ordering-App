@@ -131,7 +131,7 @@ export const MainBar = (props) => {
   const { window } = props;
   // State to control the mobile drawer
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const [leftBar, setLeftBar] = React.useState(false);
+  const [leftBar, setLeftBar] = React.useState(true);
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => setOpen(true);
@@ -156,10 +156,10 @@ export const MainBar = (props) => {
     navigate('/')
   };
 
-  const navWidth = (leftBar)?(35):(240)
+  const navWidth = (leftBar)?(240):(35)
   const drawer = (
     <List sx={{ height: 'auto', borderColor: 'gray' }}>
-      {(leftBar)? (
+      {(!leftBar)? (
           <IconButton
               color="inherit"
               aria-label="open drawer"
