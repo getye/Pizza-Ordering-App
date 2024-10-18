@@ -377,7 +377,7 @@ export const MainBar = (props) => {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', paddingBottom: '56px' }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
       <CssBaseline />
       <AppBar position="fixed" sx={{ width: '100%', backgroundColor: 'white', color: 'black', padding: { xs: '0 8px', sm: '0 16px' } }}>
 
@@ -403,32 +403,17 @@ export const MainBar = (props) => {
               </>
             )}
             {(isMobile)&&(
-              <Box 
-                sx={{
-                  position: 'relative',
-                }}
-              >
-                <img 
-                  src={pizza} 
-                  alt="Pizza Logo" 
-                  style={{ 
-                    width: '80px', 
-                    position: 'absolute', 
-                    left: 0, 
-                    top: '50%', 
-                    transform: 'translateY(-50%)' // Adjust vertical position
-                  }} 
-                />
-                <IconButton
-                  color="inherit"
-                  aria-label="open drawer"
-                  edge="end"
-                  sx={{ display: { sm: 'none' } }} // Hamburger icon only visible on mobile
-                  onClick={handleDrawerToggle}
-                >
-                  <MenuIcon />
-                </IconButton>
-              </Box>
+              <>
+            <img src={pizza} alt="Pizza Logo" style={{ width: '80px' }} />
+            <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                edge="end"
+                sx={{ mr: 2, display: { sm: 'none' } }} // Hamburger icon only visible on mobile
+                onClick={handleDrawerToggle}>
+                <MenuIcon />
+            </IconButton>
+            </>
             )}
             {(isMobile && mobileOpen) && (
               <>
