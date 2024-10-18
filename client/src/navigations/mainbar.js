@@ -159,7 +159,7 @@ export const MainBar = (props) => {
   const navWidth = (leftBar)?(35):(240)
   const drawer = (
     <List sx={{ height: 'auto', borderColor: 'gray' }}>
-      {(leftBar)? (
+      {(leftBar || isMobile || verySmall)? (
           <IconButton
               color="inherit"
               aria-label="open drawer"
@@ -342,8 +342,7 @@ export const MainBar = (props) => {
           </ListItem>
         </>
       ) }
-        
-          
+              
     </List>
   );
 
@@ -429,7 +428,7 @@ export const MainBar = (props) => {
                 keepMounted: true, 
               }}
               sx={{
-                display: { xs: 'block', sm: 'none' },
+                display: 'block',
                 '& .MuiDrawer-paper': { boxSizing: 'border-box', width: navWidth },
               }}
             >
@@ -440,7 +439,7 @@ export const MainBar = (props) => {
             <Drawer
               variant="permanent"
               sx={{
-                display: { xs: 'none', sm: 'block' },
+                display: 'block',
                 '& .MuiDrawer-paper': { boxSizing: 'border-box', width: navWidth },
               }}
               open
