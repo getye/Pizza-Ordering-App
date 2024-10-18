@@ -109,7 +109,7 @@ return (
         <img src={home2} alt='Pizza' style={{maxWidth:'80%', maxHeight:'80vb'}}/>
       </Grid>
     </Grid>
-    <Box sx={{paddingLeft:8, paddingBottom:12}}>
+    <Box sx={{pl: { xs: 0, sm: 2, md: 4, lg: 8}, pt: { xs: 1, sm: 3, md: 5, lg: 8},}}>
         <Typography 
           sx={{
             color:'gray',
@@ -120,7 +120,7 @@ return (
         <div className="glide__track" data-glide-el="track">
           <ul className="glide__slides">
             <li className="glide__slide">
-              <Grid container sx={{ bgcolor: '#3D3C3A', maxWidth: '100%', borderRadius: 10, pl: { xs: 1, sm: 2, md: 3, lg: 4}, }}>
+              <Grid container sx={{ bgcolor: '#3D3C3A', maxWidth: '100%', borderRadius: 10, pl: { xs: 0, sm: 1, md: 2, lg: 3}, }}>
                 <Grid item xs={6} sx={{ pt: { xs: 1, sm: 2, md: 4, lg: 6}, }}>
                   <Typography
                      sx={{ pb: { xs: 1, sm: 2, md: 3, lg: 4}, color: 'white',
@@ -144,7 +144,7 @@ return (
               </Grid>
             </li>
             <li className="glide__slide">
-              <Grid container sx={{ bgcolor: '#4E5B31', maxWidth: '100%', borderRadius: 10, pl: { xs: 1, sm: 2, md: 3, lg: 4}, }}>
+              <Grid container sx={{ bgcolor: '#4E5B31', maxWidth: '100%', borderRadius: 10, pl: { xs: 0, sm: 1, md: 2, lg: 3}, }}>
                 <Grid item xs={6} sx={{ pt: { xs: 1, sm: 2, md: 4, lg: 6}, }}>
                   <Typography sx={{ pb: { xs: 1, sm: 2, md: 3, lg: 4}, color: 'white',
                     fontSize: {xs: '12px', sm: '14px', md: '16px', lg: '18px'}
@@ -168,7 +168,7 @@ return (
               </Grid>
             </li>
             <li className="glide__slide">
-              <Grid container sx={{ bgcolor: '#438D80', maxWidth: '100%', borderRadius: 10, pl: { xs: 1, sm: 2, md: 3, lg: 4}, }}>
+              <Grid container sx={{ bgcolor: '#438D80', maxWidth: '100%', borderRadius: 10, pl: { xs: 0, sm: 1, md: 2, lg: 3}, }}>
                 <Grid item xs={6} sx={{ pt: { xs: 1, sm: 2, md: 4, lg: 6}}}>
                   <Typography sx={{ pb: { xs: 1, sm: 2, md: 3, lg: 4}, color: 'white', 
                       fontSize: {xs: '12px', sm: '14px', md: '16px', lg: '18px'}}}>
