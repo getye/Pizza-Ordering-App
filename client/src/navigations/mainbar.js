@@ -431,14 +431,14 @@ export const MainBar = (props) => {
                          variant="persistent"
                          open
                          sx={{
-                          width: isCollapsed ? '40px' : navWidth,  
+                          width: isCollapsed ? '40px' : '180px',  
                           transition: theme.transitions.create('width', {
                             easing: theme.transitions.easing.sharp,
                             duration: theme.transitions.duration.enteringScreen,
                           }),
                           '& .MuiDrawer-paper': {
                             boxSizing: 'border-box',
-                            width: isCollapsed ? '40px' : navWidth,
+                            width: isCollapsed ? '40px' : '180px',
                           },
                          }}
                        >
