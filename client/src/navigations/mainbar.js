@@ -428,7 +428,6 @@ export const MainBar = (props) => {
                 keepMounted: true, 
               }}
               sx={{
-                display: 'block',
                 '& .MuiDrawer-paper': { boxSizing: 'border-box', width: navWidth },
               }}
             >
@@ -439,7 +438,6 @@ export const MainBar = (props) => {
             <Drawer
               variant="permanent"
               sx={{
-                display: 'block',
                 '& .MuiDrawer-paper': { boxSizing: 'border-box', width: navWidth },
               }}
               open
