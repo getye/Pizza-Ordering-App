@@ -436,7 +436,7 @@ export const MainBar = (props) => {
 
             {/* Permanent Drawer for desktop */}
             <Drawer
-              variant="permanent"
+              variant="persistent"
               open={leftBar}
               onClose={handleLeftBar}
               sx={{
