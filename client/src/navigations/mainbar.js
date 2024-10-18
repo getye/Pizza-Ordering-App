@@ -444,7 +444,7 @@ export const MainBar = (props) => {
                          sx={{
                           '& .MuiDrawer-paper': { 
                             boxSizing: 'border-box', 
-                            width: isDrawerOpen ? '40px' : navWidth, // Toggle width on mobile
+                            width: isCollapsed ? '40px' : navWidth, // Toggle width on mobile
                           },
                          }}
                        >
