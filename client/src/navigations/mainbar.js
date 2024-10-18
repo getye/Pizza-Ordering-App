@@ -463,7 +463,7 @@ export const MainBar = (props) => {
                         }),
                         '& .MuiDrawer-paper': {
                           boxSizing: 'border-box',
-                          width: isCollapsed ? '60px' : navWidth,
+                          width: isCollapsed ? navWidth : "60px",
                         },
                       }}
                       >
