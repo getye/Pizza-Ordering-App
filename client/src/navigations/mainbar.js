@@ -48,11 +48,11 @@ const Footer = ({open, handleClose, handleOpen}) => (
       backgroundColor: 'black', 
       color:'white',
       zIndex: 1000,
-      position: {lg: 'fixed', md:'fixed', sm: 'relative', xs: 'relative'},
+      position: { lg: 'fixed', md:'fixed', sm: 'relative', xs: 'relative' },
+      mt: { sm: 'auto', xs: 'auto' },
       bottom: 0, 
       left: 0, 
       right: 0,
-      paddingX: { xs: 2, sm: 4 },
     }}
   >
     <Stack 
