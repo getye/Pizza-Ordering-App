@@ -447,7 +447,7 @@ export const MainBar = (props) => {
             </Drawer>
         </Box>
       )}
-      <Box sx={{ flexGrow: 1 }} />
+      <Box sx={{ flexGrow: 1, minHeight: '100vh' }} />
           <Footer open={open} handleClose={handleClose} handleOpen={handleOpen}/>
     </Box>
   );
