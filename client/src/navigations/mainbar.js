@@ -48,7 +48,7 @@ const Footer = ({open, handleClose, handleOpen}) => (
       backgroundColor: 'black', 
       color:'white',
       zIndex: 1000,
-      position: {lg: 'fixed', md:'fixed', sm: 'static', xs: 'static'},
+      position: {lg: 'fixed', md:'fixed', sm: 'relative', xs: 'relative'},
       bottom: 0, 
       left: 0, 
       right: 0,
