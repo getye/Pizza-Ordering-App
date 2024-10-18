@@ -105,8 +105,8 @@ return (
       </Grid>
 
       <Grid item xs={2} sx={{ display: 'flex', justifyContent: 'end' }}>
-        <img src={home1} alt='Pizza' style={{maxWidth:'65%', maxHeight:'22vb'}}/>
-        <img src={home2} alt='Pizza' style={{maxWidth:'80%', maxHeight:'80vb'}}/>
+        <img src={home1} alt='Pizza' style={{ maxWidth: '65%', maxHeight: '22vh', width: 'auto', height: 'auto', '@media (max-width:600px)': { maxWidth: '80%' }, '@media (min-width:601px) and (max-width:960px)': { maxWidth: '75%' }, '@media (min-width:961px)': { maxWidth: '65%' } }} />
+        <img src={home2} alt='Pizza' style={{ maxWidth: '80%', maxHeight: '80vh', width: 'auto', height: 'auto', '@media (max-width:600px)': { maxWidth: '90%' }, '@media (min-width:601px) and (max-width:960px)': { maxWidth: '85%' }, '@media (min-width:961px)': { maxWidth: '80%' } }} />
       </Grid>
     </Grid>
     <Box sx={{pl: { xs: 1, sm: 2, md: 4, lg: 8}, pt: { xs: 1, sm: 2, md: 3, lg: 4},}}>

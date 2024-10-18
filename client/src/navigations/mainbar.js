@@ -409,16 +409,7 @@ export const MainBar = (props) => {
             {(isMobile && mobileOpen) && (
               <>
             <MenuItem onClick={contact}>Who we are</MenuItem>
-            <MenuItem
-                onClick={signup}
-                sx={{
-                  bgcolor: '#FF6700',
-                  color: 'white',
-                  '&:hover': {
-                    bgcolor: '#FF6700',
-                    opacity: 0.9,
-                  },
-                }}>Register</MenuItem>
+            <MenuItem onClick={signup}>Register</MenuItem>
               </>
             )}
           </Toolbar>
