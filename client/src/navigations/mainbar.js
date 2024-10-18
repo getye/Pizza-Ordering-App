@@ -403,8 +403,8 @@ export const MainBar = (props) => {
               </>
             )}
             {(isMobile)&&(
-                <Grid container alignItems="center" spacing={2} sx={{ padding: '16px' }}>
-                  <Grid item sx={{ marginLeft: 'auto' }}> {/* This will push the logo to the right */}
+                <Grid container alignItems="center" spacing={2}>
+                  <Grid item > {/* This will push the logo to the right */}
                     <img src={pizza} alt="Pizza Logo" style={{ width: '80px' }} />
                   </Grid>
                   <Grid item>
