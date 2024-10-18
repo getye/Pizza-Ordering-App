@@ -132,19 +132,12 @@ export const MainBar = (props) => {
   // State to control the mobile drawer
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [open, setOpen] = React.useState(false);
-  const [isDrawerOpen, setDrawerOpen] = React.useState(false);  // For mobile drawer open/close
   const [isCollapsed, setCollapsed] = React.useState(false);
 
   const theme = useTheme();
 
   const toggleDrawer = () => {
-    if (isMobile || verySmall) {
-      // For mobile, toggle the overlay drawer
-      setDrawerOpen(!isDrawerOpen);
-    } else {
-      // For desktop, toggle the collapse/expand state
       setCollapsed(!isCollapsed);
-    }
   };
 
   const handleOpen = () => setOpen(true);
@@ -170,7 +163,7 @@ export const MainBar = (props) => {
   const navWidth = 240
   const drawer = (
     <List sx={{ height: 'auto', borderColor: 'gray' }}>
-      {(isCollapsed || isDrawerOpen)? (
+      {(isCollapsed )? (
           <IconButton
               color="inherit"
               aria-label="open drawer"
@@ -435,17 +428,17 @@ export const MainBar = (props) => {
                   {/* Drawer for mobile */}
                   <Drawer
                          container={container}
-                         variant="temporary"
-                         open={isDrawerOpen}
-                         onClose={toggleDrawer}
+                         variant="persistent"
+                         open={isCollapsed}
                          ModalProps={{
                            keepMounted: true, 
                          }}
                          sx={{
-                          '& .MuiDrawer-paper': { 
-                            boxSizing: 'border-box', 
-                            width: isCollapsed ? '40px' : navWidth, // Toggle width on mobile
-                          },
+                          width: isCollapsed ? '40px' : navWidth,  
+                            '& .MuiDrawer-paper': {
+                              boxSizing: 'border-box',
+                              width: isCollapsed ? '40px' : navWidth,
+                            },
                          }}
                        >
                          {drawer}
