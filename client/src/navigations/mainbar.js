@@ -167,7 +167,7 @@ export const MainBar = (props) => {
     navigate('/')
   };
 
-  const navWidth = (isDrawerOpen)?(240):(35)
+  const navWidth = 240
   const drawer = (
     <List sx={{ height: 'auto', borderColor: 'gray' }}>
       {(!isDrawerOpen)? (
@@ -444,7 +444,7 @@ export const MainBar = (props) => {
                          sx={{
                           '& .MuiDrawer-paper': { 
                             boxSizing: 'border-box', 
-                            width: navWidth, // Toggle width on mobile
+                            width: isCollapsed ? '60px' : navWidth, // Toggle width on mobile
                           },
                          }}
                        >
@@ -458,14 +458,14 @@ export const MainBar = (props) => {
                       variant="persistent"
                       open
                       sx={{
-                        width: navWidth,  
+                        width: isCollapsed ? '60px' : navWidth,  
                         transition: theme.transitions.create('width', {
                           easing: theme.transitions.easing.sharp,
                           duration: theme.transitions.duration.enteringScreen,
                         }),
                         '& .MuiDrawer-paper': {
                           boxSizing: 'border-box',
-                          width: navWidth,
+                          width: isCollapsed ? '60px' : navWidth,
                         },
                       }}
                       >
