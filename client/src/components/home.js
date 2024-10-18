@@ -56,11 +56,11 @@ return (
         </Typography>
         <Typography 
           sx={{
-            fontSize: {xs: '8px', sm: '10px', md: '12px', lg: '14px'},
+            fontSize: {xs: '10px', sm: '12px', md: '14px', lg: '16px'},
           }}
         >Order Pizzas with different toppings. Select toppings as you went. </Typography>
         <Typography sx={{
-           fontSize: {xs: '8px', sm: '10px', md: '12px', lg: '14px'},
+           fontSize: {xs: '10px', sm: '12px', md: '14px', lg: '16px'},
            pb:{xs: 1, sm: 2, md: 3, lg: 4}
            }}>Serach Pizzas here.</Typography>
           <Paper
@@ -106,8 +106,8 @@ return (
 
       <Grid item xs={2} sx={{ display: 'flex', justifyContent: 'end' }}>
         <img src={home1} alt='Pizza' style={{maxWidth:'65%', maxHeight:'100px'}}/>
-        <img src={home2} alt='Pizza' style={{maxWidth:'80%', maxHeight:'80vb'}}/>
         <img src={home1} alt='Pizza' style={{maxWidth:'65%', maxHeight:'100px', transform: 'rotate(180deg)'}}/>
+        <img src={home2} alt='Pizza' style={{maxWidth:'80%', maxHeight:'80vb'}}/>
       </Grid>
     </Grid>
     <Box sx={{pl: { xs: 1, sm: 2, md: 4, lg: 8}, pt: { xs: 1, sm: 2, md: 3, lg: 4},}}>
