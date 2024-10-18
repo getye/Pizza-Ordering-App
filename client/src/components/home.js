@@ -109,7 +109,7 @@ return (
         <img src={home2} alt='Pizza' style={{maxWidth:'80%', maxHeight:'80vb'}}/>
       </Grid>
     </Grid>
-    <Box sx={{pl: { xs: 0, sm: 2, md: 4, lg: 8}, pt: { xs: 1, sm: 3, md: 5, lg: 8},}}>
+    <Box sx={{pl: { xs: 0, sm: 2, md: 4, lg: 8}, pt: { xs: 1, sm: 2, md: 3, lg: 4},}}>
         <Typography 
           sx={{
             color:'gray',
