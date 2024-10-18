@@ -418,34 +418,45 @@ export const MainBar = (props) => {
             sx={{ 
               width: navWidth}} 
               aria-label="mailbox folders">
-            {/* Drawer for mobile */}
-            <Drawer
-              container={container}
-              variant="temporary"
-              open={leftBar}
-              onClose={handleLeftBar}
-              ModalProps={{
-                keepMounted: true, 
-              }}
-              sx={{
-                display: 'block',
-                '& .MuiDrawer-paper': { boxSizing: 'border-box', width: navWidth },
-              }}
-            >
-              {drawer}
-            </Drawer>
-
-            {/* Permanent Drawer for desktop */}
-            <Drawer
-              variant="permanent"
-              sx={{
-                display: 'block',
-                '& .MuiDrawer-paper': { boxSizing: 'border-box', width: navWidth },
-              }}
-              
-              >
-              {drawer}
-            </Drawer>
+            
+            {(isMobile || verySmall)? (
+                  <>
+                  {/* Drawer for mobile */}
+                  <Drawer
+                         container={container}
+                         variant="temporary"
+                         open={leftBar}
+                         onClose={handleLeftBar}
+                         ModalProps={{
+                           keepMounted: true, 
+                         }}
+                         sx={{
+                           display: 'block',
+                           '& .MuiDrawer-paper': { boxSizing: 'border-box', width: navWidth },
+                         }}
+                       >
+                         {drawer}
+                    </Drawer>
+                  </>
+                  ):(
+                    <>
+                  {/* Permanent Drawer for desktop */}
+                  <Drawer
+                  variant="permanent"
+                  sx={{
+                    display: 'block',
+                    width: navWidth,
+                    '& .MuiDrawer-paper': { 
+                      boxSizing: 'border-box', 
+                      width: navWidth,
+                      zIndex: 0,   
+                    },
+                  }} >
+                  {drawer}
+                </Drawer>
+                </>
+                  )}
+ 
         </Box>
       )}
       <Box sx={{ flexGrow: 1}} />
