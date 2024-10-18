@@ -56,7 +56,7 @@ const Footer = ({open, handleClose, handleOpen}) => (
     }}
   >
     <Stack 
-      direction={{ xs: 'column', sm: 'column', md: 'row', lg: 'row' }}
+      direction={{ xs: 'row', sm: 'row', md: 'row', lg: 'row' }}
       spacing={2} 
       justifyContent="space-between" 
       alignItems="center" 
