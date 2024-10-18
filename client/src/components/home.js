@@ -105,7 +105,7 @@ return (
       </Grid>
 
       <Grid item xs={2} sx={{ display: 'flex', justifyContent: 'end' }}>
-        <img src={home1} alt='Pizza' style={{maxWidth:'65%', maxHeight:'100px'}}/>
+        <img src={home1} alt='Pizza' style={{maxWidth:'65%', maxHeight:{lg:'100px', md:'80px', sm:'60px', xs:'40px'}}}/>
         <img src={home1} alt='Pizza' style={{maxWidth:'65%', maxHeight:'100px', transform: 'rotate(180deg)', position: 'absolute', bottom: 0}}/>
         <img src={home2} alt='Pizza' style={{maxWidth:'80%', maxHeight:'80vb'}}/>
       </Grid>
