@@ -405,6 +405,9 @@ export const MainBar = (props) => {
             {(isMobile)&&(
               <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <img src={pizza} alt="Pizza Logo" style={{ width: '80px' }} />
+                  <MenuItem onClick={home}>Home</MenuItem>
+                  <MenuItem onClick={orders}>Orders</MenuItem>
+                  <MenuItem onClick={signin}>Sign in</MenuItem>
                   <IconButton
                       color="inherit"
                       aria-label="open drawer"
@@ -418,8 +421,6 @@ export const MainBar = (props) => {
             )}
             {(isMobile && mobileOpen) && (
               <>
-            <MenuItem onClick={home}>Home</MenuItem>
-            <MenuItem onClick={orders}>Orders</MenuItem>
             <MenuItem onClick={contact}>Who we are</MenuItem>
             <MenuItem
                 onClick={signup}
@@ -431,7 +432,6 @@ export const MainBar = (props) => {
                     opacity: 0.9,
                   },
                 }}>Register</MenuItem>
-              <MenuItem onClick={signin}>Sign in</MenuItem>
               </>
             )}
           </Toolbar>
