@@ -159,7 +159,7 @@ export const MainBar = (props) => {
   const navWidth = (leftBar)?(35):(240)
   const drawer = (
     <List sx={{ height: 'auto', borderColor: 'gray' }}>
-      {(!leftBar)? (
+      {(leftBar)? (
           <IconButton
               color="inherit"
               aria-label="open drawer"
