@@ -405,9 +405,9 @@ export const MainBar = (props) => {
             {(isMobile)&&(
               <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <img src={pizza} alt="Pizza Logo" style={{ width: '80px' }} />
-                  <MenuItem onClick={home}>Home</MenuItem>
-                  <MenuItem onClick={orders}>Orders</MenuItem>
-                  <MenuItem onClick={signin}>Sign in</MenuItem>
+                  <MenuItem sx={{width:'60px'}} onClick={home}>Home</MenuItem>
+                  <MenuItem sx={{width:'60px'}} onClick={orders}>Orders</MenuItem>
+                  <MenuItem sx={{width:'60px'}} onClick={signin}>Sign in</MenuItem>
                   <IconButton
                       color="inherit"
                       aria-label="open drawer"
