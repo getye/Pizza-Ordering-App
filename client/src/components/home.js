@@ -115,19 +115,19 @@ return (
             color:'gray',
             fontSize: {xs: '12px', sm: '14px', md: '16px', lg: '18px'}
             }}>Featured Pizza</Typography>
-        <Box sx={{ width: '60%', height: '300px', display: 'flex', justifyContent: 'center' }}>
+        <Box sx={{ width: { xs: '99%', sm: '92%', md: '80%', lg: '60%'}, height: { xs: '150px', sm: '200px', md: '250px', lg: '300px'} , display: 'flex', justifyContent: 'center' }}>
       <div className="glide">
         <div className="glide__track" data-glide-el="track">
           <ul className="glide__slides">
             <li className="glide__slide">
               <Grid container sx={{ bgcolor: '#3D3C3A', maxWidth: '100%', borderRadius: 10, pl: { xs: 1, sm: 2, md: 3, lg: 4}, }}>
-                <Grid item xs={6} sx={{ paddingTop: 6 }}>
+                <Grid item xs={6} sx={{ pt: { xs: 1, sm: 2, md: 4, lg: 6}, }}>
                   <Typography
-                     sx={{ paddingBottom: 3, color: 'white',
+                     sx={{ pb: { xs: 1, sm: 2, md: 3, lg: 4}, color: 'white',
                       fontSize: {xs: '12px', sm: '14px', md: '16px', lg: '18px'}
                      }}>
                     Make Your First Order and Get
-                    <Typography component="span" sx={{ color: '#FF8C00', paddingLeft: 2, 
+                    <Typography component="span" sx={{ color: '#FF8C00', pl: { xs: 0, sm: 1, md: 2, lg: 3}, 
                       fontSize: {xs: '12px', sm: '14px', md: '16px', lg: '18px'}}}>
                       50% Off
                     </Typography>
@@ -145,12 +145,12 @@ return (
             </li>
             <li className="glide__slide">
               <Grid container sx={{ bgcolor: '#4E5B31', maxWidth: '100%', borderRadius: 10, pl: { xs: 1, sm: 2, md: 3, lg: 4}, }}>
-                <Grid item xs={6} sx={{ paddingTop: 6 }}>
-                  <Typography sx={{ paddingBottom: 3, color: 'white',
+                <Grid item xs={6} sx={{ pt: { xs: 1, sm: 2, md: 4, lg: 6}, }}>
+                  <Typography sx={{ pb: { xs: 1, sm: 2, md: 3, lg: 4}, color: 'white',
                     fontSize: {xs: '12px', sm: '14px', md: '16px', lg: '18px'}
                   }}>
                     Make Your First Order and Get
-                    <Typography component="span" sx={{ color: '#FF8C00', paddingLeft: 2,
+                    <Typography component="span" sx={{ color: '#FF8C00', pl: { xs: 0, sm: 1, md: 2, lg: 3},
                       fontSize: {xs: '12px', sm: '14px', md: '16px', lg: '18px'}
                      }}>
                       50% Off
@@ -169,11 +169,11 @@ return (
             </li>
             <li className="glide__slide">
               <Grid container sx={{ bgcolor: '#438D80', maxWidth: '100%', borderRadius: 10, pl: { xs: 1, sm: 2, md: 3, lg: 4}, }}>
-                <Grid item xs={6} sx={{ paddingTop: 6 }}>
-                  <Typography sx={{ paddingBottom: 3, color: 'white', 
+                <Grid item xs={6} sx={{ pt: { xs: 1, sm: 2, md: 4, lg: 6}}}>
+                  <Typography sx={{ pb: { xs: 1, sm: 2, md: 3, lg: 4}, color: 'white', 
                       fontSize: {xs: '12px', sm: '14px', md: '16px', lg: '18px'}}}>
                     Make Your First Order and Get
-                    <Typography component="span" sx={{ color: '#FF8C00', paddingLeft: 2,
+                    <Typography component="span" sx={{ color: '#FF8C00', pl: { xs: 0, sm: 1, md: 2, lg: 3},
                       fontSize: {xs: '12px', sm: '14px', md: '16px', lg: '18px'}
                      }}>
                       50% Off
