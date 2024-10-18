@@ -377,7 +377,7 @@ export const MainBar = (props) => {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', paddingBottom: '56px' }}>
       <CssBaseline />
       <AppBar position="fixed" sx={{ width: '100%', backgroundColor: 'white', color: 'black', padding: { xs: '0 8px', sm: '0 16px' } }}>
 
@@ -385,7 +385,7 @@ export const MainBar = (props) => {
           <Toolbar sx={{ justifyContent: 'space-between', flexDirection: { xs: 'column', sm: 'row' } }}>
             {(!isMobile) && (
               <>
-              <img src={pizza} alt="Pizza Logo" style={{ width: '80px' }} />
+              <img src={pizza} alt="Pizza Logo" style={{ width: '80px', marginBottom: { xs: 1, sm: 0 } }} />
               <MenuItem onClick={() => navigate('/')}>Home</MenuItem>
               <MenuItem onClick={() => navigate('/orders')}>Orders</MenuItem>
               <MenuItem onClick={() => navigate('/contact')}>Who we are</MenuItem>
@@ -408,7 +408,8 @@ export const MainBar = (props) => {
             <IconButton
                 color="inherit"
                 aria-label="open drawer"
-                edge="end" 
+                edge="end"
+                sx={{ mr: 2, display: { sm: 'none' } }} // Hamburger icon only visible on mobile
                 onClick={handleDrawerToggle}>
                 <MenuIcon />
             </IconButton>
