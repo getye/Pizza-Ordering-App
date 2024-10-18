@@ -56,11 +56,11 @@ const Footer = ({open, handleClose, handleOpen}) => (
     }}
   >
     <Stack 
-      direction={{ xs: 'row', sm: 'row', md: 'row', lg: 'row' }}
+      direction={'row'}
       spacing={2} 
       justifyContent="space-between" 
       alignItems="center" 
-      sx={{ pl:30, width: '100%', maxWidth: 'lg', mx: 'auto' }}
+      sx={{ pl:{lg:30, md:15, sm:5, xs:1}, width: '100%', maxWidth: 'lg', mx: 'auto' }}
     >
       <Box sx={{ display: 'flex', gap: 2 }}>
         <Typography variant="body2" color="white">
