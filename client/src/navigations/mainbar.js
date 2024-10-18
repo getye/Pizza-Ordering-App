@@ -429,13 +429,17 @@ export const MainBar = (props) => {
                   <Drawer
                          container={container}
                          variant="persistent"
-                         open={isCollapsed}
+                         open
                          sx={{
                           width: isCollapsed ? '40px' : navWidth,  
-                            '& .MuiDrawer-paper': {
-                              boxSizing: 'border-box',
-                              width: isCollapsed ? '40px' : navWidth,
-                            },
+                          transition: theme.transitions.create('width', {
+                            easing: theme.transitions.easing.sharp,
+                            duration: theme.transitions.duration.enteringScreen,
+                          }),
+                          '& .MuiDrawer-paper': {
+                            boxSizing: 'border-box',
+                            width: isCollapsed ? '40px' : navWidth,
+                          },
                          }}
                        >
                          {drawer}
