@@ -430,9 +430,6 @@ export const MainBar = (props) => {
                          container={container}
                          variant="persistent"
                          open={isCollapsed}
-                         ModalProps={{
-                           keepMounted: true, 
-                         }}
                          sx={{
                           width: isCollapsed ? '40px' : navWidth,  
                             '& .MuiDrawer-paper': {
