@@ -407,10 +407,12 @@ export const MainBar = (props) => {
                   sx={{
                     display: 'flex',
                     justifyContent: 'space-between',
+                    alignItems: 'center', // Align items vertically in the center
                   }}
                 >
 
               <img src={pizza} alt="Pizza Logo" style={{ width: '80px' }} />
+              <Box sx={{ flexGrow: 1 }} />
               <IconButton
                 color="inherit"
                 aria-label="open drawer"
