@@ -404,25 +404,32 @@ export const MainBar = (props) => {
             )}
             {(isMobile)&&(
               <Box 
-                  sx={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center', // Align items vertically in the center
-                  }}
-                >
-
-              <img src={pizza} alt="Pizza Logo" style={{ width: '80px' }} />
-              <Box sx={{ flexGrow: 1 }} />
-              <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                edge="start"
-                sx={{ display: { sm: 'none' } }} // Hamburger icon only visible on mobile
-                onClick={handleDrawerToggle}
+                sx={{
+                  position: 'relative',
+                  padding: '16px',
+                }}
               >
-                <MenuIcon />
-              </IconButton>
-            </Box>
+                <img 
+                  src={pizza} 
+                  alt="Pizza Logo" 
+                  style={{ 
+                    width: '80px', 
+                    position: 'absolute', 
+                    right: 0, // Align to the right
+                    top: '50%', // Center vertically
+                    transform: 'translateY(-50%)' // Adjust vertical position
+                  }} 
+                />
+                <IconButton
+                  color="inherit"
+                  aria-label="open drawer"
+                  edge="start"
+                  sx={{ display: { sm: 'none' } }} // Hamburger icon only visible on mobile
+                  onClick={handleDrawerToggle}
+                >
+                  <MenuIcon />
+                </IconButton>
+              </Box>
             )}
             {(isMobile && mobileOpen) && (
               <>
