@@ -21,7 +21,7 @@ import MenuIcon from '@mui/icons-material/Menu';  // Hamburger icon for mobile
 
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import { Divider, MenuItem, Link, IconButton, useMediaQuery, Modal } from '@mui/material';
+import { Divider, MenuItem, Link, IconButton, useMediaQuery, Modal, useTheme } from '@mui/material';
 import { Profile } from './profile';
 import pizza from '../assets/pizza.png';
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -131,8 +131,21 @@ export const MainBar = (props) => {
   const { window } = props;
   // State to control the mobile drawer
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const [leftBar, setLeftBar] = React.useState(true);
   const [open, setOpen] = React.useState(false);
+  const [isDrawerOpen, setDrawerOpen] = React.useState(false);  // For mobile drawer open/close
+  const [isCollapsed, setCollapsed] = React.useState(false);
+
+  const theme = useTheme();
+
+  const toggleDrawer = () => {
+    if (isMobile) {
+      // For mobile, toggle the overlay drawer
+      setDrawerOpen(!isDrawerOpen);
+    } else {
+      // For desktop, toggle the collapse/expand state
+      setCollapsed(!isCollapsed);
+    }
+  };
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -147,24 +160,22 @@ export const MainBar = (props) => {
     setMobileOpen(!mobileOpen);
   };
 
-  const handleLeftBar = () => {
-    setLeftBar(!leftBar);
-  };
+ 
 
   const handleSignOut = () => {
     localStorage.clear();
     navigate('/')
   };
 
-  const navWidth = (leftBar)?(240):(35)
+  const navWidth = (isDrawerOpen)?(240):(35)
   const drawer = (
     <List sx={{ height: 'auto', borderColor: 'gray' }}>
-      {(!leftBar)? (
+      {(!isDrawerOpen)? (
           <IconButton
               color="inherit"
               aria-label="open drawer"
               edge="start"
-              onClick={handleLeftBar}>
+              onClick={toggleDrawer}>
               <MenuOpenIcon />
           </IconButton> 
       ):(
@@ -177,7 +188,7 @@ export const MainBar = (props) => {
                   color="inherit"
                   aria-label="open drawer"
                   edge="start"
-                  onClick={handleLeftBar}>
+                  onClick={toggleDrawer}>
                   <MenuOpenIcon />
               </IconButton>     
         </Stack>
@@ -424,9 +435,9 @@ export const MainBar = (props) => {
                   {/* Drawer for mobile */}
                   <Drawer
                          container={container}
-                         variant="permanent"
-                         open={leftBar}
-                         onClose={handleLeftBar}
+                         variant="temporary"
+                         open={isDrawerOpen}
+                         onClose={toggleDrawer}
                          ModalProps={{
                            keepMounted: true, 
                          }}
@@ -442,16 +453,20 @@ export const MainBar = (props) => {
                     <>
                   {/* Permanent Drawer for desktop */}
                   <Drawer
-                  variant="persistent"
-                  sx={{
-                    display: 'block',
-                    width: navWidth,
-                    '& .MuiDrawer-paper': { 
-                      boxSizing: 'border-box', 
-                      width: navWidth,
-                      zIndex: 0,   
-                    },
-                  }} >
+                      variant="persistent"
+                      open
+                      sx={{
+                        width: isCollapsed ? '60px' : navWidth,  // Toggle width for desktop
+                        transition: theme.transitions.create('width', {
+                          easing: theme.transitions.easing.sharp,
+                          duration: theme.transitions.duration.enteringScreen,
+                        }),
+                        '& .MuiDrawer-paper': {
+                          boxSizing: 'border-box',
+                          width: isCollapsed ? '60px' : navWidth,
+                        },
+                      }}
+                      >
                   {drawer}
                 </Drawer>
                 </>
