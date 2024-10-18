@@ -408,9 +408,10 @@ export const MainBar = (props) => {
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'center', // Align items vertically in the center
-                    padding: '16px', // Optional: Add padding for spacing
                   }}
                 >
+
+              <img src={pizza} alt="Pizza Logo" style={{ width: '80px' }} />
               <IconButton
                 color="inherit"
                 aria-label="open drawer"
@@ -420,7 +421,6 @@ export const MainBar = (props) => {
               >
                 <MenuIcon />
               </IconButton>
-              <img src={pizza} alt="Pizza Logo" style={{ width: '80px' }} />
             </Box>
             )}
             {(isMobile && mobileOpen) && (
