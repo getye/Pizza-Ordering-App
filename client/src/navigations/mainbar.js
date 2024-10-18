@@ -442,7 +442,7 @@ export const MainBar = (props) => {
                 display: 'block',
                 '& .MuiDrawer-paper': { boxSizing: 'border-box', width: navWidth },
               }}
-              open
+              
               >
               {drawer}
             </Drawer>
