@@ -203,7 +203,7 @@ return (
             height: 10,
             width: 10,
             minWidth: 0, // This is important to make the Button keep its small size
-            padding: 0,
+            paddingTop: 2,
             borderRadius: '50%',
             opacity: 0.5, // Initial opacity
             transition: 'opacity 0.3s ease',
