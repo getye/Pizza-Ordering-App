@@ -153,23 +153,10 @@ export const MainBar = (props) => {
     setMobileOpen(!mobileOpen);
   };
 
-  const home = () => {
-    setMobileOpen(!mobileOpen);
-    navigate('/');
-  }
-  const orders = () => {
-    setMobileOpen(!mobileOpen);
-    navigate('/orders')
-  }
 
   const contact = () => {
     setMobileOpen(!mobileOpen);
     navigate('/contact')
-  }
-
-  const signin = () => {
-    setMobileOpen(!mobileOpen);
-    navigate('/signin')
   }
 
   const signup = () => {
@@ -405,9 +392,9 @@ export const MainBar = (props) => {
             {(isMobile)&&(
               <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <img src={pizza} alt="Pizza Logo" style={{ width: '90px', marginRight:1, marginLeft:0 }} />
-                  <MenuItem sx={{pl:1, width:'60px'}} onClick={home}>Home</MenuItem>
-                  <MenuItem sx={{pl:0, width:'60px'}} onClick={orders}>Orders</MenuItem>
-                  <MenuItem sx={{pl:0, width:'60px'}} onClick={signin}>Sign in</MenuItem>
+                  <MenuItem sx={{pl:1, width:'60px'}} onClick={() => navigate('/')}>Home</MenuItem>
+                  <MenuItem sx={{pl:0, width:'60px'}} onClick={() => navigate('/orders')}>Orders</MenuItem>
+                  <MenuItem sx={{pl:0, width:'60px'}} onClick={() => navigate('/signin')}>Sign in</MenuItem>
                   <IconButton
                       color="inherit"
                       aria-label="open drawer"
