@@ -139,6 +139,8 @@ export const MainBar = (props) => {
 
 
   const isMobile = useMediaQuery((theme) => theme.breakpoints.down('sm'));
+  const verySmall = useMediaQuery((theme) => theme.breakpoints.down('xs'));
+
 
 
   const handleDrawerToggle = () => {
@@ -447,8 +449,10 @@ export const MainBar = (props) => {
             </Drawer>
         </Box>
       )}
-      <Box sx={{ flexGrow: 1, minHeight: '100vh' }} />
+      <Box sx={{ flexGrow: 1}} />
+        {!(isMobile || verySmall) && (
           <Footer open={open} handleClose={handleClose} handleOpen={handleOpen}/>
+        )}
     </Box>
   );
 };
