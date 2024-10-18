@@ -406,7 +406,6 @@ export const MainBar = (props) => {
               <Box 
                 sx={{
                   position: 'relative',
-                  padding: '16px',
                 }}
               >
                 <img 
@@ -415,15 +414,15 @@ export const MainBar = (props) => {
                   style={{ 
                     width: '80px', 
                     position: 'absolute', 
-                    right: 0, // Align to the right
-                    top: '50%', // Center vertically
+                    left: 0, 
+                    top: '50%', 
                     transform: 'translateY(-50%)' // Adjust vertical position
                   }} 
                 />
                 <IconButton
                   color="inherit"
                   aria-label="open drawer"
-                  edge="start"
+                  edge="end"
                   sx={{ display: { sm: 'none' } }} // Hamburger icon only visible on mobile
                   onClick={handleDrawerToggle}
                 >
