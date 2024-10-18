@@ -153,6 +153,30 @@ export const MainBar = (props) => {
     setMobileOpen(!mobileOpen);
   };
 
+  const home = () => {
+    setMobileOpen(!mobileOpen);
+    navigate('/');
+  }
+  const orders = () => {
+    setMobileOpen(!mobileOpen);
+    navigate('/orders')
+  }
+
+  const contact = () => {
+    setMobileOpen(!mobileOpen);
+    navigate('/contact')
+  }
+
+  const signin = () => {
+    setMobileOpen(!mobileOpen);
+    navigate('/signin')
+  }
+
+  const signup = () => {
+    setMobileOpen(!mobileOpen);
+    navigate('/signup')
+  }
+
  
 
   const handleSignOut = () => {
@@ -393,11 +417,11 @@ export const MainBar = (props) => {
             )}
             {(isMobile && mobileOpen) && (
               <>
-            <MenuItem onClick={() => navigate('/')}>Home</MenuItem>
-            <MenuItem onClick={() => navigate('/orders')}>Orders</MenuItem>
-            <MenuItem onClick={() => navigate('/contact')}>Who we are</MenuItem>
+            <MenuItem onClick={home}>Home</MenuItem>
+            <MenuItem onClick={orders}>Orders</MenuItem>
+            <MenuItem onClick={contact}>Who we are</MenuItem>
             <MenuItem
-                onClick={() => navigate('/signup')}
+                onClick={signup}
                 sx={{
                   bgcolor: '#FF6700',
                   color: 'white',
@@ -406,7 +430,7 @@ export const MainBar = (props) => {
                     opacity: 0.9,
                   },
                 }}>Register</MenuItem>
-              <MenuItem onClick={() => navigate('/signin')}>Sign in</MenuItem>
+              <MenuItem onClick={signin}>Sign in</MenuItem>
               </>
             )}
           </Toolbar>
