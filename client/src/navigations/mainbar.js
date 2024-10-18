@@ -424,7 +424,7 @@ export const MainBar = (props) => {
                   {/* Drawer for mobile */}
                   <Drawer
                          container={container}
-                         variant="temporary"
+                         variant="permanent"
                          open={leftBar}
                          onClose={handleLeftBar}
                          ModalProps={{
@@ -442,7 +442,7 @@ export const MainBar = (props) => {
                     <>
                   {/* Permanent Drawer for desktop */}
                   <Drawer
-                  variant="permanent"
+                  variant="persistent"
                   sx={{
                     display: 'block',
                     width: navWidth,
