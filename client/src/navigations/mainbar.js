@@ -48,7 +48,7 @@ const Footer = ({open, handleClose, handleOpen}) => (
       backgroundColor: 'black', 
       color:'white',
       zIndex: 1000,
-      position: {lg: 'fixed'},
+      position: {lg: 'fixed', md:'fixed', sm: 'static', xs: 'static'},
       bottom: 0, 
       left: 0, 
       right: 0,
@@ -448,9 +448,7 @@ export const MainBar = (props) => {
         </Box>
       )}
       <Box sx={{ flexGrow: 1 }} />
-        {(!isMobile) && (
-            <Footer open={open} handleClose={handleClose} handleOpen={handleOpen}/>
-        )}
+          <Footer open={open} handleClose={handleClose} handleOpen={handleOpen}/>
     </Box>
   );
 };
