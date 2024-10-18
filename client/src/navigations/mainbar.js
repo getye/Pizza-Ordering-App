@@ -437,10 +437,11 @@ export const MainBar = (props) => {
             {/* Permanent Drawer for desktop */}
             <Drawer
               variant="permanent"
+              open={leftBar}
+              onClose={handleLeftBar}
               sx={{
                 '& .MuiDrawer-paper': { boxSizing: 'border-box', width: navWidth },
               }}
-              open
               >
               {drawer}
             </Drawer>
