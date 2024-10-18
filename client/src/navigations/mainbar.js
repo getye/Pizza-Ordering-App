@@ -448,7 +448,9 @@ export const MainBar = (props) => {
         </Box>
       )}
       <Box sx={{ flexGrow: 1 }} />
-          <Footer open={open} handleClose={handleClose} handleOpen={handleOpen}/>
+        {(!isMobile) && (
+            <Footer open={open} handleClose={handleClose} handleOpen={handleOpen}/>
+        )}
     </Box>
   );
 };
