@@ -156,7 +156,7 @@ export const MainBar = (props) => {
     navigate('/')
   };
 
-  const navWidth = (leftBar)?(35):(240)
+  const navWidth = (leftBar || isMobile || verySmall)?(35):(240)
   const drawer = (
     <List sx={{ height: 'auto', borderColor: 'gray' }}>
       {(leftBar || isMobile || verySmall)? (
