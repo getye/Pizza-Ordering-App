@@ -442,8 +442,10 @@ export const MainBar = (props) => {
                            keepMounted: true, 
                          }}
                          sx={{
-                           display: 'block',
-                           '& .MuiDrawer-paper': { boxSizing: 'border-box', width: navWidth },
+                          '& .MuiDrawer-paper': { 
+                            boxSizing: 'border-box', 
+                            width: navWidth, // Toggle width on mobile
+                          },
                          }}
                        >
                          {drawer}
@@ -456,14 +458,14 @@ export const MainBar = (props) => {
                       variant="persistent"
                       open
                       sx={{
-                        width: isCollapsed ? '60px' : navWidth,  // Toggle width for desktop
+                        width: navWidth,  
                         transition: theme.transitions.create('width', {
                           easing: theme.transitions.easing.sharp,
                           duration: theme.transitions.duration.enteringScreen,
                         }),
                         '& .MuiDrawer-paper': {
                           boxSizing: 'border-box',
-                          width: isCollapsed ? navWidth : "60px",
+                          width: navWidth,
                         },
                       }}
                       >
