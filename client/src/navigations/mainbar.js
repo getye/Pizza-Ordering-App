@@ -21,7 +21,7 @@ import MenuIcon from '@mui/icons-material/Menu';  // Hamburger icon for mobile
 
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import { Divider, MenuItem, Link, IconButton, useMediaQuery, Modal, useTheme, Grid } from '@mui/material';
+import { Divider, MenuItem, Link, IconButton, useMediaQuery, Modal, useTheme } from '@mui/material';
 import { Profile } from './profile';
 import pizza from '../assets/pizza.png';
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -403,22 +403,16 @@ export const MainBar = (props) => {
               </>
             )}
             {(isMobile)&&(
-                <Grid container alignItems="center" spacing={2}>
-                  <Grid item > {/* This will push the logo to the right */}
-                    <img src={pizza} alt="Pizza Logo" style={{ width: '80px' }} />
-                  </Grid>
-                  <Grid item>
-                    <IconButton
-                      color="inherit"
-                      aria-label="open drawer"
-                      edge="start"
-                      sx={{ display: { sm: 'none' } }} // Hamburger icon only visible on mobile
-                      onClick={handleDrawerToggle}
-                    >
-                      <MenuIcon />
-                    </IconButton>
-                  </Grid>
-              </Grid>
+              <>
+            <img src={pizza} alt="Pizza Logo" style={{ width: '80px' }} />
+            <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                edge="end" 
+                onClick={handleDrawerToggle}>
+                <MenuIcon />
+            </IconButton>
+            </>
             )}
             {(isMobile && mobileOpen) && (
               <>
