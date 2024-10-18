@@ -405,14 +405,14 @@ export const MainBar = (props) => {
             {(isMobile)&&(
               <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <img src={pizza} alt="Pizza Logo" style={{ width: '80px' }} />
-                  <MenuItem sx={{ml:0, width:'60px'}} onClick={home}>Home</MenuItem>
-                  <MenuItem sx={{ml:0, width:'60px'}} onClick={orders}>Orders</MenuItem>
-                  <MenuItem sx={{ml:0, width:'60px'}} onClick={signin}>Sign in</MenuItem>
+                  <MenuItem sx={{pl:0, width:'60px'}} onClick={home}>Home</MenuItem>
+                  <MenuItem sx={{pl:0, width:'60px'}} onClick={orders}>Orders</MenuItem>
+                  <MenuItem sx={{pl:0, width:'60px'}} onClick={signin}>Sign in</MenuItem>
                   <IconButton
                       color="inherit"
                       aria-label="open drawer"
                       edge="end"
-                      sx={{ marginRight: 0, display: { sm: 'none' } }} // Hamburger icon only visible on mobile
+                      sx={{ marginLeft: 1, display: { sm: 'none' } }} // Hamburger icon only visible on mobile
                       onClick={handleDrawerToggle}
                   >
                       <MenuIcon />
