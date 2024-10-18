@@ -170,7 +170,7 @@ export const MainBar = (props) => {
   const navWidth = 240
   const drawer = (
     <List sx={{ height: 'auto', borderColor: 'gray' }}>
-      {(isDrawerOpen)? (
+      {(isCollapsed)? (
           <IconButton
               color="inherit"
               aria-label="open drawer"
