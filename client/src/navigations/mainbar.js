@@ -407,7 +407,6 @@ export const MainBar = (props) => {
                   sx={{
                     display: 'flex',
                     justifyContent: 'space-between',
-                    alignItems: 'center', // Align items vertically in the center
                   }}
                 >
 
