@@ -138,7 +138,7 @@ export const MainBar = (props) => {
   const theme = useTheme();
 
   const toggleDrawer = () => {
-    if (isMobile) {
+    if (isMobile || verySmall) {
       // For mobile, toggle the overlay drawer
       setDrawerOpen(!isDrawerOpen);
     } else {
@@ -170,7 +170,7 @@ export const MainBar = (props) => {
   const navWidth = 240
   const drawer = (
     <List sx={{ height: 'auto', borderColor: 'gray' }}>
-      {(isCollapsed)? (
+      {(isCollapsed || isDrawerOpen)? (
           <IconButton
               color="inherit"
               aria-label="open drawer"
@@ -444,7 +444,7 @@ export const MainBar = (props) => {
                          sx={{
                           '& .MuiDrawer-paper': { 
                             boxSizing: 'border-box', 
-                            width: isCollapsed ? '60px' : navWidth, // Toggle width on mobile
+                            width: isDrawerOpen ? '40px' : navWidth, // Toggle width on mobile
                           },
                          }}
                        >
