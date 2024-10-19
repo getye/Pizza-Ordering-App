@@ -153,7 +153,7 @@ export const CustomerOrders = () => {
             enableSorting
             enableColumnFiltering
             enableTopToolbar
-            initialState={{ pagination: { pageSize: 3 } }}
+            initialState={{ pagination: { pageSize: 3, pageIndex: 0 } }}
             muiTableBodyRowProps={({ row }) => ({
               onClick: () => handleRowClick(row), 
               sx: { cursor: 'pointer' }, 

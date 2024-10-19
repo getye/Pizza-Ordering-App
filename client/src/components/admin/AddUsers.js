@@ -122,7 +122,7 @@ export const ViewUsers = () => {
           data={users}
           enableSorting
           enableColumnFiltering
-          initialState={{ pagination: { pageSize: 3 } }}
+          initialState={{ pagination: { pageSize: 3, pageIndex: 0 } }}
           manualPagination={false} 
           renderTopToolbarCustomActions={() => (
             <Button

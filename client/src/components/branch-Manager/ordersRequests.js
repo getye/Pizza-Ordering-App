@@ -93,7 +93,7 @@ export const OrderRequests = () => {
             data={orders}
             enableSorting
             enableColumnFiltering
-            initialState={{ pagination: { pageSize: 3 } }}
+            initialState={{ pagination: { pageSize: 3, pageIndex: 0 } }}
             manualPagination={false} 
             muiTableBodyRowProps={({ row }) => ({
               onClick: () => handleRowClick(row), // Attach the click event here
