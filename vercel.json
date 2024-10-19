@@ -13,7 +13,7 @@
       }
     }
   ],
-  "routes": [
+  "rewrites": [
     {
       "source": "/(.*)",
       "destination": "/index.js"
