@@ -66,7 +66,7 @@ return (
             background: 'linear-gradient(to right, #FF8C00, #FFCBA4)', 
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
-            fontSize: {xs: '1rem', sm: '2rem', md: '4rem', lg: '6rem'},
+            fontSize: {xs: '1.5rem', sm: '3rem', md: '5rem', lg: '7rem'},
             fontWeight: 'bold',
           }}
         >
