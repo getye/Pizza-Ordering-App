@@ -194,7 +194,7 @@ return (
                               bgcolor: '#FF6F00', 
                               color: 'white', 
                               borderRadius: 2, 
-                              padding: {xs:'2px', sm:'3px', md:'4px', lg:'5px'},  
+                              padding: {xs:'3px', sm:'4px', md:'5px', lg:'6px'},  
                               width: '40%',  
                               display: 'inline-block',
                               textTransform: 'none'  // Maintain original text case without full caps
