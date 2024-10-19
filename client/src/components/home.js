@@ -239,8 +239,7 @@ return (
     </Box>
     </Box>
     <Box sx={{ paddingTop: 5, 
-      pl: { xs: 1, sm: 2, md: 4, lg: 8},
-      mb: {xs: 1, sm: 2, md: 3, lg: 4},
+      paddingLeft: { xs: 1, sm: 2, md: 4, lg: 8},
     }}>
       <Grid container spacing={3} sx={{ml:2}}> 
         <Typography variant="h5" sx={{color:'gray'}}>Top Restaurants</Typography>
@@ -249,22 +248,29 @@ return (
           <Grid item xs={12} sm={4} key={data.restaurant}> 
             <Card sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 2 }}>
               <CardContent sx={{ textAlign: 'center' }}> {/* Center align text */}
+              
+                <Grid container alignItems="center" spacing={2}>
+                  <Grid item xs={3}>
+                      <CardMedia
+                        component="img"
+                        sx={{ width: 40, height: 40, borderRadius: '50%' }} 
+                        image={data.user_profile} 
+                        alt={" "}
+                      />
+                  </Grid>
+                  <Grid item xs={9}>
+                    <Typography variant="body1" sx={{fontWeight: 'bold'}}>
+                      {data.restaurant}
+                    </Typography>
+                  </Grid>
+                </Grid>
+                <Divider sx={{mt:1}}/>
                 <Typography variant="h6" sx={{ color: '#32CD32', fontWeight: 'bold', display: 'inline' }}>
                   {data.total_orders} 
                 </Typography>
                 <Typography sx={{ display: 'inline', color: 'inherit', ml:1 }}>
                   Orders
                 </Typography>
-
-                <Divider sx={{mt:2}}/>
-                  <CardMedia
-                        component="img"
-                        sx={{ width: 40, height: 40, borderRadius: '50%' }} 
-                        image={data.user_profile} 
-                        alt={" "}
-                      />
-                  <Typography variant="h6" sx={{fontWeight: 'bold', color:'#FFA500'}}>{data.restaurant}</Typography>
-
               </CardContent>
             </Card>
           </Grid>
