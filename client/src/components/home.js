@@ -195,7 +195,7 @@ return (
                               color: 'white', 
                               borderRadius: 2, 
                               padding: '4px 5px',  
-                              width: '60%',  
+                              width: '40%',  
                               display: 'inline-block',
                               textTransform: 'none'  // Maintain original text case without full caps
                               }}>
