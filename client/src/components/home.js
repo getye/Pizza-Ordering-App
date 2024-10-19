@@ -133,7 +133,7 @@ return (
           sx={{
             color:'gray',
             }}>Featured Pizza</Typography>
-      <Box sx={{ width: { xs: '99%', sm: '92%', md: '80%', lg: '60%'}, height: { xs: '150px', sm: '200px', md: '250px', lg: '300px'} , display: 'flex', justifyContent: 'center' }}>
+      <Box sx={{ width: { xs: '99%', sm: '88%', md: '78%', lg: '68%'}, height: { xs: '150px', sm: '200px', md: '250px', lg: '300px'} , display: 'flex', justifyContent: 'center' }}>
         <div className="glide">
           <div className="glide__track" data-glide-el="track">
             <ul className="glide__slides">
@@ -157,7 +157,7 @@ return (
                     </Button>
                   </Grid>
                   <Grid item xs={6} sx={{ justifyContent: 'end' }}>
-                    <img src={featured1} alt="Pizza" style={{ width: '100%', height: '90%', borderRadius: '50px' }} />
+                    <img src={featured1} alt="Pizza" style={{ width: '100%', height: { xs: '150px', sm: '200px', md: '250px', lg: '300px'}, borderRadius: '50px' }} />
                   </Grid>
                 </Grid>
               </li>
@@ -181,7 +181,7 @@ return (
                     </Button>
                   </Grid>
                   <Grid item xs={6} sx={{ justifyContent: 'end' }}>
-                    <img src={featured2} alt="Pizza" style={{ width: '100%', height: '90%', borderRadius: '50px' }} />
+                    <img src={featured2} alt="Pizza" style={{ width: '100%', height: { xs: '150px', sm: '200px', md: '250px', lg: '300px'}, borderRadius: '50px' }} />
                   </Grid>
                 </Grid>
               </li>
@@ -204,13 +204,13 @@ return (
                     </Button>
                   </Grid>
                   <Grid item xs={6} sx={{ justifyContent: 'end' }}>
-                    <img src={featured3} alt="Pizza" style={{ width: '100%', height: '90%', borderRadius: '50px' }} />
+                    <img src={featured3} alt="Pizza" style={{ width: '100%', height: { xs: '150px', sm: '200px', md: '250px', lg: '300px'}, borderRadius: '50px' }} />
                   </Grid>
                 </Grid>
               </li>
             </ul>
           </div>
-          <Box className="glide__bullets" data-glide-el="controls[nav]">
+      <Box className="glide__bullets" data-glide-el="controls[nav]">
         {Array.from({ length: 3 }).map((_, index) => (
           <Button
             key={index}
