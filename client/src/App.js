@@ -59,7 +59,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/signin" element={<Signin setIsAuthenticated={setIsAuthenticated} />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/customer/view/orders" element={<Order />} />
+            <Route path="/customer/orders" element={<Order />} />
             <Route path='/orders' element={<Orders />} />
             <Route path="/unauthorized" element={<Unauthorized />} />
           </Routes>
@@ -69,7 +69,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/signin" element={<Signin setIsAuthenticated={setIsAuthenticated} />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/customer/view/orders" element={<Order />} />
+            <Route path="/customer/orders" element={<Order />} />
             <Route path='/orders' element={<Orders />} />
             <Route
               path="/superadmin/earnings"
@@ -112,7 +112,7 @@ function App() {
               element={<ProtectedRoute action="read" subject="Orders" element={<OrderRequests />} />}
             />
             <Route
-              path="/cashier/view/orders"
+              path="/cashier/orders"
               element={<ProtectedRoute action="read" subject="Orders" element={<OrdersInfo />} />}
             />
             <Route

@@ -312,7 +312,7 @@ export const MainBar = (props) => {
               {/* Cashier Links */}
         {userRole === 'Cashier' && (
           <>
-            <ListItem disablePadding onClick={() => { navigate("/cashier/view/orders") }}>
+            <ListItem disablePadding onClick={() => { navigate("/cashier/orders") }}>
               <ListItemButton>
                 <ListItemIcon>
                   <SpaceDashboardIcon />
@@ -326,7 +326,7 @@ export const MainBar = (props) => {
         {/* Customer Links */}
         {userRole === 'Customer' && (
           <>
-            <ListItem disablePadding onClick={() => { navigate("/customer/view/orders") }}>
+            <ListItem disablePadding onClick={() => { navigate("/customer/orders") }}>
               <ListItemButton>
                 <ListItemIcon>
                   <SpaceDashboardIcon />
