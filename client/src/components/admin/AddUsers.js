@@ -122,6 +122,8 @@ export const ViewUsers = () => {
           data={users}
           enableSorting
           enableColumnFiltering
+          initialState={{ pagination: { pageSize: 3 } }}
+          manualPagination={false} 
           renderTopToolbarCustomActions={() => (
             <Button
               onClick={handleOpen}

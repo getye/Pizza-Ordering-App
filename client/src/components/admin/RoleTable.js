@@ -213,6 +213,8 @@ const handleStatusChange = async (role) => {
         enableSorting
         enableColumnFiltering
         enableTopToolbar
+        initialState={{ pagination: { pageSize: 3 } }}
+        manualPagination={false} 
         renderTopToolbarCustomActions={() => (
           <Button onClick={handleOpen} sx={{ bgcolor: '#FF8C00', color: 'white', textTransform: 'none' }}>
             Add Role

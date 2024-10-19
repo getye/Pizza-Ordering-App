@@ -147,10 +147,12 @@ export const CustomerOrders = () => {
       {orders.length > 0 ? (
         <Box>
           <MaterialReactTable
+            key={orders.length}
             columns={columns}
             data={orders}
             enableSorting
             enableColumnFiltering
+            enableTopToolbar
             initialState={{ pagination: { pageSize: 3 } }}
             muiTableBodyRowProps={({ row }) => ({
               onClick: () => handleRowClick(row), 
