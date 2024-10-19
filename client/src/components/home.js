@@ -170,14 +170,14 @@ return (
                             pb: { xs: 1, sm: 2, md: 3, lg: 4 }, 
                             pl: { xs: 1, sm: 2, md: 3, lg: 4 }, 
                             color: 'white',
-                            fontSize: { xs: '14px', sm: '16px', md: '18px', lg: '20px' }
+                            fontSize: { xs: '12px', sm: '14px', md: '16px', lg: '18px' }
                           }}
                         >
                           Make Your First Order and Get
                           <Typography component="span" sx={{ 
                             color: '#FF8C00', 
                             pl: { xs: 1, sm: 2, md: 3, lg: 4 }, 
-                            fontSize: { xs: '14px', sm: '16px', md: '18px', lg: '20px' }
+                            fontSize: { xs: '12px', sm: '14px', md: '16px', lg: '18px' }
                           }}>
                             50% Off
                           </Typography>
@@ -194,12 +194,12 @@ return (
                               bgcolor: '#FF6F00', 
                               color: 'white', 
                               borderRadius: 2, 
-                              padding: '6px 1px',  
+                              padding: '6px',  
                               width: '40%',  
                               display: 'inline-block',
                               textTransform: 'none'  // Maintain original text case without full caps
                               }}>
-                            <Typography sx={{ lineHeight: 1,  fontSize: { xs: '10px', sm: '12px', md: '14px', lg: '14px' }, textTransform: 'capitalize' }}>
+                            <Typography sx={{ lineHeight: 1,  fontSize: { xs: '12px', sm: '14px', md: '16px', lg: '18px' }, textTransform: 'capitalize' }}>
                               Order Now
                             </Typography>
                           </Button>
