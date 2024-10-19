@@ -57,6 +57,7 @@ export const Report = () => {
 
     return (
         <Box sx={{ 
+            display: 'flex', flexDirection: 'column', flexGrow: 1,
             paddingTop: 3, 
             justifyContent: 'center',
             ml: {xs: '5%', sm: '10%', md: '15%', lg: '20%'},
