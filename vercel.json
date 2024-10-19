@@ -18,9 +18,7 @@
       "src": "/(.*)",
       "dest": "/index.js"
     },
-    {
-      "handle": "filesystem"  
-    },
+
     {
       "src": "/(.*)",
       "dest": "/client/build/index.html"

@@ -72,11 +72,11 @@ function App() {
             <Route path="/customer/view/orders" element={<Order />} />
             <Route path='/orders' element={<Orders />} />
             <Route
-              path="/superadmin/view/earnings"
+              path="/superadmin/earnings"
               element={<ProtectedRoute action="read" subject="Earnings" element={<EarningsChart />} />}
             />
             <Route
-              path="/superadmin/view/admins"
+              path="/superadmin/admins"
               element={<ProtectedRoute action="create" subject="Admins" element={<AddAdmins />} />}
             />
             <Route
