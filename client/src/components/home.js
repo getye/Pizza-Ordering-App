@@ -187,12 +187,12 @@ return (
                             bgcolor: '#FF6F00', 
                             color: 'white', 
                             borderRadius: 2, 
-                            padding: '1px 1px',  // Control the padding to make the button smaller based on the text
-                            minWidth: 'auto',      // Prevent setting a minimum width
-                            lineHeight: 1,         // Keep the button's height based on the text
+                            padding: '1px 2px',  
+                            minWidth: 'auto',  
+                            display: 'inline-block',    
                             textTransform: 'none'  // Maintain original text case without full caps
                             }}>
-                          <Typography sx={{ fontSize: { xs: '14px', sm: '16px', md: '18px', lg: '20px' }, textTransform: 'capitalize' }}>
+                          <Typography sx={{ lineHeight: 1,  fontSize: { xs: '14px', sm: '16px', md: '18px', lg: '20px' }, textTransform: 'capitalize' }}>
                             Order Now
                           </Typography>
                         </Button>
