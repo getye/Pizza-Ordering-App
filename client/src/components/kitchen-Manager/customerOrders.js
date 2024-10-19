@@ -156,6 +156,7 @@ export const CustomerOrders = () => {
               onClick: () => handleRowClick(row), // Attach the click event here
               sx: { cursor: 'pointer' }, // Style for pointer cursor
             })}
+            manualPagination={false} 
           />
 
           {/* Modal for displaying selected order details */}
