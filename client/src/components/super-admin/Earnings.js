@@ -17,7 +17,7 @@ export const EarningsChart = () => {
   useEffect(() => {
     const fetchEarningsData = async () => {
       try {
-        const response = await fetch(`${window.location.origin}/api/superadmin/view/earnings`, {
+        const response = await fetch(`${window.location.origin}/superadmin/view/earnings`, {
             method: 'GET', 
             headers: {
               'Content-Type': 'application/json', 
