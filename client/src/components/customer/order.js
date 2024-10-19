@@ -82,7 +82,7 @@ export const Order = () => {
             enableSorting
             enableColumnFiltering
             enablePagination={true}  
-            initialState={{ pagination: { pageSize: 3 } }}
+            initialState={{ pagination: { pageSize: 3, pageIndex: 0} }}
             manualPagination={false} 
             muiTableBodyRowProps={({ row }) => ({
               onClick: () => handleRowClick(row), 
