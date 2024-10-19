@@ -238,9 +238,9 @@ return (
       </div>
     </Box>
     </Box>
-    <Box sx={{ paddingTop: 5, 
-      ml: {xs: '2%', sm: '5%', md: '10%', lg: '15%'},
-      mr: {xs: '2%', sm: '5%', md: '10%', lg: '15%'},
+    <Box sx={{ 
+      pl: { xs: 1, sm: 2, md: 4, lg: 8},
+      pt: { xs: 1, sm: 2, md: 3, lg: 4},
       mb: {xs: 1, sm: 2, md: 3, lg: 4},
     }}>
       <Grid container spacing={3} sx={{ml:2}}> 
