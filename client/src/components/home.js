@@ -242,7 +242,7 @@ return (
       pl: { xs: 1, sm: 2, md: 4, lg: 8},
       pr: { xs: 1, sm: 2, md: 4, lg: 8},
       }}>
-      <Grid container spacing={3} sx={{ml:2}}> 
+      <Grid container spacing={2}> 
         <Typography variant="h5" sx={{color:'gray'}}>Top Restaurants</Typography>
 
         {restaurants.map((data) => (
