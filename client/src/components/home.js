@@ -148,11 +148,11 @@ return (
                       container 
                       sx={{ 
                         bgcolor: index === 0 ? '#3D3C3A' : index === 1 ? '#4E5B31' : '#438D80',
-                        maxWidth: '100%', 
                         borderRadius: 10, 
                         pl: { xs: 0, sm: 1, md: 2, lg: 3 }, 
                         alignItems: 'stretch',  // Ensure all slides have equal height
-                        minHeight: { xs: 100, sm: 150, md: 200, lg: 250 }  // Set a minHeight for consistency
+                        minHeight: { xs: 100, sm: 150, md: 200, lg: 250 }, 
+                        maxHeight: { xs: 150, sm: 200, md: 250, lg: 300 }
                       }}
                     >
                       <Grid 
@@ -182,7 +182,7 @@ return (
                             50% Off
                           </Typography>
                         </Typography>
-                        <Button sx={{ bgcolor: '#FF6F00', color: 'white', borderRadius: 2 }}>
+                        <Button sx={{ bgcolor: '#FF6F00', color: 'white', borderRadius: 2, width:{xs:'15px', sm:'20px', md:'25px', lg:'30px'} }}>
                           <Typography sx={{ fontSize: { xs: '14px', sm: '16px', md: '18px', lg: '20px' }, textTransform: 'capitalize' }}>
                             Order Now
                           </Typography>
