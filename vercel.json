@@ -24,7 +24,6 @@
     }
   ],
   "rewrites": [
-    { "src": "/(.*)", "dest": "/index.js" },
-    { "src": "/(.*)", "dest": "/client/build/index.html" }
-  ] 
+    { "source": "/(.*)", "destination": "/client/build/index.html" }
+  ]
 }
