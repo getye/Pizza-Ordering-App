@@ -187,14 +187,14 @@ return (
                                 justifyContent: 'center',    // Center horizontally
                                 alignItems: 'center',        // Center vertically
                                 height: '100%',              // Ensure the container takes full height
-                                pt: { xs: 1, sm: 2, md: 4, lg: 6 }  // Padding for spacing
+                                pt: { xs: 1, sm: 2, md: 3, lg: 4 }  // Padding for spacing
                               }}>
                           <Button 
                             sx={{ 
                               bgcolor: '#FF6F00', 
                               color: 'white', 
                               borderRadius: 2, 
-                              padding: '4px 5px',  
+                              padding: '6px 1px',  
                               width: '40%',  
                               display: 'inline-block',
                               textTransform: 'none'  // Maintain original text case without full caps
