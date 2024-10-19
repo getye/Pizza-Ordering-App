@@ -244,15 +244,17 @@ return (
       mb: {xs: 1, sm: 2, md: 3, lg: 4},
     }}>
       <Grid container spacing={3}> 
+        <Typography variant="h5" sx={{fontWeight: 'bold'}}>Top Restaurants</Typography>
+
         {restaurants.map((data) => (
           <Grid item xs={12} sm={4} key={data.restaurant}> 
             <Card sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 2 }}>
               <CardContent sx={{ textAlign: 'center' }}> {/* Center align text */}
-                <Typography variant="h5" sx={{fontWeight: 'bold'}}>{data.restaurant}</Typography>
-                <Typography variant="h5" sx={{ color: '#32CD32', fontWeight: 'bold', display: 'inline' }}>
-                  {data.total_orders}
+                <Typography variant="h6" sx={{fontWeight: 'bold', color:'#FFA500'}}>{data.restaurant}</Typography>
+                <Typography variant="h6" sx={{ color: '#32CD32', fontWeight: 'bold', display: 'inline' }}>
+                  {data.total_orders} 
                 </Typography>
-                <Typography sx={{ display: 'inline', color: 'inherit' }}>
+                <Typography sx={{ display: 'inline', color: 'inherit', ml:1 }}>
                   Orders
                 </Typography>
 
