@@ -129,9 +129,9 @@ return (
     </Grid>
     <Box sx={{pl: { xs: 1, sm: 2, md: 4, lg: 8}, pt: { xs: 1, sm: 2, md: 3, lg: 4},}}>
         <Typography 
+          variant="h5"
           sx={{
             color:'gray',
-            fontSize: {xs: '12px', sm: '14px', md: '16px', lg: '18px'}
             }}>Featured Pizza</Typography>
         <Box sx={{ width: { xs: '99%', sm: '92%', md: '80%', lg: '60%'}, height: { xs: '150px', sm: '200px', md: '250px', lg: '300px'} , display: 'flex', justifyContent: 'center' }}>
       <div className="glide">
@@ -142,16 +142,16 @@ return (
                 <Grid item xs={6} sx={{ pt: { xs: 1, sm: 2, md: 4, lg: 6}, }}>
                   <Typography
                      sx={{ pb: { xs: 1, sm: 2, md: 3, lg: 4}, pl: { xs: 1, sm: 2, md: 3, lg: 4}, color: 'white',
-                      fontSize: {xs: '12px', sm: '14px', md: '16px', lg: '18px'}
+                      fontSize: {xs: '14px', sm: '16px', md: '18px', lg: '20px'}
                      }}>
                     Make Your First Order and Get
                     <Typography component="span" sx={{ color: '#FF8C00', pl: { xs: 1, sm: 2, md: 3, lg: 4}, 
-                      fontSize: {xs: '12px', sm: '14px', md: '16px', lg: '18px'}}}>
+                      fontSize: {xs: '14px', sm: '16px', md: '18px', lg: '20px'}}}>
                       50% Off
                     </Typography>
                   </Typography>
                   <Button sx={{ bgcolor: '#FF6F00', color: 'white', borderRadius:2 }}>
-                    <Typography sx={{ fontSize: {xs: '10px', sm: '12px', md: '14px', lg: '16px'}, textTransform: 'capitalize' }}>
+                    <Typography sx={{ fontSize: {xs: '14px', sm: '16px', md: '18px', lg: '20px'}, textTransform: 'capitalize' }}>
                       Order Now
                     </Typography>
                   </Button>
@@ -165,17 +165,17 @@ return (
               <Grid container sx={{ bgcolor: '#4E5B31', maxWidth: '100%', borderRadius: 10, pl: { xs: 0, sm: 1, md: 2, lg: 3}, }}>
                 <Grid item xs={6} sx={{ pt: { xs: 1, sm: 2, md: 4, lg: 6}, }}>
                   <Typography sx={{ pb: { xs: 1, sm: 2, md: 3, lg: 4}, pl: { xs: 1, sm: 2, md: 3, lg: 4}, color: 'white',
-                    fontSize: {xs: '12px', sm: '14px', md: '16px', lg: '18px'}
+                    fontSize: {xs: '14px', sm: '16px', md: '18px', lg: '20px'}
                   }}>
                     Make Your First Order and Get
                     <Typography component="span" sx={{ color: '#FF8C00', pl: { xs: 1, sm: 2, md: 3, lg: 4},
-                      fontSize: {xs: '12px', sm: '14px', md: '16px', lg: '18px'}
+                      fontSize: {xs: '14px', sm: '16px', md: '18px', lg: '20px'}
                      }}>
                       50% Off
                     </Typography>
                   </Typography>
                   <Button sx={{ bgcolor: '#FF6F00', color: 'white', borderRadius:2 }}>
-                    <Typography sx={{ fontSize: {xs: '10px', sm: '12px', md: '14px', lg: '16px'}, textTransform: 'capitalize' }}>
+                    <Typography sx={{ fontSize: {xs: '14px', sm: '16px', md: '18px', lg: '20px'}, textTransform: 'capitalize' }}>
                       Order Now
                     </Typography>
                   </Button>
@@ -189,16 +189,16 @@ return (
               <Grid container sx={{ bgcolor: '#438D80', maxWidth: '100%', borderRadius: 10, pl: { xs: 0, sm: 1, md: 2, lg: 3}, }}>
                 <Grid item xs={6} sx={{ pt: { xs: 1, sm: 2, md: 4, lg: 6}}}>
                   <Typography sx={{ pb: { xs: 1, sm: 2, md: 3, lg: 4}, pl: { xs: 1, sm: 2, md: 3, lg: 4}, color: 'white', 
-                      fontSize: {xs: '12px', sm: '14px', md: '16px', lg: '18px'}}}>
+                      fontSize: {xs: '14px', sm: '16px', md: '18px', lg: '20px'}}}>
                     Make Your First Order and Get
                     <Typography component="span" sx={{ color: '#FF8C00', pl: { xs: 0, sm: 1, md: 2, lg: 3},
-                      fontSize: {xs: '12px', sm: '14px', md: '16px', lg: '18px'}
+                      fontSize: {xs: '14px', sm: '16px', md: '18px', lg: '20px'}
                      }}>
                       50% Off
                     </Typography>
                   </Typography>
                   <Button sx={{ bgcolor: '#FF6F00', color: 'white', borderRadius:2 }}>
-                    <Typography sx={{ fontSize: {xs: '10px', sm: '12px', md: '14px', lg: '16px'}, textTransform: 'capitalize' }}>
+                    <Typography sx={{ fontSize: {xs: '14px', sm: '16px', md: '18px', lg: '20px'}, textTransform: 'capitalize' }}>
                       Order Now
                     </Typography>
                   </Button>
@@ -221,7 +221,7 @@ return (
             height: 10,
             width: 10,
             minWidth: 0, // This is important to make the Button keep its small size
-            paddingTop: 2,
+            padding: 0,
             borderRadius: '50%',
             opacity: 0.5, // Initial opacity
             transition: 'opacity 0.3s ease',
@@ -243,14 +243,13 @@ return (
       mr: {xs: '2%', sm: '5%', md: '10%', lg: '15%'},
       mb: {xs: 1, sm: 2, md: 3, lg: 4},
     }}>
-      <Grid container spacing={3}> 
-        <Typography variant="h5" sx={{fontWeight: 'bold'}}>Top Restaurants</Typography>
+      <Grid container spacing={3} sx={{ml:2}}> 
+        <Typography variant="h5" sx={{color:'gray'}}>Top Restaurants</Typography>
 
         {restaurants.map((data) => (
           <Grid item xs={12} sm={4} key={data.restaurant}> 
             <Card sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 2 }}>
               <CardContent sx={{ textAlign: 'center' }}> {/* Center align text */}
-                <Typography variant="h6" sx={{fontWeight: 'bold', color:'#FFA500'}}>{data.restaurant}</Typography>
                 <Typography variant="h6" sx={{ color: '#32CD32', fontWeight: 'bold', display: 'inline' }}>
                   {data.total_orders} 
                 </Typography>
@@ -259,12 +258,14 @@ return (
                 </Typography>
 
                 <Divider sx={{mt:2}}/>
-                      <CardMedia
+                  <CardMedia
                         component="img"
                         sx={{ width: 40, height: 40, borderRadius: '50%' }} 
                         image={data.user_profile} 
                         alt={" "}
                       />
+                  <Typography variant="h6" sx={{fontWeight: 'bold', color:'#FFA500'}}>{data.restaurant}</Typography>
+
               </CardContent>
             </Card>
           </Grid>
