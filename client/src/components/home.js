@@ -127,7 +127,7 @@ return (
         <img src={home2} alt='Pizza' style={{maxWidth:'80%', maxHeight:'80vb'}}/>
       </Grid>
     </Grid>
-    <Box sx={{pl: { xs: 1, sm: 2, md: 4, lg: 8}, pt: { xs: 1, sm: 2, md: 3, lg: 4},}}>
+    <Box sx={{pl: { xs: 1, sm: 2, md: 4, lg: 8}, pt: 5,}}>
         <Typography 
           variant="h5"
           sx={{
@@ -238,9 +238,8 @@ return (
       </div>
     </Box>
     </Box>
-    <Box sx={{ 
+    <Box sx={{ paddingTop: 5, 
       pl: { xs: 1, sm: 2, md: 4, lg: 8},
-      pt: { xs: 1, sm: 2, md: 3, lg: 4},
       mb: {xs: 1, sm: 2, md: 3, lg: 4},
     }}>
       <Grid container spacing={3} sx={{ml:2}}> 
