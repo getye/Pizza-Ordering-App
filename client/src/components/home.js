@@ -152,7 +152,7 @@ return (
                         borderRadius: 10, 
                         pl: { xs: 0, sm: 1, md: 2, lg: 3 }, 
                         alignItems: 'stretch',  // Ensure all slides have equal height
-                        minHeight: { xs: 200, sm: 250, md: 300, lg: 350 }  // Set a minHeight for consistency
+                        minHeight: { xs: 100, sm: 150, md: 200, lg: 250 }  // Set a minHeight for consistency
                       }}
                     >
                       <Grid 
