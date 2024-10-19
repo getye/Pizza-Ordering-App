@@ -15,8 +15,11 @@
   ],
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "/index.js",
       "dest": "/index.js"
+    },
+    {
+      "handle": "filesystem"
     },
     {
       "src": "/(.*)",
