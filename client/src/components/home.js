@@ -157,7 +157,7 @@ return (
                     </Button>
                   </Grid>
                   <Grid item xs={6} sx={{ justifyContent: 'end' }}>
-                    <img src={featured1} alt="Pizza" style={{ width: '100%', height: '100%', borderRadius: '50px' }} />
+                    <img src={featured1} alt="Pizza" style={{ width: '100%', height: '90%', borderRadius: '50px' }} />
                   </Grid>
                 </Grid>
               </li>
@@ -181,7 +181,7 @@ return (
                     </Button>
                   </Grid>
                   <Grid item xs={6} sx={{ justifyContent: 'end' }}>
-                    <img src={featured2} alt="Pizza" style={{ width: '100%', height: '100%', borderRadius: '50px' }} />
+                    <img src={featured2} alt="Pizza" style={{ width: '100%', height: '90%', borderRadius: '50px' }} />
                   </Grid>
                 </Grid>
               </li>
@@ -204,7 +204,7 @@ return (
                     </Button>
                   </Grid>
                   <Grid item xs={6} sx={{ justifyContent: 'end' }}>
-                    <img src={featured3} alt="Pizza" style={{ width: '100%', height: '100%', borderRadius: '50px' }} />
+                    <img src={featured3} alt="Pizza" style={{ width: '100%', height: '90%', borderRadius: '50px' }} />
                   </Grid>
                 </Grid>
               </li>
