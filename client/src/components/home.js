@@ -182,7 +182,7 @@ return (
                             50% Off
                           </Typography>
                         </Typography>
-                        <Button sx={{ bgcolor: '#FF6F00', color: 'white', borderRadius: 2, width:{xs:'15px', sm:'20px', md:'25px', lg:'30px'} }}>
+                        <Button size='small' sx={{ bgcolor: '#FF6F00', color: 'white', borderRadius: 2, width:{xs:'15px', sm:'20px', md:'25px', lg:'30px'} }}>
                           <Typography sx={{ fontSize: { xs: '14px', sm: '16px', md: '18px', lg: '20px' }, textTransform: 'capitalize' }}>
                             Order Now
                           </Typography>
