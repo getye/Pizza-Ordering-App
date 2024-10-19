@@ -239,8 +239,9 @@ return (
     </Box>
     </Box>
     <Box sx={{ paddingTop: 5, 
-      paddingLeft: { xs: 1, sm: 2, md: 4, lg: 8},
-    }}>
+      pl: { xs: 1, sm: 2, md: 4, lg: 8},
+      pr: { xs: 1, sm: 2, md: 4, lg: 8},
+      }}>
       <Grid container spacing={3} sx={{ml:2}}> 
         <Typography variant="h5" sx={{color:'gray'}}>Top Restaurants</Typography>
 
