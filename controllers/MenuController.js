@@ -171,6 +171,17 @@ const viewEarnings = async (req, res) => {
   }
 };
 
+const viewRestaurant = async (req, res) => {
+  try {
+    const restaurants = await MenuModel.viewRestaurant();
+    console.log('Data sent to client:', restaurants);
+    res.json(restaurants);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: "Error retrieving restaurants" });
+  }
+};
+
 
 module.exports = {
     addMenu,
@@ -182,5 +193,6 @@ module.exports = {
     managerViewMenus,
     reports,
     viewEarnings,
+    viewRestaurant,
 
 };

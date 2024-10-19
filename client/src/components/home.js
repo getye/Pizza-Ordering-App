@@ -1,6 +1,6 @@
 
 
-import { Box, Button, Grid, IconButton, InputBase, Paper, Typography } from '@mui/material'; 
+import { Box, Button, Card, CardContent, CardMedia, Divider, Grid, IconButton, InputBase, Paper, Typography } from '@mui/material'; 
 import SearchIcon from '@mui/icons-material/Search';
 import home1 from '../assets/homeImage1.png'
 import home2 from '../assets/homeImage2.png' 
@@ -8,13 +8,15 @@ import featured1 from '../assets/featured1.png'
 import featured2 from '../assets/featured2.png'
 import featured3 from '../assets/featured3.png'
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Glide from '@glidejs/glide';
 import '@glidejs/glide/dist/css/glide.core.min.css';
 import '@glidejs/glide/dist/css/glide.theme.min.css';
   
    
 export const Home =() =>{
+  const [restaurants, setRestaurants] = useState([]);
+
   useEffect(() => {
     const glide = new Glide('.glide', {
       type: 'carousel',
@@ -29,6 +31,22 @@ export const Home =() =>{
     glide.mount();
   
     return () => glide.destroy(); // Cleanup on unmount
+  }, []);
+
+
+  useEffect(() => {
+    const fetchTopRestaurant = async () => {
+      try {
+        const response = await fetch(`${window.location.origin}/customer/view/restaurant`); 
+        const data = await response.json();
+        console.log('Menus :', data);
+        setRestaurants(data);
+      } catch (error) {
+        console.error('Error fetching menus:', error);
+      }
+    };
+
+    fetchTopRestaurant();
   }, []);
 
 return (
@@ -219,7 +237,37 @@ return (
       </Box>
       </div>
     </Box>
-    
+    </Box>
+    <Box sx={{ paddingTop: 5, 
+      ml: {xs: '2%', sm: '5%', md: '10%', lg: '15%'},
+      mr: {xs: '2%', sm: '5%', md: '10%', lg: '15%'},
+      mb: {xs: 1, sm: 2, md: 3, lg: 4},
+    }}>
+      <Grid container spacing={3}> 
+        {restaurants.map((data) => (
+          <Grid item xs={12} sm={4} key={data.restaurant}> 
+            <Card sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 2 }}>
+              <CardContent sx={{ textAlign: 'center' }}> {/* Center align text */}
+                <Typography variant="h5" sx={{fontWeight: 'bold'}}>{data.restaurant}</Typography>
+                <Typography variant="h5" sx={{ color: '#32CD32', fontWeight: 'bold', display: 'inline' }}>
+                  {data.total_orders}
+                </Typography>
+                <Typography sx={{ display: 'inline', color: 'inherit' }}>
+                  Orders
+                </Typography>
+
+                <Divider sx={{mt:2}}/>
+                      <CardMedia
+                        component="img"
+                        sx={{ width: 40, height: 40, borderRadius: '50%' }} 
+                        image={data.user_profile} 
+                        alt={" "}
+                      />
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
     </Box>
     </>
     );

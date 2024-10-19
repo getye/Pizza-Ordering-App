@@ -131,6 +131,33 @@ const viewEarnings = async () => {
 };
 
 
+const viewRestaurant = async () => {
+  const query = `
+        SELECT 
+            o.restaurant, 
+            SUM(o.quantity) AS total_orders, 
+            u.user_profile
+        FROM 
+            orders o
+        JOIN 
+            users u 
+        ON 
+            o.restaurant = u.user_restaurant
+        WHERE 
+            u.user_type = 'Restaurant Register'
+        GROUP BY 
+            o.restaurant, u.user_profile;
+  `;
+
+  try {
+    const result = await pool.query(query);
+    return result.rows;
+  } catch (err) {
+    console.error('Error retrieving restaurant:', err);
+    throw new Error('Could not retrieve menus');
+  }
+};
+
 
 module.exports = { 
     addMenu,
@@ -143,4 +170,5 @@ module.exports = {
     managerViewMenus,
     reports,
     viewEarnings,
+    viewRestaurant,
 };

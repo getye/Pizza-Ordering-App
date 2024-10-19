@@ -6,6 +6,7 @@ const pizza = require('../middleware/pizza-images')
 
 menuRouter.post('/kitchen-manager/add/menu', pizza.single('picture'), protect, MenuController.addMenu);
 menuRouter.get('/customer/view/menus', MenuController.viewMenus); 
+menuRouter.get('/customer/view/restaurant', MenuController.viewRestaurant); 
 menuRouter.post('/customer/order/pizza', protect, MenuController.orderPizza); 
 menuRouter.get('/customer/view/orders', protect, MenuController.viewOrders); 
 menuRouter.get('/manager/view/orders', protect, MenuController.managerViewOrders); 
