@@ -265,7 +265,7 @@ export const MainBar = (props) => {
                 <ListItemText primary="Dashboard" />
               </ListItemButton>
             </ListItem>
-            <ListItem disablePadding onClick={() => { navigate("/kichen-manager/add/menu") }}>
+            <ListItem disablePadding onClick={() => { navigate("/kichen-manager/menu") }}>
               <ListItemButton>
                 <ListItemIcon>
                   <LocalPizzaOutlinedIcon />
@@ -274,7 +274,7 @@ export const MainBar = (props) => {
               </ListItemButton>
             </ListItem>
 
-            <ListItem disablePadding onClick={() => { navigate("/kichen-manager/view/orders") }}>
+            <ListItem disablePadding onClick={() => { navigate("/kichen-manager/orders") }}>
               <ListItemButton>
                 <ListItemIcon>
                   <AllInboxSharpIcon/>

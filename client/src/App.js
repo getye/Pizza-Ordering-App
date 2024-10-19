@@ -96,11 +96,11 @@ function App() {
               element={<ProtectedRoute action="read" subject="Menu" element={<KichenManagerDashboard />} />}
             />
             <Route
-              path="/kichen-manager/add/menu"
+              path="/kichen-manager/menu"
               element={<ProtectedRoute action="create" subject="Menu" element={<AddMenu />} />}
             />
             <Route
-              path="/kichen-manager/view/orders"
+              path="/kichen-manager/orders"
               element={<ProtectedRoute action="update" subject="OrderStatus" element={<CustomerOrders />} />}
             />
             <Route
