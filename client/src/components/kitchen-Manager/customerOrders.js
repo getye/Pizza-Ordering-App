@@ -153,8 +153,9 @@ export const CustomerOrders = () => {
             enableColumnFiltering
             initialState={{ pagination: { pageSize: 3 } }}
             muiTableBodyRowProps={({ row }) => ({
-              onClick: () => handleRowClick(row), // Attach the click event here
-              sx: { cursor: 'pointer' }, // Style for pointer cursor
+              onClick: () => handleRowClick(row), 
+              sx: { cursor: 'pointer' }, 
+              title: `Click to view Detail`,
             })}
             manualPagination={false} 
           />
