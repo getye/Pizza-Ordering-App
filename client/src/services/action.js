@@ -23,7 +23,7 @@ export const fetchUsers = () => {
   return async (dispatch) => {
     dispatch(fetchUsersRequest());
     try {
-      const response = await fetch(`${window.location.origin}/admin/users`, {
+      const response = await fetch(`${window.location.origin}/admin/view/users`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

@@ -14,7 +14,7 @@ export const Report = () => {
                     console.error('No token found, please log in');
                     return;
                 }
-                const response = await fetch(`${window.location.origin}/admin/reports`, {
+                const response = await fetch(`${window.location.origin}/admin/view/reports`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
