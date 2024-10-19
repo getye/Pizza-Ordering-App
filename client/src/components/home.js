@@ -199,7 +199,7 @@ return (
                               display: 'inline-block',
                               textTransform: 'none'  // Maintain original text case without full caps
                               }}>
-                            <Typography sx={{ lineHeight: 1,  fontSize: { xs: '14px', sm: '16px', md: '18px', lg: '20px' }, textTransform: 'capitalize' }}>
+                            <Typography sx={{ lineHeight: 1,  fontSize: { xs: '10px', sm: '12px', md: '14px', lg: '14px' }, textTransform: 'capitalize' }}>
                               Order Now
                             </Typography>
                           </Button>
