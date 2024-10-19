@@ -67,7 +67,7 @@ export const Report = () => {
               <LineChart data={isTotalOrders ? totalOrdersData : totalEarningsData}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="month" />
-                <YAxis domain={[0, 'auto']} allowDataOverflow={true} />  {/* Adjusted Y-Axis */}
+                <YAxis domain={[0, isTotalOrders ? totalOrdersData : totalEarningsData]} allowDataOverflow={true} />  {/* Adjusted Y-Axis */}
                 <Tooltip />
                 <Legend />
                 {isTotalOrders ? (
