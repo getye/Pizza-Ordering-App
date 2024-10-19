@@ -297,7 +297,7 @@ export const MainBar = (props) => {
               </ListItemButton>
             </ListItem>
 
-            <ListItem disablePadding onClick={() => { navigate("/branch-manager/view/orders") }}>
+            <ListItem disablePadding onClick={() => { navigate("/branch-manager/orders") }}>
               <ListItemButton>
                 <ListItemIcon>
                   <AllInboxSharpIcon/>

@@ -108,7 +108,7 @@ function App() {
               element={<ProtectedRoute action="read" subject="Menu" element={<BranchManagerDashboard />} />}
             />
             <Route
-              path="/branch-manager/view/orders"
+              path="/branch-manager/orders"
               element={<ProtectedRoute action="read" subject="Orders" element={<OrderRequests />} />}
             />
             <Route

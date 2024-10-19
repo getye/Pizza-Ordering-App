@@ -81,6 +81,8 @@ export const Order = () => {
             data={orders}
             enableSorting
             enableColumnFiltering
+            initialState={{ pagination: { pageSize: 3 } }}
+            manualPagination={false} 
             muiTableBodyRowProps={({ row }) => ({
               onClick: () => handleRowClick(row), // Attach the click event here
               sx: { cursor: 'pointer' }, // Style for pointer cursor

@@ -64,9 +64,10 @@ export const AdminTable = ({ handleOpen }) => {
         <MaterialReactTable
           columns={columns}
           data={users}
-          enablePagination
           enableSorting
           enableColumnFiltering
+          initialState={{ pagination: { pageSize: 3 } }}
+          manualPagination={false} 
           renderTopToolbarCustomActions={() => (
             <Button
               onClick={handleOpen}
