@@ -182,21 +182,28 @@ return (
                             50% Off
                           </Typography>
                         </Typography>
-                        <Button 
-                          sx={{ 
-                            bgcolor: '#FF6F00', 
-                            color: 'white', 
-                            borderRadius: 2, 
-                            padding: '1px 2px',  
-                            width: '30%',  
-                            display: 'inline-block',
-
-                            textTransform: 'none'  // Maintain original text case without full caps
-                            }}>
-                          <Typography sx={{ lineHeight: 1,  fontSize: { xs: '14px', sm: '16px', md: '18px', lg: '20px' }, textTransform: 'capitalize' }}>
-                            Order Now
-                          </Typography>
-                        </Button>
+                        <Box   sx={{ 
+                                display: 'flex',            // Use flexbox layout
+                                justifyContent: 'center',    // Center horizontally
+                                alignItems: 'center',        // Center vertically
+                                height: '100%',              // Ensure the container takes full height
+                                pt: { xs: 1, sm: 2, md: 4, lg: 6 }  // Padding for spacing
+                              }}>
+                          <Button 
+                            sx={{ 
+                              bgcolor: '#FF6F00', 
+                              color: 'white', 
+                              borderRadius: 2, 
+                              padding: '4px 5px',  
+                              width: '30%',  
+                              display: 'inline-block',
+                              textTransform: 'none'  // Maintain original text case without full caps
+                              }}>
+                            <Typography sx={{ lineHeight: 1,  fontSize: { xs: '14px', sm: '16px', md: '18px', lg: '20px' }, textTransform: 'capitalize' }}>
+                              Order Now
+                            </Typography>
+                          </Button>
+                        </Box>
                       </Grid>
                       <Grid item xs={6} sx={{ justifyContent: 'end' }}>
                         <img src={featured} alt="Pizza" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50px' }} />
