@@ -182,10 +182,8 @@ return (
                             50% Off
                           </Typography>
                         </Typography>
-                        <Button size='small' sx={{ bgcolor: '#FF6F00', color: 'white', borderRadius: 2, width:{xs:'15px', sm:'20px', md:'25px', lg:'30px'} }}>
-                          <Typography sx={{ fontSize: { xs: '14px', sm: '16px', md: '18px', lg: '20px' }, textTransform: 'capitalize' }}>
+                        <Button size='small' sx={{ bgcolor: '#FF6F00', color: 'white', borderRadius: 2 }}>
                             Order Now
-                          </Typography>
                         </Button>
                       </Grid>
                       <Grid item xs={6} sx={{ justifyContent: 'end' }}>
