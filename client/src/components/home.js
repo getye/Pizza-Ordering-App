@@ -195,11 +195,11 @@ return (
                               color: 'white', 
                               borderRadius: 2, 
                               padding: {xs:'3px', sm:'4px', md:'5px', lg:'6px'},  
-                              width: {xs:'60%', sm:'50%', md:'40%', lg:'30%'},  
+                              width: {xs:'45%', sm:'40%', md:'35%', lg:'30%'},  
                               display: 'inline-block',
                               textTransform: 'none'  // Maintain original text case without full caps
                               }}>
-                            <Typography sx={{ lineHeight: 1,  fontSize: { xs: '12px', sm: '14px', md: '16px', lg: '18px' }, textTransform: 'capitalize' }}>
+                            <Typography sx={{ lineHeight: 1, padding: {xs:'1px', sm:'2px', md:'3px', lg:'4px'},  fontSize: { xs: '12px', sm: '14px', md: '16px', lg: '18px' }, textTransform: 'capitalize' }}>
                               Order Now
                             </Typography>
                           </Button>
