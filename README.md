@@ -41,4 +41,13 @@ Each restaurant admin can manage staff members and define roles, while the Kitch
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/your-repo-name.git
+   git clone https://github.com/getye/Pizza-Ordering-App.git
+
+2. **Navigate into the project directory**:
+    cd Pizza-Ordering-App
+
+3. **Install dependencies**:
+    npm install
+
+4. **Start the application**:
+    npm start
