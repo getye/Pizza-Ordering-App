@@ -1,6 +1,9 @@
 # Pizza Ordering App
 
-A full-stack application that allows various restaurants to register and manage their menus, users, and orders efficiently. Customers can browse available menus, place orders, and track order status through the app. Deployed on Vercel, this app provides user roles for seamless restaurant management and order tracking.
+A full-stack application that allows various restaurants to register and manage their menus, users, and orders efficiently. 
+Customers can browse available menus, place orders, and track order status through the app.
+The application provides user roles for seamless restaurant management and order tracking.
+This app is Deployed on Vercel.
 
 [Go to the App](https://pizza-ordering-app-tau.vercel.app/) 
 
