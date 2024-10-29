@@ -14,7 +14,6 @@ This app is Deployed on Vercel.
 - [Usage](#usage)
 - [Technologies Used](#technologies-used)
 - [Deployment](#deployment)
-- [Contributing](#contributing)
 
 ## About the App
 
