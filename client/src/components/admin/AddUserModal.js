@@ -23,7 +23,7 @@ export const AddUserModal = ({ open, handleClose, newUser, handleInputChange, ha
   useEffect(() => {
     const fetchRoles = async () => {
       try {
-        const response = await fetch(`${window.location.origin}/admin/roles`);
+        const response = await fetch(`${window.location.origin}/admin/view/roles`);
         const data = await response.json();
         setRoles(data); // Store the roles in state
       } catch (error) {
