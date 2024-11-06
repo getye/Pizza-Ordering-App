@@ -154,7 +154,10 @@ export const MainBar = (props) => {
   };
 
 
-
+  const contact = () => {
+    setMobileOpen(!mobileOpen);
+    navigate('/contact')
+  }
 
   const signup = () => {
     setMobileOpen(!mobileOpen);
@@ -405,6 +408,7 @@ export const MainBar = (props) => {
             )}
             {(isMobile && mobileOpen) && (
               <>
+            <MenuItem onClick={contact}>Who we are</MenuItem>
             <MenuItem onClick={signup}>Register</MenuItem>
               </>
             )}
@@ -430,14 +434,14 @@ export const MainBar = (props) => {
                          variant="persistent"
                          open
                          sx={{
-                          width: isCollapsed ? '20px' : '180px',  
+                          width: isCollapsed ? '25px' : '180px',  
                           transition: theme.transitions.create('width', {
                             easing: theme.transitions.easing.sharp,
                             duration: theme.transitions.duration.enteringScreen,
                           }),
                           '& .MuiDrawer-paper': {
                             boxSizing: 'border-box',
-                            width: isCollapsed ? '40px' : '180px',
+                            width: isCollapsed ? '25px' : '180px',
                           },
                          }}
                        >
