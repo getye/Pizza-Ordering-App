@@ -434,7 +434,8 @@ export const MainBar = (props) => {
                          variant="persistent"
                          open
                          sx={{
-                          width: isCollapsed ? '25px' : '180px',  
+                          width: isCollapsed ? '25px' : '180px', 
+                          height:'auto', 
                           transition: theme.transitions.create('width', {
                             easing: theme.transitions.easing.sharp,
                             duration: theme.transitions.duration.enteringScreen,
@@ -442,6 +443,7 @@ export const MainBar = (props) => {
                           '& .MuiDrawer-paper': {
                             boxSizing: 'border-box',
                             width: isCollapsed ? '25px' : '180px',
+                            height:'auto'
                           },
                          }}
                        >
