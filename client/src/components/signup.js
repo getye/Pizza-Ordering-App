@@ -114,11 +114,11 @@ export const Signup = () => {
               mr: {xs: '0%', sm: '5%', md: '10%', lg: '15%'},
               mb: {xs: 1, sm: 2, md: 3, lg: 4},
        }}>
-        <Grid item xs={12} sm={6} sx={{ height: '72vh', display: { xs: 'none', sm: 'flex' }, alignContent: 'center', justifyContent: 'center' }}>
+        <Grid item sm={6} sx={{ height: '72vh', display: { xs: 'none', sm: 'flex' }, alignContent: 'center', justifyContent: 'center' }}>
           <img src={sideFrame} alt='Pizza' width={'90%'} />
         </Grid>
         <Grid item xs={12} sm={6} sx={{ paddingLeft: 0 }}>
-          <Box sx={{ paddingLeft: 1, width: {xs: '98%', sm: '95%', md: '85%', lg: '65%'} }}>
+          <Box sx={{ paddingLeft: 1, width: {xs: '95%', sm: '90%', md: '80%', lg: '65%'} }}>
             <img src={pizza} alt='Pizza' />
             <Typography variant='h6'>Customer Registration</Typography>
             <Divider/>
