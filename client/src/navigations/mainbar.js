@@ -154,6 +154,7 @@ export const MainBar = (props) => {
   };
 
 
+
   const signup = () => {
     setMobileOpen(!mobileOpen);
     navigate('/signup')
@@ -389,9 +390,11 @@ export const MainBar = (props) => {
                   <img src={pizza} alt="Pizza Logo" style={{ width: '90px', marginRight:1, marginLeft:0 }} />
                   <MenuItem sx={{pl:1, width:'60px'}} onClick={() => navigate('/')}>Home</MenuItem>
                   <MenuItem sx={{pl:0, width:'60px'}} onClick={() => navigate('/orders')}>Orders</MenuItem>
-                  {(!mobileOpen)&& (
+                  {(!mobileOpen)? (
                   <MenuItem sx={{pl:0, width:'60px'}} onClick={() => navigate('/signin')}>Sign in</MenuItem>
-                  )}
+                  ):(
+                    <MenuItem onClick={signup}>Register</MenuItem>
+                 )}
                   <IconButton
                       color="inherit"
                       aria-label="open drawer"
@@ -402,11 +405,6 @@ export const MainBar = (props) => {
                       <MenuIcon />
                   </IconButton>
               </Box>
-            )}
-            {(isMobile && mobileOpen) && (
-              <>
-            <MenuItem onClick={signup}>Register</MenuItem>
-              </>
             )}
           </Toolbar>
           ) : (
