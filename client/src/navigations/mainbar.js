@@ -393,7 +393,7 @@ export const MainBar = (props) => {
                   {(!mobileOpen)? (
                   <MenuItem sx={{pl:0, width:'60px'}} onClick={() => navigate('/signin')}>Sign in</MenuItem>
                   ):(
-                    <MenuItem onClick={signup}>Register</MenuItem>
+                    <MenuItem sx={{pl:0, width:'60px'}} onClick={signup}>Register</MenuItem>
                  )}
                   <IconButton
                       color="inherit"
