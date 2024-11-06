@@ -119,7 +119,7 @@ export const Signup = () => {
         </Grid>
         <Grid item xs={12} sm={6} sx={{ paddingLeft: 0 }}>
           <Box sx={{ paddingLeft: 1, width: {xs: '95%', sm: '90%', md: '80%', lg: '65%'} }}>
-            <img src={pizza} alt='Pizza' />
+            <img src={pizza} alt='Pizza'/>
             <Typography variant='h6'>Customer Registration</Typography>
             <Divider/>
             <TextField
