@@ -408,6 +408,7 @@ export const MainBar = (props) => {
             )}
             {(isMobile && mobileOpen) && (
               <>
+            <MenuItem onClick={contact}>Who we are</MenuItem>
             <MenuItem onClick={signup}>Register</MenuItem>
               </>
             )}
