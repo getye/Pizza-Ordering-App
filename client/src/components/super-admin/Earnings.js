@@ -45,10 +45,10 @@ export const EarningsChart = () => {
       mr: {xs: '0%', sm: '3%', md: '5%', lg: '7%'},
       mb: {xs: 1, sm: 2, md: 3, lg: 4},
     }}>
-      <ResponsiveContainer width="90%" height='vh'>
+      <ResponsiveContainer width="90%" height={400}>
         <BarChart
           width='100%'
-          height='100%'
+          height={300}
           data={data}
           margin={{
             top: 20,
@@ -60,7 +60,7 @@ export const EarningsChart = () => {
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis 
             dataKey="restaurant" 
-            tick={{ angle: -45, fontSize:{xs:6, sm:8, md:12} }} />
+            tick={{ angle: -45, dy: 20, fontSize:{xs:8, sm:10, md:12} }} />
           <YAxis />
           <Tooltip />
           <Legend />
