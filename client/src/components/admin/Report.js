@@ -44,7 +44,6 @@ export const Report = () => {
         total_earnings: item.total_earnings
     }));
 
-    const isTotalOrders = currentPage === 0;
 
     // Navigation handlers
     const handleNext = () => {
@@ -56,57 +55,77 @@ export const Report = () => {
     };
 
     return (
-        <Box sx={{ 
-            display: 'flex', flexDirection: 'column', flexGrow: 1,
-            paddingTop: 3, height: '400px',
-            justifyContent: 'center',
-            ml: {xs: '1%', sm: '10%', md: '15%', lg: '20%'},
-            mr: {xs: '0%', sm: '3%', md: '5%', lg: '7%'},
-            mb: {xs: 1, sm: 2, md: 3, lg: 4},
-          }}>
-            <ResponsiveContainer width="90%" height='100%'>
-              <LineChart data={isTotalOrders ? totalOrdersData : totalEarningsData}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="month" />
-                <YAxis 
-                  domain={[0, 3000]} 
-                  tickCount={4}               
-                  interval={0}
-                  allowDataOverflow={true} />  
-                  
-                <Tooltip />
-                <Legend />
-                {isTotalOrders ? (
-                  <Line type="monotone" dataKey="total_orders" stroke="#8884d8" activeDot={{ r: 8 }} />
-                ) : (
-                  <Line type="monotone" dataKey="total_earnings" stroke="#82ca9d" />
-                )}
-              </LineChart>
-            </ResponsiveContainer>
-            
-            <Box sx={{ marginTop: 2, display: 'flex', justifyContent: 'space-between', marginRight: 4 }}>
-              {currentPage > 0 && (
-                <Button 
-                  variant="outlined" 
-                  onClick={handlePrevious}
-                  sx={{ bgcolor: '#FF8C00', color: 'white', textTransform: 'none' }}
-                >
-                  Previous
-                </Button>
-              )}
-              <Box sx={{ marginLeft: 'auto' }}>
-                {currentPage < 1 && (
-                  <Button 
-                    variant="outlined" 
-                    onClick={handleNext} 
-                    sx={{ bgcolor: '#FF8C00', color: 'white', textTransform: 'none' }}
-                  >
-                    Next
-                  </Button>
-                )}
-              </Box>
-            </Box>
+      <Box sx={{ 
+        display: 'flex', 
+        flexDirection: 'column', 
+        flexGrow: 1,
+        paddingTop: 3,
+        ml: {xs: '1%', sm: '10%', md: '15%', lg: '20%'},
+        mr: {xs: '0%', sm: '3%', md: '5%', lg: '7%'},
+        mb: {xs: 1, sm: 2, md: 3, lg: 4},
+      }}>
+
+        {/* First Chart with a smaller height */}
+        <Box sx={{ height: '300px' }}> 
+          <ResponsiveContainer width="90%" height="100%">
+            <LineChart data={totalOrdersData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="month" />
+              <YAxis 
+                domain={[0, 3000]} 
+                tickCount={4}
+                allowDataOverflow={true}
+              />
+              <Tooltip />
+              <Legend />
+              <Line type="monotone" dataKey="total_orders" stroke="#8884d8" activeDot={{ r: 8 }} />
+            </LineChart>
+          </ResponsiveContainer>
         </Box>
+
+        {/* Second Chart with a larger height */}
+        <Box sx={{ height: '500px', mt: 3 }}> 
+          <ResponsiveContainer width="90%" height="100%">
+            <LineChart data={totalEarningsData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="month" />
+              <YAxis 
+                domain={[0, 5000]} 
+                tickCount={5} 
+                allowDataOverflow={true} 
+              />
+              <Tooltip />
+              <Legend />
+              <Line type="monotone" dataKey="total_earnings" stroke="#82ca9d" />
+            </LineChart>
+          </ResponsiveContainer>
+        </Box>
+
+        {/* Navigation Buttons */}
+        <Box sx={{ marginTop: 2, display: 'flex', justifyContent: 'space-between', marginRight: 4 }}>
+          {currentPage > 0 && (
+            <Button 
+              variant="outlined" 
+              onClick={handlePrevious}
+              sx={{ bgcolor: '#FF8C00', color: 'white', textTransform: 'none' }}
+            >
+              Previous
+            </Button>
+          )}
+          <Box sx={{ marginLeft: 'auto' }}>
+            {currentPage < 1 && (
+              <Button 
+                variant="outlined" 
+                onClick={handleNext} 
+                sx={{ bgcolor: '#FF8C00', color: 'white', textTransform: 'none' }}
+              >
+                Next
+              </Button>
+            )}
+          </Box>
+        </Box>
+      </Box>
+
           
     );
 };
