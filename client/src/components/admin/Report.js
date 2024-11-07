@@ -56,52 +56,57 @@ export const Report = () => {
     };
 
     return (
-        <Box sx={{ 
-            display: 'flex', flexDirection: 'column', flexGrow: 1,
-            paddingTop: 3, height: '400px',
-            justifyContent: 'center',
-            ml: {xs: '5%', sm: '10%', md: '15%', lg: '20%'},
-            mr: {xs: '1%', sm: '3%', md: '5%', lg: '7%'},
-            mb: {xs: 1, sm: 2, md: 3, lg: 4},
-          }}>
-            <ResponsiveContainer width="90%" height='100%'>
-              <LineChart data={isTotalOrders ? totalOrdersData : totalEarningsData}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="month" />
-                <YAxis domain={[0, 'auto']} allowDataOverflow={true} />  {/* Adjusted Y-Axis */}
-                <Tooltip />
-                <Legend />
-                {isTotalOrders ? (
-                  <Line type="monotone" dataKey="total_orders" stroke="#8884d8" activeDot={{ r: 8 }} />
-                ) : (
-                  <Line type="monotone" dataKey="total_earnings" stroke="#82ca9d" />
-                )}
-              </LineChart>
-            </ResponsiveContainer>
-            
-            <Box sx={{ marginTop: 2, display: 'flex', justifyContent: 'space-between', marginRight: 4 }}>
-              {currentPage > 0 && (
-                <Button 
-                  variant="outlined" 
-                  onClick={handlePrevious}
-                  sx={{ bgcolor: '#FF8C00', color: 'white', textTransform: 'none' }}
-                >
-                  Previous
-                </Button>
-              )}
-              <Box sx={{ marginLeft: 'auto' }}>
-                {currentPage < 1 && (
-                  <Button 
-                    variant="outlined" 
-                    onClick={handleNext} 
-                    sx={{ bgcolor: '#FF8C00', color: 'white', textTransform: 'none' }}
-                  >
-                    Next
-                  </Button>
-                )}
-              </Box>
-            </Box>
+      <Box sx={{ 
+        display: 'flex', flexDirection: 'column', flexGrow: 1,
+        paddingTop: 3, height: '400px',
+        justifyContent: 'center',
+        ml: {xs: '1%', sm: '10%', md: '15%', lg: '20%'},
+        mr: {xs: '0%', sm: '3%', md: '5%', lg: '7%'},
+        mb: {xs: 1, sm: 2, md: 3, lg: 4},
+      }}>
+        <ResponsiveContainer width="90%" height="100%">
+          <LineChart data={isTotalOrders ? totalOrdersData : totalEarningsData}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="month" />
+            <YAxis 
+              domain={[0, 'dataMax + 10']} // Increase range above max value by 10
+              padding={{ top: 20 }}        // Add padding at the top
+              allowDataOverflow={true}
+            />
+            <Tooltip />
+            <Legend />
+            {isTotalOrders ? (
+              <Line type="monotone" dataKey="total_orders" stroke="#8884d8" activeDot={{ r: 8 }} />
+            ) : (
+              <Line type="monotone" dataKey="total_earnings" stroke="#82ca9d" />
+            )}
+          </LineChart>
+        </ResponsiveContainer>
+      
+        <Box sx={{ marginTop: 2, display: 'flex', justifyContent: 'space-between', marginRight: 4 }}>
+          {currentPage > 0 && (
+            <Button 
+              variant="outlined" 
+              onClick={handlePrevious}
+              sx={{ bgcolor: '#FF8C00', color: 'white', textTransform: 'none' }}
+            >
+              Previous
+            </Button>
+          )}
+          <Box sx={{ marginLeft: 'auto' }}>
+            {currentPage < 1 && (
+              <Button 
+                variant="outlined" 
+                onClick={handleNext} 
+                sx={{ bgcolor: '#FF8C00', color: 'white', textTransform: 'none' }}
+              >
+                Next
+              </Button>
+            )}
           </Box>
+        </Box>
+      </Box>
+      
           
     );
 };
