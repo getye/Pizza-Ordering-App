@@ -60,7 +60,7 @@ export const EarningsChart = () => {
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis 
             dataKey="restaurant" 
-            tick={{ angle: -90, dy: 10 }} />
+            tick={{ angle: -45, dy: 20 }} />
           <YAxis />
           <Tooltip />
           <Legend />
