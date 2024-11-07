@@ -75,13 +75,11 @@ return (
           sx={{
             fontSize: {xs: '10px', sm: '12px', md: '14px', lg: '16px'},
           }}
-        >Order Pizzas with different toppings. Select toppings as you went. </Typography>
-
-
+        >Order Pizzas with different toppings. </Typography>
       </Grid>
 
       <Grid item xs={2} sx={{ display: 'flex', justifyContent: 'end', position: 'relative' }}>
-        <img src={home1} alt='Pizza' style={{maxWidth:'65%', maxHeight:'80px'}}/>
+        <img src={home1} alt='Pizza' style={{maxWidth:'65%', maxHeight:{xs:'20px', sm:'30px', md:'50', lg:'80px'}}}/>
         <img src={home2} alt='Pizza' style={{maxWidth:'80%', maxHeight:'80vb'}}/>
       </Grid>
     </Grid>
