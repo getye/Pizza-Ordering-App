@@ -68,7 +68,12 @@ export const Report = () => {
               <LineChart data={isTotalOrders ? totalOrdersData : totalEarningsData}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="month" />
-                <YAxis domain={[0, 'auto']} allowDataOverflow={true} />  {/* Adjusted Y-Axis */}
+                <YAxis 
+                  domain={[0, 3000]} 
+                  tickCount={4}               
+                  interval={0}
+                  allowDataOverflow={true} />  
+                  
                 <Tooltip />
                 <Legend />
                 {isTotalOrders ? (
