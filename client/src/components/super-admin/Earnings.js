@@ -8,6 +8,7 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
+  Legend,
 } from 'recharts';
 
 export const EarningsChart = () => {
@@ -44,10 +45,10 @@ export const EarningsChart = () => {
       mr: {xs: '0%', sm: '3%', md: '5%', lg: '7%'},
       mb: {xs: 1, sm: 2, md: 3, lg: 4},
     }}>
-      <ResponsiveContainer width="90%" height={400}>
+      <ResponsiveContainer width="90%" height='vh'>
         <BarChart
-          width={500}
-          height={300}
+          width='100%'
+          height='100%'
           data={data}
           margin={{
             top: 20,
@@ -62,6 +63,7 @@ export const EarningsChart = () => {
             tick={{ angle: -45, dy: 20, fontSize:{xs:8, sm:10, md:12} }} />
           <YAxis />
           <Tooltip />
+          <Legend />
           <Bar dataKey="total_earnings" fill="#8884d8" barSize={40}/>
         </BarChart>
       </ResponsiveContainer>
