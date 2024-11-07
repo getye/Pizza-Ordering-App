@@ -45,7 +45,6 @@ export const Report = () => {
     }));
 
     const isTotalOrders = currentPage === 0;
-    const height = (currentPage === 0)? 3000:400
 
     // Navigation handlers
     const handleNext = () => {
@@ -59,7 +58,7 @@ export const Report = () => {
     return (
         <Box sx={{ 
             display: 'flex', flexDirection: 'column', flexGrow: 1,
-            paddingTop: 3, height: {height},
+            paddingTop: 3, height: '400px',
             justifyContent: 'center',
             ml: {xs: '1%', sm: '10%', md: '15%', lg: '20%'},
             mr: {xs: '0%', sm: '3%', md: '5%', lg: '7%'},
