@@ -140,7 +140,7 @@ export const ViewUsers = () => {
                 },
               }}
             >
-              Add User
+              Add
             </Button>
           )}
         />

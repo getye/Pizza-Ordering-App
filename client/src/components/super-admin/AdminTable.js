@@ -84,7 +84,7 @@ export const AdminTable = ({ handleOpen }) => {
                 },
               }}
             >
-              Add Admin
+              Add
             </Button>
           )}
         />

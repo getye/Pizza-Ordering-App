@@ -67,7 +67,7 @@ export const Topping = ({ toppings, onToppingChange }) => {
               onClick={handleAddTopping}
               sx={{ bgcolor: '#FF8C00', color: 'white', textTransform: 'none' }}
             >
-              + Add
+              Add
             </Button>
           </Box>
         </Grid>

@@ -48,7 +48,7 @@ export const AddAdminModal = ({ open, handleClose, newUser, handleInputChange, h
 
   return (
     <Dialog open={open} onClose={handleClose}>
-      <DialogTitle>Add New Admin</DialogTitle>
+      <DialogTitle>Add New Restaurant</DialogTitle>
       <DialogContent>
         <TextField
           autoFocus
