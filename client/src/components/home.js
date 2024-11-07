@@ -1,7 +1,6 @@
 
 
-import { Box, Button, Card, CardContent, CardMedia, Divider, Grid, IconButton, InputBase, Paper, Typography } from '@mui/material'; 
-import SearchIcon from '@mui/icons-material/Search';
+import { Box, Button, Card, CardContent, CardMedia, Divider, Grid, Typography } from '@mui/material'; 
 import home1 from '../assets/homeImage1.png'
 import home2 from '../assets/homeImage2.png' 
 import featured1 from '../assets/featured1.png'
@@ -77,48 +76,7 @@ return (
             fontSize: {xs: '10px', sm: '12px', md: '14px', lg: '16px'},
           }}
         >Order Pizzas with different toppings. Select toppings as you went. </Typography>
-        <Typography sx={{
-           fontSize: {xs: '10px', sm: '12px', md: '14px', lg: '16px'},
-           pb:{xs: 1, sm: 2, md: 3, lg: 4}
-           }}>Serach Pizzas here.</Typography>
-          <Paper
-            component="form"
-            sx={{
-              p: { xs: '8px 2px', sm: '10px 3px', md: '12px 4px', lg: '13px 4px' }, 
-              borderRadius: 10,
-              display: 'flex',
-              width: { xs: '90%', sm: '75%', md: '65%', lg: '60%' }, 
-            }}
-          >
-            <InputBase
-              sx={{
-                ml: { xs: 1, sm: 2, md: 3, lg: 4}, 
-                flex: 1,
-                fontSize: { xs: '12px', sm: '14px', md: '16px', lg: '18px' } 
-              }}
-              placeholder="Search"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-            <IconButton
-              type="button"
-              sx={{
-                bgcolor: '#FF8C00',
-                borderRadius: '50%',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                width: { xs: '35px', sm: '38px', md: '40px', lg: '45px' }, 
-                height: { xs: '35px', sm: '38px', md: '40px', lg: '45px' }, 
-                transition: 'background-color 0.3s',
-                '&:hover': {
-                  bgcolor: '#FF6F00',
-                },
-              }}
-              aria-label="search"
-            >
-              <SearchIcon sx={{ color: 'white', fontSize: { xs: '18px', sm: '20px', md: '24px', lg: '28px' } }} /> {/* Adjust icon size */}
-            </IconButton>
-          </Paper>
+
 
       </Grid>
 
