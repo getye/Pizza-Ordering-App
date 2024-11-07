@@ -41,8 +41,8 @@ export const EarningsChart = () => {
 
   return (
     <Box sx={{ paddingTop:5,
-      ml: {xs: '5%', sm: '10%', md: '15%', lg: '20%'},
-      mr: {xs: '1%', sm: '3%', md: '5%', lg: '7%'},
+      ml: {xs: '1%', sm: '10%', md: '15%', lg: '20%'},
+      mr: {xs: '0%', sm: '3%', md: '5%', lg: '7%'},
       mb: {xs: 1, sm: 2, md: 3, lg: 4},
     }}>
       <ResponsiveContainer width="90%" height={400}>
@@ -58,7 +58,9 @@ export const EarningsChart = () => {
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="restaurant" />
+          <XAxis 
+            dataKey="restaurant" 
+            tick={{ angle: -45, dx: -10 }} />
           <YAxis />
           <Tooltip />
           <Legend />
