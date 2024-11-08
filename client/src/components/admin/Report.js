@@ -81,12 +81,12 @@ export const Report = () => {
 
             {/* Second Chart - Total Earnings */}
             {currentPage === 1 && (
-                <Box sx={{ height: '500px', width: '90%', mt: 3 }}> 
+                <Box sx={{ height: '300px', width: '90%', mt: 3 }}> 
                     <ResponsiveContainer width="100%" height="100%">
                         <LineChart data={totalEarningsData}>
                             <CartesianGrid strokeDasharray="3 3" />
                             <XAxis dataKey="month" />
-                            <YAxis domain={[0, 'auto']} allowDataOverflow={true} />  
+                            <YAxis domain={[100, 3000]} allowDataOverflow={true} />  
                             <Tooltip />
                             <Legend />
                             <Line type="monotone" dataKey="total_earnings" stroke="#82ca9d" />
