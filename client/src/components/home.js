@@ -81,9 +81,9 @@ return (
       <Grid item xs={2} sx={{ display: 'flex', justifyContent: 'end', position: 'relative' }}>
         <img src={home1} alt='Pizza' 
           style={{maxWidth:'65%', 
-            maxHeight:'80px', 
+            maxHeight:'50px', 
             '@media (max-width: 600px)': {
-              maxHeight: '40px', // smaller height for mobile view
+              maxHeight: '20px', // smaller height for mobile view
           }}}/>
         <img src={home2} alt='Pizza' style={{maxWidth:'80%', maxHeight:'80vb'}}/>
       </Grid>
@@ -203,7 +203,7 @@ return (
         </Box>
 
     </Box>
-    <Box sx={{ paddingTop: 5, 
+    <Box sx={{ paddingTop: 5, paddingBottom:5,
       pl: { xs: 1, sm: 2, md: 4, lg: 8},
       pr: { xs: 1, sm: 2, md: 4, lg: 8},
       }}>
