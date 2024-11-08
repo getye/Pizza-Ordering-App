@@ -343,8 +343,8 @@ export const MainBar = (props) => {
           </>
         )}
         <Divider/>
-          <ListItem disablePadding onClick={ handleSignOut } sx={{maxWidth:'80%', marginLeft:3, paddingTop:2}}>
-              <ListItemButton sx={{marginLeft:2}}>
+          <ListItem disablePadding onClick={ handleSignOut } sx={{paddingTop:2}}>
+              <ListItemButton>
                 <ListItemIcon>
                   <LogoutOutlinedIcon sx={{color:'red'}}/>
                 </ListItemIcon>
