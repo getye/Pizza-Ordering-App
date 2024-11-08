@@ -206,7 +206,11 @@ const handleStatusChange = async (role) => {
   if (error) return <div style={{ color: 'red', textAlign: 'center' }}>{error}</div>;
 
   return (
-    <Box sx={{ padding: 3 }}>
+    <Box sx={{ paddingTop: 3, 
+      ml: {xs: '5%', sm: '10%', md: '15%', lg: '20%'},
+      mr: {xs: '1%', sm: '3%', md: '5%', lg: '7%'},
+      mb: {xs: 1, sm: 2, md: 3, lg: 4},
+     }}>
       <MaterialReactTable
         columns={columns}
         data={role}
@@ -217,7 +221,7 @@ const handleStatusChange = async (role) => {
         manualPagination={false} 
         renderTopToolbarCustomActions={() => (
           <Button onClick={handleOpen} sx={{ bgcolor: '#FF8C00', color: 'white', textTransform: 'none' }}>
-            Add Role
+            Add
           </Button>
         )}
       />
