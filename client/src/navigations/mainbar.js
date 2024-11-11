@@ -8,7 +8,6 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import { useNavigate } from 'react-router-dom';
@@ -175,8 +174,9 @@ export const MainBar = (props) => {
               color="inherit"
               aria-label="open drawer"
               edge="start"
-              onClick={toggleDrawer}>
-              <MenuOpenIcon />
+              onClick={toggleDrawer}
+              sx={{marginLeft:1}}>
+              <MenuIcon/>
           </IconButton> 
       ):(
         <>
@@ -188,8 +188,9 @@ export const MainBar = (props) => {
                   color="inherit"
                   aria-label="open drawer"
                   edge="start"
-                  onClick={toggleDrawer}>
-                  <MenuOpenIcon />
+                  onClick={toggleDrawer}
+                  sx={{marginLeft:1}}>
+                  <MenuIcon />
               </IconButton>     
         </Stack>
         <Divider />
