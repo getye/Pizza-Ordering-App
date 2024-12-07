@@ -152,10 +152,6 @@ export const MainBar = (props) => {
 
 
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
-
 
 
   const signup = () => {
@@ -397,15 +393,6 @@ export const MainBar = (props) => {
                   <MenuItem sx={{pl:0, width:'60px'}} onClick={() => navigate('/orders')}><MenuBookIcon/></MenuItem>
                   <MenuItem sx={{pl:0, width:'60px'}} onClick={() => navigate('/signin')}><LoginIcon/></MenuItem>
                   <MenuItem sx={{pl:0, width:'60px'}} onClick={signup}><AppRegistrationIcon/></MenuItem>
-                  <IconButton
-                      color="inherit"
-                      aria-label="open drawer"
-                      edge="end"
-                      sx={{ marginLeft: 1, display: { sm: 'none' } }} // Hamburger icon only visible on mobile
-                      onClick={handleDrawerToggle}
-                  >
-                      <MenuIcon />
-                  </IconButton>
               </Box>
             )}
           </Toolbar>
