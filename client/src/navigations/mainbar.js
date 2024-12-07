@@ -17,6 +17,10 @@ import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';import LocalPizzaOutlinedIcon from '@mui/icons-material/LocalPizzaOutlined';
 import SummarizeIcon from '@mui/icons-material/Summarize';
 import MenuIcon from '@mui/icons-material/Menu';  // Hamburger icon for mobile
+import HomeIcon from '@mui/icons-material/Home';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import LoginIcon from '@mui/icons-material/Login';
+import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -371,7 +375,7 @@ export const MainBar = (props) => {
               <>
               <img src={pizza} alt="Pizza Logo" style={{ width: '80px', marginBottom: { xs: 1, sm: 2 } }} />
               <MenuItem onClick={() => navigate('/')}>Home</MenuItem>
-              <MenuItem onClick={() => navigate('/orders')}>Orders</MenuItem>
+              <MenuItem onClick={() => navigate('/orders')}></MenuItem>
               <MenuItem onClick={() => navigate('/contact')}>Who we are</MenuItem>
               <MenuItem
                   onClick={() => navigate('/signup')}
@@ -389,13 +393,10 @@ export const MainBar = (props) => {
             {(isMobile)&&(
               <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <img src={pizza} alt="Pizza Logo" style={{ width: '90px', marginRight:1, marginLeft:0 }} />
-                  <MenuItem sx={{pl:1, width:'60px'}} onClick={() => navigate('/')}>Home</MenuItem>
-                  <MenuItem sx={{pl:0, width:'60px'}} onClick={() => navigate('/orders')}>Orders</MenuItem>
-                  {(!mobileOpen)? (
-                  <MenuItem sx={{pl:0, width:'60px'}} onClick={() => navigate('/signin')}>Sign in</MenuItem>
-                  ):(
-                    <MenuItem sx={{pl:0, width:'60px'}} onClick={signup}>Register</MenuItem>
-                 )}
+                  <MenuItem sx={{pl:1, width:'60px'}} onClick={() => navigate('/')}><HomeIcon/></MenuItem>
+                  <MenuItem sx={{pl:0, width:'60px'}} onClick={() => navigate('/orders')}><MenuBookIcon/></MenuItem>
+                  <MenuItem sx={{pl:0, width:'60px'}} onClick={() => navigate('/signin')}><LoginIcon/></MenuItem>
+                  <MenuItem sx={{pl:0, width:'60px'}} onClick={signup}><AppRegistrationIcon/></MenuItem>
                   <IconButton
                       color="inherit"
                       aria-label="open drawer"
